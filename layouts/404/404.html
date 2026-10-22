@@ -1,0 +1,15 @@
+{{ define "title" }}Page Not Found - {{ .Site.Title }}{{ end }}
+{{ define "body_classes" }}page-404{{ end }}
+{{ define "meta_tags" }}<meta name="robots" content="noindex">{{ end }}
+{{ define "main" }}
+<div class="container pt-17 pb-14">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 text-center">
+      <h1 class="text-primary mb-3">Lost in the Wild</h1>
+      <p class="mb-4">This page wandered off. Head back to the home page and we'll get you where you're going.</p>
+      <a href="{{ "/" | relURL }}" class="button button-primary">Home</a>
+      <a href="{{ "contact/" | relURL }}" class="button button-primary">Contact Us</a>
+    </div>
+  </div>
+</div>
+{{ end }}

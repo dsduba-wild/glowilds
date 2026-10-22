@@ -1,0 +1,74 @@
+// Font
+@import 'fonts';
+
+// Bootstrap
+@import 'bootstrap-variables';
+@import 'bootstrap-lite';
+
+// Libraries
+@import 'libraries/hamburgers/hamburgers';
+
+// Components
+@import 'components/reset';
+@import 'components/page';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/sub-footer';
+@import 'components/logo';
+@import 'components/main-menu';
+@import 'components/main-menu-mobile';
+@import 'components/social';
+@import 'components/hamburger';
+@import 'components/buttons';
+@import 'components/title';
+@import 'components/content';
+@import 'components/intro';
+@import 'components/strip';
+@import 'components/whitebox';
+@import 'components/feature';
+@import 'components/hero-image';
+@import 'components/bg';
+
+// Pages
+@import 'pages/services/page-services-list';
+@import 'pages/services/page-services-single';
+@import 'pages/services/service-summary';
+@import 'pages/work/work-summary';
+@import 'pages/work/page-work-single';
+
+// Display breakpoints for DEV
+// body:after {
+//   color: #000000;
+//   font-size: 12px;
+//   padding: 5px;
+//   font-weight: bold;
+//   right: 10px;
+//   position: fixed;
+//   text-align: center;
+//   text-transform: uppercase;
+//   bottom: 10px;
+//   width: 200px;
+//   z-index: 9999;
+//   border: solid 1px #000000;
+//   @each $name, $value in $grid-breakpoints {
+//     @include media-breakpoint-up($name) {
+//       content: "#{$name} - min-width: #{$value}";
+//     }
+//   }
+// }
+// ---- Glow Wild overrides: light text on the dark glow backgrounds ----
+.strip.bg-cover.bg-overlay:not(.bg-primary) {
+  background-color: #060818;
+  h1, h2, h3 { color: #ff5c8a !important; }
+  p, li, .content { color: #e8e9f5; }
+  .button {
+    background: linear-gradient(90deg, #1e3fd9, #b42bd6 55%, #ff2e4d);
+    color: #ffffff; border: 0;
+  }
+}
+.bg-primary {
+  background: linear-gradient(120deg, #13207a 0%, #1e3fd9 45%, #8e22c4 80%, #d6234a 100%) !important;
+}
+// Show the glow backgrounds as-is instead of tinting them with the primary color
+.hero-image { background-blend-mode: normal; background-color: #060818; }
+.strip.bg-cover.bg-overlay:not(.bg-primary) { background-blend-mode: normal; }

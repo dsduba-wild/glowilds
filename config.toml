@@ -1,0 +1,62 @@
+baseURL = "https://glowilds.com/"
+locale = "en-US"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+title = "Glow Wild"
+theme = "hugo-hero-theme"
+
+[module]
+  [module.hugoVersion]
+    extended = true
+    min = "0.158.0"
+
+[params]
+  google_analytics_id = ""
+
+  [params.logo]
+    mobile = "images/logo-mobile.svg"
+    mobile_height = "36px"
+    mobile_width = "45px"
+    desktop = "images/logo.svg"
+    desktop_height = "36px"
+    desktop_width = "210px"
+    alt = "Glow Wild"
+
+  [params.homepage_meta_tags]
+    meta_description = "Glow Wild helps local businesses get found, get called and run smoother in the AI era — websites, Google and AI search visibility, AI front-desk agents and simple automations."
+    meta_og_title = "Glow Wild — Local Business, AI Era"
+    meta_og_type = "website"
+    meta_og_url = "https://glowilds.com"
+    meta_og_image = "https://glowilds.com/images/hero.jpg"
+    meta_og_description = "Websites, local search, AI visibility and AI helpers for local businesses. Done for you, in plain English."
+    meta_twitter_card = "summary"
+    meta_twitter_site = ""
+    meta_twitter_creator = ""
+
+[[menu.main]]
+  name = "Services"
+  url = "/services/"
+  weight = 1
+
+[[menu.main]]
+  name = "Who We Help"
+  url = "/work/"
+  weight = 2
+
+[[menu.main]]
+  name = "How It Works"
+  url = "/process/"
+  weight = 3
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 4
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 5
+
+[permalinks]
+  pages = "/:filename/"

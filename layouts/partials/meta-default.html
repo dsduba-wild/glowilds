@@ -1,0 +1,10 @@
+{{/* Description for every page that doesn't set its own meta tags (the home page does). */}}
+{{ $desc := .Description | default .Params.heroSubHeading | default (.Summary | plainify | htmlUnescape | truncate 155) | default .Site.Params.homepage_meta_tags.meta_description }}
+{{ $img := .Params.heroBackground | default "images/hero.jpg" }}
+<meta name="description" content="{{ $desc }}">
+<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:image" content="{{ $img | absURL }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta name="twitter:card" content="summary_large_image">

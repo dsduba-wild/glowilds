@@ -1,0 +1,24 @@
+<link rel="canonical" href="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:locale" content="en_US">
+{{ if .IsHome }}
+{{/* Structured data so Google understands who the business is. */}}
+{{ $c := hugo.Data.contact }}
+{{ $biz := dict
+  "@context" "https://schema.org"
+  "@type" "ProfessionalService"
+  "name" .Site.Title
+  "url" .Site.BaseURL
+  "logo" ("images/logo-mark.png" | absURL)
+  "image" ("images/hero.jpg" | absURL)
+  "description" .Site.Params.homepage_meta_tags.meta_description
+  "email" $c.email
+  "areaServed" "Local businesses — in person and remote"
+}}
+{{/* Only publish the phone once a real number replaces the placeholder. */}}
+{{ if and $c.phone (not (strings.Contains $c.phone "000-0000")) }}
+  {{ $biz = merge $biz (dict "telephone" $c.phone) }}
+{{ end }}
+<script type="application/ld+json">{{ $biz | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL | jsonify | safeJS }}</script>
+{{ end }}

@@ -9,7 +9,7 @@
     <div class="col-12 col-md-8">
       <div class="work work-single">
         <div class="content">{{.Content}}</div>
-        <a class="button mt-4" href="{{ "contact/" | relURL }}">Book a Free Check-Up</a>
+        {{ partial "cta.html" "mt-4" }}
       </div>
     </div>
     {{ if .Params.images }}

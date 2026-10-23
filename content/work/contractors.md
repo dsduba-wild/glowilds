@@ -5,8 +5,8 @@ draft: false
 weight: 1
 heroHeading: 'Contractors & Trades'
 heroSubHeading: 'Construction, painting, remodeling, roofing, landscaping and more.'
-heroBackground: 'work/contractors.jpg'
-thumbnail: 'work/contractors-thumb.jpg'
+heroBackground: 'work/contractors.webp'
+thumbnail: 'work/contractors-thumb.webp'
 ---
 
 You're on a ladder or a job site all day. Calls go to voicemail, quote requests sit for days, and the customer books someone else.

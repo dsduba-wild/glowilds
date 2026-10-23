@@ -5,8 +5,8 @@ draft: false
 weight: 2
 heroHeading: 'Junk Removal & Hauling'
 heroSubHeading: 'Speed wins jobs — the first company to answer usually gets the haul.'
-heroBackground: 'work/junk-removal.jpg'
-thumbnail: 'work/junk-removal-thumb.jpg'
+heroBackground: 'work/junk-removal.webp'
+thumbnail: 'work/junk-removal-thumb.webp'
 ---
 
 People who need junk gone want it gone today. They call two or three companies and go with whoever responds first.

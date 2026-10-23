@@ -7,7 +7,7 @@ draft: false
 weight: 6
 heroHeading: 'Reviews & Reputation'
 heroSubHeading: 'Turn happy customers into the reviews that win you the next job.'
-heroBackground: 'services/hero.jpg'
+heroBackground: 'services/hero.webp'
 ---
 
 Reviews are what both people and AI assistants look at before they pick who to call. Most happy customers will leave one — they just need a simple, well-timed ask.

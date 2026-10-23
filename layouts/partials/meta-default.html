@@ -1,6 +1,7 @@
 {{/* Description for every page that doesn't set its own meta tags (the home page does). */}}
 {{ $desc := .Description | default .Params.heroSubHeading | default (.Summary | plainify | htmlUnescape | truncate 155) | default .Site.Params.homepage_meta_tags.meta_description }}
-{{ $img := .Params.heroBackground | default "images/hero.jpg" }}
+{{/* Social previews keep JPG copies: some platforms still skip WebP. */}}
+{{ $img := replace (.Params.heroBackground | default "images/hero.jpg") ".webp" ".jpg" }}
 <meta name="description" content="{{ $desc }}">
 <meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}">
 <meta property="og:type" content="website">

@@ -2,7 +2,7 @@
 title: 'Plain English, No Lock-In'
 weight: 2
 date: 2026-10-21
-background: 'images/strip-2.jpg'
+background: 'images/strip-2.webp'
 align: left
 ---
 

@@ -5,8 +5,8 @@ draft: false
 weight: 4
 heroHeading: 'Local Shops & Studios'
 heroSubHeading: 'Retail shops, hobby stores, studios and neighborhood favorites.'
-heroBackground: 'work/local-shops.jpg'
-thumbnail: 'work/local-shops-thumb.jpg'
+heroBackground: 'work/local-shops.webp'
+thumbnail: 'work/local-shops-thumb.webp'
 ---
 
 Local shops win on community and personality — but online, they're competing with big-box stores and marketplaces.

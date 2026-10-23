@@ -7,7 +7,7 @@ draft: false
 weight: 1
 heroHeading: 'Websites That Work'
 heroSubHeading: 'A fast, mobile-first website that turns visitors into calls and booked jobs.'
-heroBackground: 'services/hero.jpg'
+heroBackground: 'services/hero.webp'
 ---
 
 A lot of great local businesses still don't have a website — or have one that's slow, outdated or impossible to update. We build you a clean, fast site that looks great on a phone and does one job really well: get people to call, text or book.

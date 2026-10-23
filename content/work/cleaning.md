@@ -5,8 +5,8 @@ draft: false
 weight: 3
 heroHeading: 'Cleaning Services'
 heroSubHeading: 'Residential, move-out, office and recurring cleaning.'
-heroBackground: 'work/cleaning.jpg'
-thumbnail: 'work/cleaning-thumb.jpg'
+heroBackground: 'work/cleaning.webp'
+thumbnail: 'work/cleaning-thumb.webp'
 ---
 
 Cleaning businesses live on repeat customers and referrals — and lose hours every week to scheduling texts and quote back-and-forth.

@@ -2,7 +2,7 @@
 title: 'Built by Someone Who Has Done the Work'
 date: 2026-10-21
 weight: 1
-background: 'images/strip-1.jpg'
+background: 'images/strip-1.webp'
 align: right
 ---
 

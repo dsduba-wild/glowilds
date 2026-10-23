@@ -7,7 +7,7 @@ draft: false
 weight: 2
 heroHeading: 'Google & Local Search'
 heroSubHeading: 'Show up on the map when people nearby search for what you do.'
-heroBackground: 'services/hero.jpg'
+heroBackground: 'services/hero.webp'
 ---
 
 When someone searches "junk removal near me" or "house cleaners," the businesses in the map results get most of the calls. We set up and tune your Google Business Profile and local listings so you're one of them.

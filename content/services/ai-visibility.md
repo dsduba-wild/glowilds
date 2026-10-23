@@ -7,7 +7,7 @@ draft: false
 weight: 3
 heroHeading: 'AI Search Visibility'
 heroSubHeading: 'Be the business AI assistants recommend.'
-heroBackground: 'services/hero.jpg'
+heroBackground: 'services/hero.webp'
 ---
 
 More and more people skip the search results and just ask an AI assistant: "Who's a good painter near me?" Those assistants pull from websites, listings and reviews. If your information is thin, messy or missing, you don't get mentioned.

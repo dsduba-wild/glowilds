@@ -7,7 +7,7 @@ draft: false
 weight: 5
 heroHeading: 'AI Money Tracking'
 heroSubHeading: 'Snap a photo or send a quick note — your cash flow tracks itself.'
-heroBackground: 'services/hero.jpg'
+heroBackground: 'services/hero.webp'
 ---
 
 Most small business owners know their money is "somewhere" between the register, the bank, Venmo and a stack of receipts. We set up a simple AI helper that does the logging for you.

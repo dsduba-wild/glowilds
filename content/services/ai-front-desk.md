@@ -7,7 +7,7 @@ draft: false
 weight: 4
 heroHeading: 'AI Front Desk'
 heroSubHeading: 'An AI helper that answers customers 24/7 — even when you are on a job.'
-heroBackground: 'services/hero.jpg'
+heroBackground: 'services/hero.webp'
 ---
 
 Every missed call is a job that goes to someone else. We set up an AI assistant trained on your business that responds right away on your website chat, texts and missed calls — then hands the details to you.

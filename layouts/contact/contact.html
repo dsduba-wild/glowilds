@@ -16,6 +16,19 @@
   <div class="row">
     <div class="col-12 col-md-8">
       {{ .Content }}
+      {{ with hugo.Data.contact.formAction }}
+      <form class="contact-form mb-4" action="{{ . }}" method="POST">
+        <label for="cf-name">Name</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" required>
+        <label for="cf-email">Email</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" required>
+        <label for="cf-phone">Phone (optional)</label>
+        <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+        <label for="cf-message">What does your business do, and where?</label>
+        <textarea id="cf-message" name="message" rows="5" required></textarea>
+        <button class="button mt-2" type="submit">Book a Free Check-Up</button>
+      </form>
+      {{ end }}
       <ul>
         {{ if hugo.Data.contact.phone }}
         <li><strong>Phone: </strong><a href="tel:{{ replaceRE `[^0-9+]` "" hugo.Data.contact.phone }}">{{ hugo.Data.contact.phone }}</a></li>
@@ -32,7 +45,7 @@
       <table class="table table-sm opening-hours-table">
         {{ range hugo.Data.contact.hours }}
         <tr>
-          <td class="day font-weight-bold">{{ .day }}</td>
+          <th scope="row" class="day">{{ .day }}</th>
           <td class="opens">{{ .open }}</td>
           <td>{{ if .close }}–{{ end }}</td>
           <td class="closes">{{ .close }}</td>

@@ -1,5 +1,6 @@
 email: 'hello@glowilds.com'
 phone: '' # add the real number here; it shows up everywhere once set
+formAction: '' # contact form endpoint, e.g. https://formspree.io/f/xxxxxx; the form shows up once set
 businessName: 'Glow Wild — a WILD LLC company'
 address: |
   Serving local businesses

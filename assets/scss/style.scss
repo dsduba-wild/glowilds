@@ -72,3 +72,15 @@
 // Show the glow backgrounds as-is instead of tinting them with the primary color
 .hero-image { background-blend-mode: normal; background-color: #060818; }
 .strip.bg-cover.bg-overlay:not(.bg-primary) { background-blend-mode: normal; }
+// Contact form, testimonials, hours table
+.contact-form {
+  label { display: block; margin: 12px 0 4px; font-weight: 600; }
+  input, textarea { width: 100%; padding: 8px 10px; border: 1px solid #c8cbe0; font: inherit; }
+  input:focus, textarea:focus { outline: 2px solid $primary; border-color: $primary; }
+  button { border: 0; cursor: pointer; }
+}
+.testimonial {
+  margin: 0; padding: 20px; height: 100%; border-left: 4px solid $primary; background: #f5f6fb;
+  footer { font-weight: 600; font-size: 0.9rem; }
+}
+.opening-hours-table th { text-align: left; }

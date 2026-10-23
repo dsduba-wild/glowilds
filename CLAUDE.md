@@ -9,7 +9,7 @@ Marketing site for Glow Wild (glowilds.com), built with Hugo on the vendored Hug
 - `hugo server`: local dev at http://localhost:1313. In server mode the CSS is linked with source maps; in production builds it's inlined.
 - `hugo --minify`: production build, the same command CI runs. A clean build with no `ERROR` lines is the only automated check.
 - `hugo --minify -d <tmpdir>`: build somewhere else for inspection. `public/` is gitignored and often stale; old dev builds there contain `localhost` URLs.
-- Requires Hugo **extended**, 0.158 or newer. CI pins `HUGO_VERSION` in `.github/workflows/hugo.yml`.
+- Requires Hugo **extended**, 0.158 or newer, and Dart Sass (`sass` on PATH). CI pins `HUGO_VERSION` and `DART_SASS_VERSION` in `.github/workflows/hugo.yml`. Hugo caches compiled CSS in `resources/_gen`, so set `HUGO_RESOURCEDIR=<empty tmpdir>` when you need to prove the Sass step really runs.
 
 ## Deploy
 
@@ -24,5 +24,5 @@ Pushing to `main` builds the site and publishes it to GitHub Pages (the custom d
 - **Booking button:** `layouts/partials/cta.html`, called as `{{ partial "cta.html" "<spacing class>" }}` from the homepage hero and the service and industry pages. The contact form's submit button has its own copy of the label.
 - **Meta and SEO:** `layouts/partials/seo.html` adds the canonical link plus homepage-only JSON-LD built from `data/contact.yaml`. The homepage's `<meta>` tags come from `[params.homepage_meta_tags]` in `config.toml`. Every other page uses `layouts/partials/meta-default.html`.
 - **Images:** pages load `.webp` from `static/`. The `og:image` swaps `.webp` for `.jpg` when a JPG copy exists, so a hero image should ship as both `.webp` and `.jpg`. With only a `.webp`, the preview falls back to the WebP.
-- **Styles:** `assets/scss/style.scss` imports a trimmed Bootstrap (`_bootstrap-lite.scss`). Brand overrides are at the bottom of `style.scss`, and `$primary` is in `_bootstrap-variables.scss`. Sass is compiled by libsass, which Hugo has deprecated, so the build prints a deprecation `WARN`. Moving to dartsass would mean installing it in CI.
+- **Styles:** `assets/scss/style.scss` imports a trimmed Bootstrap (`_bootstrap-lite.scss`). Brand overrides are at the bottom of `style.scss`, and `$primary` is in `_bootstrap-variables.scss`. Sass is compiled with Dart Sass (set in `baseof.html`); Bootstrap's old-syntax deprecation warnings are silenced there on purpose.
 - **Page URLs:** `[permalinks] pages = "/:filename/"` makes `content/pages/about/` serve at `/about/`.

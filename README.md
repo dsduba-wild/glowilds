@@ -4,6 +4,7 @@ Hugo site built on the Hugo Hero theme (included in `themes/hugo-hero-theme`).
 
 ## Run it locally
 1. Install Hugo **extended** (0.158 or newer).
+   Also install [Dart Sass](https://github.com/sass/dart-sass/releases) so the `sass` command is on your PATH (CI uses 1.106.1).
 2. In this folder run: `hugo server`
 3. Open http://localhost:1313
 

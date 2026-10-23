@@ -13,8 +13,9 @@
   <link rel="preload" href="{{ "fonts/lato-400-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ "fonts/open-sans-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 
+  {{/* Bootstrap still uses Sass syntax Dart Sass 3 will drop; silenced so real warnings stay visible. Pinned Dart Sass 1.x builds it fine. */}}
   {{/* CSS is small (~60 KB, ~12 KB gzipped), so it is inlined: no render-blocking request. */}}
-  {{ $style := resources.Get "scss/style.scss" | toCSS (dict "targetPath" "css/style.css" "enableSourceMap" hugo.IsServer) }}
+  {{ $style := resources.Get "scss/style.scss" | toCSS (dict "transpiler" "dartsass" "silenceDeprecations" (slice "import" "global-builtin" "color-functions" "if-function" "slash-div" "abs-percent") "targetPath" "css/style.css" "enableSourceMap" hugo.IsServer) }}
   {{ if hugo.IsServer }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
   {{ else }}

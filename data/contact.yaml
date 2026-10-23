@@ -1,5 +1,5 @@
 email: 'hello@glowilds.com'
-phone: '(000) 000-0000'
+phone: '' # add the real number here; it shows up everywhere once set
 businessName: 'Glow Wild — a WILD LLC company'
 address: |
   Serving local businesses

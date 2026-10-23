@@ -15,9 +15,8 @@
   "email" $c.email
   "areaServed" "Local businesses — in person and remote"
 }}
-{{/* Only publish the phone once a real number replaces the placeholder. */}}
-{{ if and $c.phone (not (strings.Contains $c.phone "000-0000")) }}
-  {{ $biz = merge $biz (dict "telephone" $c.phone) }}
+{{ with $c.phone }}
+  {{ $biz = merge $biz (dict "telephone" .) }}
 {{ end }}
 <script type="application/ld+json">{{ $biz | jsonify | safeJS }}</script>
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL | jsonify | safeJS }}</script>

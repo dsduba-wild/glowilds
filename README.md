@@ -3,14 +3,12 @@
 Hugo site built on the Hugo Hero theme (included in `themes/hugo-hero-theme`).
 
 ## Run it locally
-1. Install Hugo **extended** (0.133 or newer).
+1. Install Hugo **extended** (0.158 or newer).
 2. In this folder run: `hugo server`
 3. Open http://localhost:1313
 
-## Put it online (GitHub + Netlify)
-1. Push this whole folder to a GitHub repo.
-2. In Netlify: Add new site → Import from GitHub → pick the repo. `netlify.toml` already has the build settings.
-3. In Netlify → Domain settings, add `glowilds.com` and follow the DNS steps.
+## Put it online
+Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site and publishes it to GitHub Pages at glowilds.com.
 
 ## Where to edit things
 | What | File |
@@ -27,6 +25,6 @@ Hugo site built on the Hugo Hero theme (included in `themes/hugo-hero-theme`).
 | Logo | `static/images/logo.svg`, `static/images/logo-mobile.svg` |
 
 ## Still to fill in
-- Real phone number and email in `data/contact.yaml` (currently placeholders)
+- Real phone number in `data/contact.yaml` (empty, so it is hidden for now)
 - Social links in `data/social.json` (empty for now)
 - Swap the generated background images in `static/` for real photos whenever you have them

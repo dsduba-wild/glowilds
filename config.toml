@@ -1,6 +1,8 @@
 baseURL = "https://glowilds.com/"
 locale = "en-US"
 enableRobotsTXT = true
+# shortcut: sitemap dates come from each page's own file; the homepage, About, How It Works and Contact pull text from other files, so edit their own file too if their date should move
+enableGitInfo = true
 disableKinds = ["taxonomy", "term"]
 title = "Glow Wild"
 theme = "hugo-hero-theme"

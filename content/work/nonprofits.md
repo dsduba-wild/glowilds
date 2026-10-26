@@ -11,22 +11,24 @@ thumbnail: 'work/nonprofits-thumb.webp'
 
 Nonprofits run on small teams and volunteers. People need to find your hours, events and how to help, and your staff time is better spent on the mission than on phone calls and spreadsheets.
 
-## Get found: [Digital Entity](/services/digital-entity/)
+<!--more-->
+
+## Get found: [Digital Entity]({{< relref "/services/digital-entity" >}})
 
 - A clear website with your mission, programs, events and easy donate, volunteer or join buttons
 - Accurate Google and map listings, so people and AI assistants find your hours and locations
 
-## Answer first: [AI Tools](/services/ai-tools/)
+## Answer first: [AI Tools]({{< relref "/services/ai-tools" >}})
 
 - An AI assistant that answers "When is the pantry open?", "Where do I drop off donations?" or "How do I join the chamber?" any time
 - Volunteer and member sign-ups collected and sent to the right person
 
-## Less admin: [Operations Automation](/services/operations-automation/)
+## Less admin: [Operations Automation]({{< relref "/services/operations-automation" >}})
 
 - Volunteer scheduling, event registration and reminders that send themselves
 - Donations, membership renewals and receipts logged and organized
 
-## Keep growing: [Development Management](/services/development-management/)
+## Keep growing: [Development Management]({{< relref "/services/development-management" >}})
 
 - Event and campaign posts, reviews and member stories that build trust
 - Simple numbers on reach, sign-ups and donations for your board and grant reports

@@ -39,6 +39,9 @@
         {{ if hugo.Data.contact.address }}
         <li style="white-space: pre-wrap;"><strong>Address: </strong><br>{{ hugo.Data.contact.address }}</li>
         {{ end }}
+        {{ with hugo.Data.contact.areaServed }}
+        <li><strong>Serving: </strong>{{ delimit . ", " " and " }}</li>
+        {{ end }}
       </ul>
       {{ if hugo.Data.contact.hours }}
       <h2 class="h4 mt-4">Business Hours</h2>

@@ -2,11 +2,8 @@ email: 'hello@glowilds.com'
 phone: '' # add the real number here; it shows up everywhere once set
 formAction: '' # contact form endpoint, e.g. https://formspree.io/f/xxxxxx; the form shows up once set
 businessName: 'Glow Wild — a WILD LLC company'
-address: |
-  Parker, Colorado
-  Serving Parker, Lone Tree, Castle Pines,
-  Centennial, Aurora and Franktown
-# Towns within about 10 miles of Parker, used in the homepage structured data
+address: 'Parker, Colorado'
+# Towns within about 10 miles of Parker: shown on the contact page and in the homepage structured data
 areaServed: ['Parker', 'Lone Tree', 'Castle Pines', 'Centennial', 'Aurora', 'Franktown']
 hours:
   - day: Monday

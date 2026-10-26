@@ -6,4 +6,4 @@ button: 'See Who We Help'
 buttonLink: 'work/'
 ---
 
-Your customers don't just search Google anymore — they ask their phones, their maps and AI assistants who to call. Glow Wild makes sure your business is the answer. We build your website, tune your Google and AI search presence, and set up AI helpers that answer customers, book jobs and track your money while you're busy doing the actual work.
+When someone in Parker asks Google, maps or AI who to call, we make sure it's you. We build your website and Google profile, answer missed calls with AI, and automate booking, reminders and receipts.

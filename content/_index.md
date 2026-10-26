@@ -1,7 +1,7 @@
 ---
 title: 'Home'
 date: 2026-10-21
-heroHeading: 'More Calls for Local Businesses — From Google and AI Search'
-heroSubHeading: 'Websites, local search and AI helpers for local businesses — so more customers find you, call you, and you spend less time on paperwork.'
+heroHeading: 'Get Seen. Run Smarter. Grow.'
+heroSubHeading: 'We build your digital presence, set up AI tools, automate the daily admin and manage your growth — done for you, in plain English.'
 heroBackground: 'images/hero.webp'
 ---

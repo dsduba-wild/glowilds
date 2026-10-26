@@ -43,8 +43,8 @@
     <div class="col-12">
       <h2 class="text-center mb-3">{{ with .Site.GetPage "/services/" }}{{ .Title | default "Our Services" }}{{ end }}</h2>
     </div>
-    {{ range first 6 (sort $services ".Params.weight") }}
-    <div class="col-12 col-md-4 mb-1">
+    {{ range first 4 (sort $services ".Params.weight") }}
+    <div class="col-12 col-md-6 mb-1">
       {{ .Render "summary" }}
     </div>
     {{ end }}

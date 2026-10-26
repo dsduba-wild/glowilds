@@ -6,4 +6,4 @@ background: 'images/strip-2.webp'
 align: left
 ---
 
-We build only what you need: a website, local search setup, an AI front desk, money tracking — or all of it. You see everything before it goes live.
+We build only what you need: your digital entity, AI tools, operations automation — or all of it. You see everything before it goes live.

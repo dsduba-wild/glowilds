@@ -1,5 +1,6 @@
 ---
 title: 'Business Digital Entity'
+seoTitle: 'Websites & Google Business Profiles, Parker, CO'
 date: 2026-10-26
 icon: 'services/icon-website.svg'
 featured: true

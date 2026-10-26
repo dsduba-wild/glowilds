@@ -1,5 +1,6 @@
 ---
 title: 'Business Operations Automation'
+seoTitle: 'Booking, Reminder & Receipt Automation, Parker, CO'
 date: 2026-10-26
 icon: 'services/icon-receipt.svg'
 featured: true

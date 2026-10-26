@@ -23,10 +23,10 @@ theme = "hugo-hero-theme"
     alt = "Glow Wild"
 
   [params.homepage_meta_tags]
-    meta_description = "Glow Wild helps local businesses get found, get called and run smoother in the AI era — websites, Google and AI search visibility, AI front-desk agents and simple automations."
-    meta_og_title = "Glow Wild — Local Business, AI Era"
+    meta_description = "Websites, Google and AI search visibility, AI front-desk tools and simple automations for local businesses in Parker, CO and nearby. Done for you."
+    meta_og_title = "Glow Wild — Websites & AI Tools for Parker, CO Businesses"
     meta_og_type = "website"
-    meta_og_url = "https://glowilds.com"
+    meta_og_url = "https://glowilds.com/"
     meta_og_image = "https://glowilds.com/images/hero.jpg"
     meta_og_description = "Digital presence, AI tools, automation and growth management for local businesses. Done for you, in plain English."
     meta_twitter_card = "summary"

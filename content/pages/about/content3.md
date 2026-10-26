@@ -3,7 +3,7 @@ title: 'Let Your Business Glow'
 weight: 3
 date: 2026-10-21
 background: ''
-align: right
+align: left
 button: 'Contact Us'
 buttonLink: 'contact/'
 ---

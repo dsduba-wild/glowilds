@@ -1,5 +1,6 @@
 ---
 title: 'About'
+seoTitle: 'About Us: Websites & AI Tools in Parker, CO'
 date: 2026-10-21
 layout: 'about'
 heroHeading: 'About Glow Wild'

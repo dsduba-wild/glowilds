@@ -13,8 +13,8 @@
   "image" ("images/hero.jpg" | absURL)
   "description" .Site.Params.homepage_meta_tags.meta_description
   "email" $c.email
-  "address" (dict "@type" "PostalAddress" "addressLocality" "Parker" "addressRegion" "CO" "addressCountry" "US")
-  "areaServed" (apply $c.areaServed "printf" "%s, CO" ".")
+  "address" (dict "@type" "PostalAddress" "addressLocality" $c.city "addressRegion" $c.region "addressCountry" "US")
+  "areaServed" (apply $c.areaServed "printf" (printf "%%s, %s" $c.region) ".")
 }}
 {{ with $c.phone }}
   {{ $biz = merge $biz (dict "telephone" .) }}

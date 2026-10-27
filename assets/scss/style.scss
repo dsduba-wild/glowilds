@@ -72,6 +72,14 @@
 // Show the glow backgrounds as-is instead of tinting them with the primary color
 .hero-image { background-blend-mode: normal; background-color: #060818; }
 .strip.bg-cover.bg-overlay:not(.bg-primary) { background-blend-mode: normal; }
+// Phones: "cover" crops a strip picture's sides and puts the text on top of it, so show the whole picture at the top and start the text below it
+@media (max-width: 767.98px) {
+  .strip.bg-cover.bg-overlay[style*="background-image"] {
+    background-size: 100% auto;
+    background-color: #000;
+    > .container { padding-top: calc(50vw + 24px) !important; }
+  }
+}
 // Contact form, testimonials, hours table
 .contact-form {
   label { display: block; margin: 12px 0 4px; font-weight: 600; }

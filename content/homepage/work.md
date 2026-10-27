@@ -1,7 +1,7 @@
 ---
 title: 'Get Found. Get Called. Get Time Back.'
 weight: 1
-background: 'images/strip-wild.webp'
+background: 'images/strip-star.webp'
 button: 'See Who We Help'
 buttonLink: 'work/'
 ---

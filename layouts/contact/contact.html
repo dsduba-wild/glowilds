@@ -37,7 +37,7 @@
         <li><strong>Email: </strong><a href="mailto:{{ hugo.Data.contact.email }}">{{ hugo.Data.contact.email }}</a></li>
         {{ end }}
         {{ if hugo.Data.contact.address }}
-        <li style="white-space: pre-wrap;"><strong>Address: </strong><br>{{ hugo.Data.contact.address }}</li>
+        <li><strong>Address: </strong><br>{{ hugo.Data.contact.address }}</li>
         {{ end }}
         {{ with hugo.Data.contact.areaServed }}
         <li><strong>Serving: </strong>{{ delimit . ", " " and " }}</li>

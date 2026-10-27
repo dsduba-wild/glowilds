@@ -12,18 +12,6 @@
         {{ partial "cta.html" "mt-4" }}
       </div>
     </div>
-    {{ if .Params.images }}
-    <div class="col-12 pt-4 pt-md-10">
-      <h2 class="mb-2 text-uppercase">Gallery</h2>
-      <div class="masonry">
-        {{ range .Params.images }}
-          <div class="work-image item">
-            <img src="{{ . | relURL }}"/>
-          </div>
-        {{ end }}
-      </div>
-    </div>
-    {{ end }}
   </div>
 </div>
 {{ end }}

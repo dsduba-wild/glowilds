@@ -2,7 +2,7 @@
 title: "We've Done the Work"
 date: 2026-10-21
 weight: 1
-background: 'images/strip-1.webp'
+background: 'images/about-glow-wild.webp'
 align: right
 ---
 

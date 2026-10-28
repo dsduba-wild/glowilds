@@ -72,11 +72,14 @@
 // Show the glow backgrounds as-is instead of tinting them with the primary color
 .hero-image { background-blend-mode: normal; background-color: #060818; }
 .strip.bg-cover.bg-overlay:not(.bg-primary) { background-blend-mode: normal; }
-// Phones: "cover" crops a strip picture's sides and puts the text on top of it, so show the whole picture at the top and start the text below it
+// A picture with its own phone crop is a composed graphic, not a photo: fit it whole, left-aligned, instead of cropping it to cover
+.strip.bg-cover.bg-overlay[style*="--bg-phone"] { background-size: contain; background-position: left center; background-color: #000; }
+// Phones: show the 2:1 phoneBackground whole at the top and start the text below it, instead of cropping it behind the text
 @media (max-width: 767.98px) {
-  .strip.bg-cover.bg-overlay[style*="background-image"] {
+  .strip.bg-cover.bg-overlay[style*="--bg-phone"] {
+    background-image: var(--bg-phone) !important;
     background-size: 100% auto;
-    background-color: #000;
+    background-position: left top;
     > .container { padding-top: calc(50vw + 24px) !important; }
   }
 }

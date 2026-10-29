@@ -3,7 +3,7 @@ title: '4. Grow'
 date: 2026-10-21
 weight: 4
 background: ''
-align: right
+align: left
 button: 'Book a Free Check-Up'
 buttonLink: 'contact/'
 ---

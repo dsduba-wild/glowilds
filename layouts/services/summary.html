@@ -1,4 +1,4 @@
-<div class="service service-summary">
+<div class="service service-summary wild-{{ mod (sub .Weight 1) 4 }}">
   {{ if .Params.icon }}
   <div class="service-image">
     <img height="80" width="80" src="{{ .Params.icon | relURL }}" alt="" loading="lazy" />

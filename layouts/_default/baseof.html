@@ -26,9 +26,10 @@
 </head>
 
 <body class='page {{ block "body_classes" . }}{{ end }}'>
-  {{ partial "main-menu-mobile.html" . }}
   <div id="wrapper" class="wrapper">
     {{ partial "header.html" . }}
+    {{/* After the header so Tab goes from the menu button into the menu */}}
+    {{ partial "main-menu-mobile.html" . }}
     <main>
     {{ block "main" . }}
     {{ end }}

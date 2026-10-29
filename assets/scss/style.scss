@@ -59,16 +59,22 @@
 // ---- Glow Wild overrides: light text on the dark glow backgrounds ----
 .strip.bg-cover.bg-overlay:not(.bg-primary) {
   background-color: #060818;
-  h1, h2, h3 { color: #ff5c8a !important; }
+  h1, h2, h3 { color: $wild-pink !important; }
   p, li, .content { color: #e8e9f5; }
-  .button {
-    background: linear-gradient(90deg, #1e3fd9, #b42bd6 55%, #ff2e4d);
-    color: #ffffff; border: 0;
-  }
+}
+// Dark sections take the WILD letter colors in turn: W green, I pink, L blue, D purple
+@each $i, $c in (0: $wild-green, 1: $wild-pink, 2: $wild-blue, 3: $wild-purple) {
+  .strip.bg-cover.bg-overlay.wild-#{$i}:not(.bg-primary) { h1, h2, h3 { color: $c !important; } }
 }
 .bg-primary {
-  background: linear-gradient(120deg, #13207a 0%, #1e3fd9 45%, #8e22c4 80%, #d6234a 100%) !important;
+  background: linear-gradient(120deg, $wild-green-deep 0%, $wild-blue-deep 40%, $wild-purple-deep 70%, $wild-pink-deep 100%) !important;
 }
+// Every button: the WILD gradient with white text
+.button:not(.button-white) { background: $wild-gradient; color: #fff; border: 0; }
+.button:hover { filter: brightness(1.1); }
+// A thin stripe of the four letter colors under the header and above the footer
+.header { background: $wild-stripe bottom / 100% 3px no-repeat, #fff; }
+.footer { background: $wild-stripe top / 100% 3px no-repeat, $secondary; }
 // Show the glow backgrounds as-is instead of tinting them with the primary color
 .hero-image { background-blend-mode: normal; background-color: #060818; }
 .strip.bg-cover.bg-overlay:not(.bg-primary) { background-blend-mode: normal; }
@@ -90,7 +96,8 @@
   box-shadow: 0 15px 35px rgba(50, 50, 93, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
 }
 .contact-form {
-  .contact-required-note { font-size: 0.85rem; color: #6b6f86; margin-bottom: 8px; }
+  .contact-required-note, .contact-privacy-note { font-size: 0.85rem; color: #6b6f86; margin-bottom: 8px; }
+  .contact-privacy-note { margin: 14px 0 0; }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
   .contact-field-wide { grid-column: 1 / -1; }
   @media (max-width: 575.98px) { .contact-grid { grid-template-columns: 1fr; } }
@@ -105,13 +112,11 @@
   }
   .contact-submit {
     margin-top: 22px; border: 0; cursor: pointer; border-radius: 999px; padding: 13px 30px;
-    background: linear-gradient(90deg, #1e3fd9, #b42bd6 55%, #ff2e4d);
-    &:hover { filter: brightness(1.1); }
   }
   @media (max-width: 575.98px) { .contact-submit { width: 100%; } }
 }
 .contact-info {
-  background: linear-gradient(160deg, #13207a 0%, #1e3fd9 55%, #8e22c4 100%); border: 0; color: #fff;
+  background: linear-gradient(160deg, $wild-blue-deep 0%, $wild-purple-deep 100%); border: 0; color: #fff;
   h2 { color: #fff; }
   a { color: #fff; text-decoration: underline; }
   .contact-list { list-style: none; padding: 0; margin: 0; }
@@ -125,3 +130,8 @@
   footer { font-weight: 600; font-size: 0.9rem; }
 }
 .opening-hours-table th { text-align: left; }
+// Service and Who We Help cards take a WILD letter color by weight: 1 green, 2 pink, 3 blue, 4 purple
+@each $i, $c in (0: $wild-green-deep, 1: $wild-pink-deep, 2: $wild-blue-deep, 3: $wild-purple-deep) {
+  .service-summary.wild-#{$i} .service-title a, .work-summary.wild-#{$i} .work-title a { color: $c; }
+  .work-summary.wild-#{$i} .work-content { border-bottom: 3px solid $c; }
+}

@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#1E3FD9" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-  <circle cx="40" cy="40" r="38" fill="#FF2E63" fill-opacity="0.12" stroke="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none" stroke="#C21A8E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="40" cy="40" r="38" fill="#C21A8E" fill-opacity="0.12" stroke="none"/>
   <path d="M14 22a5 5 0 0 1 5-5h30a5 5 0 0 1 5 5v18a5 5 0 0 1-5 5H30l-10 8v-8h-1a5 5 0 0 1-5-5z"/>
-  <path d="M58 30h3a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5h-1v7l-8-7H42a5 5 0 0 1-5-5v-2" stroke="#FF2E63"/>
-  <circle cx="25" cy="31" r="1.5" fill="#1E3FD9"/>
-  <circle cx="34" cy="31" r="1.5" fill="#1E3FD9"/>
-  <circle cx="43" cy="31" r="1.5" fill="#1E3FD9"/>
+  <path d="M58 30h3a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5h-1v7l-8-7H42a5 5 0 0 1-5-5v-2" stroke="#C21A8E"/>
+  <circle cx="25" cy="31" r="1.5" fill="#C21A8E"/>
+  <circle cx="34" cy="31" r="1.5" fill="#C21A8E"/>
+  <circle cx="43" cy="31" r="1.5" fill="#C21A8E"/>
 </svg>

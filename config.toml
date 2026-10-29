@@ -13,6 +13,7 @@ theme = "hugo-hero-theme"
     min = "0.158.0"
 
 [params]
+  # setting this adds Google Analytics cookies: update content/privacy.md first
   google_analytics_id = ""
 
   [params.logo]
@@ -31,7 +32,7 @@ theme = "hugo-hero-theme"
     meta_og_url = "https://glowilds.com/"
     meta_og_image = "https://glowilds.com/images/hero.jpg"
     meta_og_description = "Digital presence, AI tools, automation and growth management for local businesses. Done for you, in plain English."
-    meta_twitter_card = "summary"
+    meta_twitter_card = "summary_large_image"
     meta_twitter_site = ""
     meta_twitter_creator = ""
 

@@ -1,4 +1,4 @@
-<div class="work work-summary">
+<div class="work work-summary wild-{{ mod (sub .Weight 1) 4 }}">
   {{ if .Params.thumbnail }}
   <div class="work-image">
     <a href="{{ .RelPermalink }}"><img src="{{ .Params.thumbnail | relURL }}" alt="{{ .Title }}" width="600" height="400" loading="lazy" decoding="async" /></a>

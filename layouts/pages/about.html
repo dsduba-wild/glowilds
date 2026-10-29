@@ -8,9 +8,9 @@
 {{ $headless := . }}
 {{ $subpages := $headless.Resources.ByType "page" }}
 {{ $subpages := sort $subpages ".Params.weight" }}
-{{ range $subpages }}
+{{ range $i, $_ := $subpages }}
 {{ $phone := .Params.phoneBackground }}
-<div class="strip bg-cover bg-position-top bg-overlay"{{ with .Params.background }} style="background-image: url('{{ . | relURL }}');{{ with $phone }} --bg-phone: url('{{ . | relURL }}');{{ end }}"{{ end }}>
+<div class="strip bg-cover bg-position-top bg-overlay wild-{{ mod $i 4 }}"{{ with .Params.background }} style="background-image: url('{{ . | relURL }}');{{ with $phone }} --bg-phone: url('{{ . | relURL }}');{{ end }}"{{ end }}>
   <div class="container pt-17 pb-17">
     <div class="row">
       <div class="col-12 col-md-6 {{ if eq .Params.align "right" }}offset-md-6{{ end }}">

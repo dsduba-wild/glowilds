@@ -17,7 +17,22 @@ $grid-gutter-width: 20px;
 
 $white: #ffffff;
 $black: #000000;
-$primary: #1e3fd9;
+// WILD palette, sampled from the letters of the About page "WILD" image.
+// Neon: only on dark backgrounds. Deep: on white, or behind white text (all 5.5:1 or better).
+$wild-green: #52fe20;
+$wild-pink: #ff6dd6;
+$wild-blue: #4e83fe;
+$wild-purple: #cf56fe;
+$wild-green-deep: #1f7a0f;
+$wild-pink-deep: #c21a8e;
+$wild-blue-deep: #2453e0;
+$wild-purple-deep: #8a2bd6;
+// Hue order (green, blue, purple, pink) blends cleanly; W-I-L-D order would pass through muddy brown.
+$wild-gradient: linear-gradient(90deg, $wild-green-deep, $wild-blue-deep 40%, $wild-purple-deep 70%, $wild-pink-deep);
+// Hard color blocks in W-I-L-D letter order.
+$wild-stripe: linear-gradient(90deg, $wild-green 0 25%, $wild-pink 25% 50%, $wild-blue 50% 75%, $wild-purple 75%);
+
+$primary: $wild-blue-deep;
 $secondary: #2a2740;
 
 // Links

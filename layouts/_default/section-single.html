@@ -1,5 +1,5 @@
 {{ define "header_css" }}{{ end }}
-{{ define "body_classes" }}page-work-single{{ end }}
+{{ define "body_classes" }}page-{{ .Section }}-single{{ end }}
 {{ define "header_classes" }}{{ end }}
 
 {{ define "main" }}
@@ -7,7 +7,8 @@
 <div class="container pt-4 pt-md-10 pb-4 pb-md-10">
   <div class="row justify-content-start">
     <div class="col-12 col-md-8">
-      <div class="work work-single">
+      {{ $kind := .Section | singularize }}
+      <div class="{{ $kind }} {{ $kind }}-single">
         <div class="content">{{.Content}}</div>
         {{ partial "cta.html" "mt-4" }}
       </div>

@@ -55,6 +55,9 @@
             <textarea id="cf-message" name="message" rows="5" required></textarea>
           </div>
         </div>
+        {{/* Formspree: email subject line, and a hidden spam trap that people never fill in */}}
+        <input type="hidden" name="_subject" value="New check-up request from glowilds.com">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
         <button class="button contact-submit" type="submit">Book a Free Check-Up</button>
       </form>
       {{ end }}

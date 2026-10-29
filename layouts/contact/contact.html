@@ -3,6 +3,7 @@
 {{ define "header_classes" }}{{ end }}
 
 {{ define "main" }}
+{{ $c := hugo.Data.contact }}
 <div class="intro intro-small">
   <div class="container">
     <div class="row">
@@ -12,50 +13,81 @@
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container pb-6">
   <div class="row">
-    <div class="col-12 col-md-8">
-      {{ .Content }}
-      {{ with hugo.Data.contact.formAction }}
-      <form class="contact-form mb-4" action="{{ . }}" method="POST">
-        <label for="cf-name">Name</label>
-        <input id="cf-name" name="name" type="text" autocomplete="name" required>
-        <label for="cf-email">Email</label>
-        <input id="cf-email" name="email" type="email" autocomplete="email" required>
-        <label for="cf-phone">Phone (optional)</label>
-        <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
-        <label for="cf-message">What does your business do, and where?</label>
-        <textarea id="cf-message" name="message" rows="5" required></textarea>
-        <button class="button mt-2" type="submit">Book a Free Check-Up</button>
+    <div class="col-12 col-lg-7 mb-4">
+      <div class="contact-lead">{{ .Content }}</div>
+      {{ with $c.formAction }}
+      <form class="contact-form contact-card" action="{{ . }}" method="POST">
+        <p class="contact-required-note">Fields marked * are required.</p>
+        <div class="contact-grid">
+          <div class="contact-field">
+            <label for="cf-name">Your name <span aria-hidden="true">*</span></label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="contact-field">
+            <label for="cf-email">Email <span aria-hidden="true">*</span></label>
+            <input id="cf-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="contact-field">
+            <label for="cf-business">Business name <span aria-hidden="true">*</span></label>
+            <input id="cf-business" name="business" type="text" autocomplete="organization" required>
+          </div>
+          <div class="contact-field">
+            <label for="cf-phone">Phone</label>
+            <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div class="contact-field">
+            <label for="cf-website">Website</label>
+            <input id="cf-website" name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourbusiness.com">
+          </div>
+          <div class="contact-field">
+            <label for="cf-service">What can we help with?</label>
+            <select id="cf-service" name="service">
+              <option value="Not sure yet">Not sure yet</option>
+              {{ range (where site.RegularPages "Section" "services").ByWeight }}
+              <option>{{ .Title }}</option>
+              {{ end }}
+            </select>
+          </div>
+          <div class="contact-field contact-field-wide">
+            <label for="cf-message">What does your business do, and where? <span aria-hidden="true">*</span></label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+        </div>
+        <button class="button contact-submit" type="submit">Book a Free Check-Up</button>
       </form>
       {{ end }}
-      <ul>
-        {{ if hugo.Data.contact.phone }}
-        <li><strong>Phone: </strong><a href="tel:{{ replaceRE `[^0-9+]` "" hugo.Data.contact.phone }}">{{ hugo.Data.contact.phone }}</a></li>
+    </div>
+    <div class="col-12 col-lg-5 mb-4">
+      <aside class="contact-card contact-info">
+        <h2 class="h4">Get in touch</h2>
+        <ul class="contact-list">
+          {{ with $c.phone }}
+          <li><span class="contact-list-label">Phone</span><a href="tel:{{ replaceRE `[^0-9+]` "" . }}">{{ . }}</a></li>
+          {{ end }}
+          {{ with $c.email }}
+          <li><span class="contact-list-label">Email</span><a href="mailto:{{ . }}">{{ . }}</a></li>
+          {{ end }}
+          {{ with $c.address }}
+          <li><span class="contact-list-label">Based in</span>{{ . }}</li>
+          {{ end }}
+          {{ with $c.areaServed }}
+          <li><span class="contact-list-label">Serving</span>{{ delimit . ", " " and " }}</li>
+          {{ end }}
+        </ul>
+        {{ with $c.hours }}
+        <h2 class="h4 mt-4">Business hours</h2>
+        <table class="table table-sm opening-hours-table">
+          {{ range . }}
+          <tr>
+            <th scope="row" class="day">{{ .day }}</th>
+            <td class="opens">{{ .open }}{{ with .close }}–{{ . }}{{ end }}</td>
+          </tr>
+          {{ end }}
+        </table>
         {{ end }}
-        {{ if hugo.Data.contact.email }}
-        <li><strong>Email: </strong><a href="mailto:{{ hugo.Data.contact.email }}">{{ hugo.Data.contact.email }}</a></li>
-        {{ end }}
-        {{ if hugo.Data.contact.address }}
-        <li><strong>Address: </strong><br>{{ hugo.Data.contact.address }}</li>
-        {{ end }}
-        {{ with hugo.Data.contact.areaServed }}
-        <li><strong>Serving: </strong>{{ delimit . ", " " and " }}</li>
-        {{ end }}
-      </ul>
-      {{ if hugo.Data.contact.hours }}
-      <h2 class="h4 mt-4">Business Hours</h2>
-      <table class="table table-sm opening-hours-table">
-        {{ range hugo.Data.contact.hours }}
-        <tr>
-          <th scope="row" class="day">{{ .day }}</th>
-          <td class="opens">{{ .open }}</td>
-          <td>{{ if .close }}–{{ end }}</td>
-          <td class="closes">{{ .close }}</td>
-        </tr>
-        {{ end }}
-      </table>
-      {{ end }}
+      </aside>
     </div>
   </div>
 </div>

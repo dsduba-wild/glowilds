@@ -84,11 +84,41 @@
   }
 }
 // Contact form, testimonials, hours table
+.contact-lead { font-size: 1.1rem; margin-bottom: 24px; }
+.contact-card {
+  background: #fff; border: 1px solid #e3e5f2; border-radius: 16px; padding: 28px;
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.08), 0 5px 15px rgba(0, 0, 0, 0.04);
+}
 .contact-form {
-  label { display: block; margin: 12px 0 4px; font-weight: 600; }
-  input, textarea { width: 100%; padding: 8px 10px; border: 1px solid #c8cbe0; font: inherit; }
-  input:focus, textarea:focus { outline: 2px solid $primary; border-color: $primary; }
-  button { border: 0; cursor: pointer; }
+  .contact-required-note { font-size: 0.85rem; color: #6b6f86; margin-bottom: 8px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+  .contact-field-wide { grid-column: 1 / -1; }
+  @media (max-width: 575.98px) { .contact-grid { grid-template-columns: 1fr; } }
+  label { display: block; margin: 14px 0 6px; font-weight: 600; font-size: 0.9rem; }
+  input, select, textarea {
+    width: 100%; padding: 11px 14px; font: inherit; color: inherit; background: #f7f8fc;
+    border: 1px solid #d5d8ea; border-radius: 10px; transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
+  }
+  textarea { resize: vertical; }
+  input:focus, select:focus, textarea:focus {
+    outline: 2px solid transparent; background: #fff; border-color: $primary; box-shadow: 0 0 0 4px rgba($primary, 0.18);
+  }
+  .contact-submit {
+    margin-top: 22px; border: 0; cursor: pointer; border-radius: 999px; padding: 13px 30px;
+    background: linear-gradient(90deg, #1e3fd9, #b42bd6 55%, #ff2e4d);
+    &:hover { filter: brightness(1.1); background: linear-gradient(90deg, #1e3fd9, #b42bd6 55%, #ff2e4d); }
+  }
+  @media (max-width: 575.98px) { .contact-submit { width: 100%; } }
+}
+.contact-info {
+  background: linear-gradient(160deg, #13207a 0%, #1e3fd9 55%, #8e22c4 100%); border: 0; color: #fff;
+  h2 { color: #fff; }
+  a { color: #fff; text-decoration: underline; }
+  .contact-list { list-style: none; padding: 0; margin: 0; }
+  .contact-list li { padding: 10px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.18); }
+  .contact-list-label { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.75; }
+  .opening-hours-table { color: #fff; --bs-table-color: #fff; --bs-table-bg: transparent; margin-bottom: 0; }
+  .opening-hours-table th, .opening-hours-table td { border-color: rgba(255, 255, 255, 0.18); }
 }
 .testimonial {
   margin: 0; padding: 20px; height: 100%; border-left: 4px solid $primary; background: #f5f6fb;

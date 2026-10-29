@@ -26,9 +26,7 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 | Logo | `static/images/logo.svg`, `static/images/logo-mobile.svg` |
 
 ## Still to fill in
-- Real phone number in `data/contact.yaml` (empty, so it is hidden for now)
 - Social links in `data/social.json` (empty for now): each entry needs `name`, `link` and `image` (an SVG you add under `static/social/`)
-- Contact form: make a free form at formspree.io and put its URL in `formAction` in `data/contact.yaml` (the form is hidden until then)
 - Customer quotes in `data/testimonials.yaml` (real ones only; the homepage section is hidden until there's one)
 - Founder's name and a photo in `content/pages/about/content1.md`
 - Swap the generated background images in `static/` for real photos whenever you have them

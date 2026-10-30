@@ -2,7 +2,8 @@
 title: '2. Build'
 date: 2026-10-21
 weight: 2
-background: 'images/strip-2.webp'
+background: 'images/process-2.svg'
+phoneBackground: 'images/process-2-phone.svg'
 align: left
 ---
 

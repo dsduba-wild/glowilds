@@ -4,13 +4,13 @@ date: 2026-10-26
 draft: false
 weight: 1
 heroHeading: 'Contractors & Home Services'
-heroSubHeading: 'Construction, remodeling, roofing, landscaping, junk removal, cleaning and more.'
+heroSubHeading: 'Construction, remodeling, painting, roofing, landscaping, junk removal, cleaning and more.'
 heroBackground: 'work/contractors.webp'
-thumbnail: 'work/contractors-thumb.webp'
+thumbnail: 'work/contractors-thumb.svg'
 aliases: ['/work/junk-removal/', '/work/cleaning/']
 ---
 
-You're on a ladder, in a truck or at a client's home all day. Calls go to voicemail, quote requests sit for days, and the customer books whoever answers first.
+Every call you miss on a ladder is a job that goes to whoever answers first, and every quote you write at 10 p.m. is time taken from your family. We catch the calls, speed up the quotes and clear the paperwork, so you win more jobs and get your evenings back.
 
 <!--more-->
 
@@ -35,4 +35,4 @@ You're on a ladder, in a truck or at a client's home all day. Calls go to voicem
 
 ## The goal
 
-More quote requests, faster replies, and fewer leads lost while your hands are full.
+More jobs won, fewer leads lost while your hands are full, and evenings that belong to you again.

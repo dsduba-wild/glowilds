@@ -34,8 +34,8 @@
             <input id="cf-business" name="business" type="text" autocomplete="organization" required>
           </div>
           <div class="contact-field">
-            <label for="cf-phone">Phone</label>
-            <input id="cf-phone" name="phone" type="tel" autocomplete="tel">
+            <label for="cf-phone">Phone <span aria-hidden="true">*</span></label>
+            <input id="cf-phone" name="phone" type="tel" autocomplete="tel" required>
           </div>
           <div class="contact-field">
             <label for="cf-website">Website</label>
@@ -48,6 +48,9 @@
               {{ range (where site.RegularPages "Section" "services").ByWeight }}
               <option>{{ .Title }}</option>
               {{ end }}
+              <option>Social media</option>
+              <option>A free business check-up</option>
+              <option>A custom idea</option>
             </select>
           </div>
           <div class="contact-field contact-field-wide">

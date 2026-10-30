@@ -1,12 +1,12 @@
 ---
-title: 'Business AI Tools'
+title: 'AI Tools'
 seoTitle: 'AI Receptionist & Custom AI Tools, Parker, CO'
 date: 2026-10-26
 icon: 'services/icon-chat.svg'
 featured: true
 draft: false
 weight: 2
-heroHeading: 'Business AI Tools'
+heroHeading: 'AI Tools'
 heroSubHeading: 'AI built around your business: for your customers, your team and the work in between.'
 heroBackground: 'services/hero.webp'
 aliases: ['/services/ai-front-desk/']
@@ -34,6 +34,6 @@ If a task repeats, takes your time or slips through the cracks, AI can probably 
 
 ## Built for your idea
 
-A price calculator for your website. A training assistant for new hires. A tool that sorts your inbox or checks a job against your checklist. Tell us what eats your time, and we'll tell you honestly whether AI can do it. Then we build it and keep it running.
+Have an idea, even a wild one? A price calculator for your website. A training assistant for new hires. A tool that sorts your inbox or checks a job against your checklist. Tell us about it, and Sergei will talk it through with you and work out how to bring it to life.
 
 You decide what the AI is allowed to say and do, and you can step in any time.

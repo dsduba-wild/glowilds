@@ -4,12 +4,12 @@ date: 2026-10-26
 draft: false
 weight: 2
 heroHeading: 'Local Shops & Studios'
-heroSubHeading: 'Retail shops, hobby stores, studios and neighborhood favorites.'
+heroSubHeading: 'Retail shops, salons, hobby stores, studios and neighborhood favorites.'
 heroBackground: 'work/local-shops.webp'
-thumbnail: 'work/local-shops-thumb.webp'
+thumbnail: 'work/local-shops-thumb.svg'
 ---
 
-Local shops win on community and personality. Online, they're competing with big-box stores and marketplaces.
+Your shop wins on community and personality, but the work doesn't stop at closing: answering questions, posting online, sorting sales. We take that load off, so more neighbors walk through your door and you get your weekends back.
 
 <!--more-->
 
@@ -32,4 +32,4 @@ Local shops win on community and personality. Online, they're competing with big
 
 ## The goal
 
-More walk-ins from nearby searches, and a clear view of where your money goes.
+More walk-ins from nearby searches, a clear view of where your money goes, and weekends that are yours again.

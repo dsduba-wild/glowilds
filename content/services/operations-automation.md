@@ -1,12 +1,12 @@
 ---
-title: 'Business Operations Automation'
+title: 'Operations Automation'
 seoTitle: 'Booking, Reminder & Receipt Automation, Parker, CO'
 date: 2026-10-26
 icon: 'services/icon-receipt.svg'
 featured: true
 draft: false
 weight: 3
-heroHeading: 'Business Operations Automation'
+heroHeading: 'Operations Automation'
 heroSubHeading: 'Less paperwork: the everyday admin runs itself.'
 heroBackground: 'services/hero.webp'
 aliases: ['/services/ai-bookkeeping/']

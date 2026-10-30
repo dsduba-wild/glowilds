@@ -1,5 +1,5 @@
 ---
-title: 'Get Found. Get Called. Get Time Back.'
+title: 'Hi, I’m Sergei.'
 weight: 1
 background: 'images/strip-star.webp'
 phoneBackground: 'images/strip-star.webp'
@@ -7,4 +7,4 @@ button: 'See Who We Help'
 buttonLink: 'work/'
 ---
 
-When someone in Parker asks Google, maps or AI who to call, we make sure it's you. We build your website and Google profile, answer missed calls with AI, and automate booking, reminders and receipts.
+I’ve spent 10 years running businesses from the ground up, and I know where time and money quietly slip away: missed calls, late nights on paperwork, deals that cost more than they promise. I help Parker business owners close those gaps, so you win more customers, keep more of what you earn, and get your evenings and weekends back.

@@ -2,6 +2,7 @@ email: 'hello@glowilds.com'
 phone: '(720) 574-2175'
 formAction: 'https://formspree.io/f/xvkkqwnw' # contact form endpoint, e.g. https://formspree.io/f/xxxxxx; the form shows up once set
 businessName: 'Glow Wild — a WILD LLC company'
+owner: 'Sergei' # named as founder in Google's business data and llms.txt
 address: 'Parker, Colorado'
 # City and state code for the homepage structured data that Google reads; keep in step with address
 city: 'Parker'

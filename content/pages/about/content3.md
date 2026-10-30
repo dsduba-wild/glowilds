@@ -1,11 +1,11 @@
 ---
-title: 'Let Your Business Glow'
+title: 'Let’s Talk'
 weight: 3
 date: 2026-10-21
 background: ''
 align: left
-button: 'Contact Us'
+button: 'Book a Free Check-Up'
 buttonLink: 'contact/'
 ---
 
-The AI era is changing how customers find and choose local businesses. We're here to make sure yours doesn't get left in the dark.
+Want to see what I’d do for your business? Email [hello@glowilds.com](mailto:hello@glowilds.com).

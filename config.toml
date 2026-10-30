@@ -26,12 +26,12 @@ theme = "hugo-hero-theme"
     alt = "Glow Wild"
 
   [params.homepage_meta_tags]
-    meta_description = "Websites, Google and AI search visibility, AI front-desk tools and simple automations for local businesses in Parker, CO and nearby. Done for you."
+    meta_description = "Custom websites, social media, AI that answers your calls and simple automations for Parker, CO businesses. Start with a free business check-up."
     meta_og_title = "Glow Wild — Websites & AI Tools for Parker, CO Businesses"
     meta_og_type = "website"
     meta_og_url = "https://glowilds.com/"
     meta_og_image = "https://glowilds.com/images/hero.jpg"
-    meta_og_description = "Digital presence, AI tools, automation and growth management for local businesses. Done for you, in plain English."
+    meta_og_description = "Custom websites, social media, AI that answers your calls and simple automations for local businesses. Start with a free check-up, in plain English."
     meta_twitter_card = "summary_large_image"
     meta_twitter_site = ""
     meta_twitter_creator = ""
@@ -60,6 +60,16 @@ theme = "hugo-hero-theme"
   name = "Contact"
   url = "/contact/"
   weight = 5
+
+# llms.txt: a plain-text summary of the site for AI assistants, built from layouts/home.llms.txt
+[outputFormats.llms]
+  mediaType = "text/plain"
+  baseName = "llms"
+  isPlainText = true
+  notAlternative = true
+
+[outputs]
+  home = ["html", "rss", "llms"]
 
 [permalinks]
   pages = "/:filename/"

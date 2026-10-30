@@ -61,6 +61,7 @@
   background-color: #060818;
   h1, h2, h3 { color: $wild-pink !important; }
   p, li, .content { color: #e8e9f5; }
+  a:not(.button) { color: #fff; text-decoration: underline; }
 }
 // Dark sections take the WILD letter colors in turn: W green, I pink, L blue, D purple
 @each $i, $c in (0: $wild-green, 1: $wild-pink, 2: $wild-blue, 3: $wild-purple) {
@@ -80,6 +81,8 @@
 .strip.bg-cover.bg-overlay:not(.bg-primary) { background-blend-mode: normal; }
 // A picture with its own phone crop is a composed graphic, not a photo: fit it whole, left-aligned, instead of cropping it to cover
 .strip.bg-cover.bg-overlay[style*="--bg-phone"] { background-size: contain; background-position: left center; background-color: #000; }
+// ...and on the right when the text is on the left (phones keep the picture on top, below)
+@media (min-width: 768px) { .strip.bg-cover.bg-overlay.align-left[style*="--bg-phone"] { background-position: right center; } }
 // Phones: show the 2:1 phoneBackground whole at the top and start the text below it, instead of cropping it behind the text
 @media (max-width: 767.98px) {
   .strip.bg-cover.bg-overlay[style*="--bg-phone"] {
@@ -97,7 +100,7 @@
 }
 .contact-form {
   .contact-required-note, .contact-privacy-note { font-size: 0.85rem; color: #6b6f86; margin-bottom: 8px; }
-  .contact-privacy-note { margin: 14px 0 0; }
+  .contact-privacy-note { margin: 14px 0 0; a { text-decoration: underline; } }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
   .contact-field-wide { grid-column: 1 / -1; }
   @media (max-width: 575.98px) { .contact-grid { grid-template-columns: 1fr; } }
@@ -130,8 +133,15 @@
   footer { font-weight: 600; font-size: 0.9rem; }
 }
 .opening-hours-table th { text-align: left; }
-// Service and Who We Help cards take a WILD letter color by weight: 1 green, 2 pink, 3 blue, 4 purple
+// Service and Who We Help cards, and links to a service, take a WILD letter color by weight: 1 green, 2 pink, 3 blue, 4 purple
 @each $i, $c in (0: $wild-green-deep, 1: $wild-pink-deep, 2: $wild-blue-deep, 3: $wild-purple-deep) {
-  .service-summary.wild-#{$i} .service-title a, .work-summary.wild-#{$i} .work-title a { color: $c; }
+  .service-summary.wild-#{$i} .service-title a, .work-summary.wild-#{$i} .work-title a, .content a.wild-#{$i} { color: $c; }
   .work-summary.wild-#{$i} .work-content { border-bottom: 3px solid $c; }
 }
+// Keyboard users: hidden until focused with Tab, then shown at the top left
+.skip-link {
+  position: absolute; left: 12px; top: -60px; z-index: 1000; padding: 10px 16px;
+  background: $primary; color: #fff; border-radius: 0 0 8px 8px;
+  &:focus { top: 0; color: #fff; }
+}
+#main:focus { outline: none; }

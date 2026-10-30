@@ -1,0 +1,8 @@
+{{- /* Markdown links. A link whose text is a service's name gets that service's WILD color class (from its weight), like the service cards.
+       shortcut: matched by link text, because relref addresses are still placeholders when this runs; a link worded differently stays uncolored. */ -}}
+{{- $class := "" -}}
+{{- range where site.RegularPages "Section" "services" -}}
+  {{- if eq .Title ($.Text | plainify) -}}{{- $class = printf "wild-%d" (mod (sub .Weight 1) 4) -}}{{- end -}}
+{{- end -}}
+<a href="{{ .Destination | safeURL }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ with $class }} class="{{ . }}"{{ end }}>{{ .Text | safeHTML }}</a>
+{{- /* keep the template's trailing newline out of the output */ -}}

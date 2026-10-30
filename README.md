@@ -19,7 +19,7 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 | Services (4) | `content/services/*.md` |
 | Who We Help (industries) | `content/work/*.md` |
 | How It Works (4 steps) | `content/pages/process/content1-4.md` |
-| About | `content/pages/about/content1.md`, `content3.md` |
+| About | `content/pages/about/content2.md` (founder story), `content3.md` (Let’s Talk) |
 | Privacy Policy, Terms of Use | `content/privacy.md`, `content/terms.md` |
 | Phone, email, hours | `data/contact.yaml` |
 | Social links | `data/social.json` |
@@ -29,5 +29,5 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 ## Still to fill in
 - Social links in `data/social.json` (empty for now): each entry needs `name`, `link` and `image` (an SVG you add under `static/social/`)
 - Customer quotes in `data/testimonials.yaml` (real ones only; the homepage section is hidden until there's one)
-- Founder's name and a photo in `content/pages/about/content1.md`
+- A photo of Sergei for the About page (`content/pages/about/content2.md`)
 - Swap the generated background images in `static/` for real photos whenever you have them

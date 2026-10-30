@@ -6,10 +6,10 @@ weight: 3
 heroHeading: 'Professional & Care Services'
 heroSubHeading: 'Law firms, counseling and therapy, health and wellness clinics, home and senior care, accountants and more.'
 heroBackground: 'work/professional-care.webp'
-thumbnail: 'work/professional-care-thumb.webp'
+thumbnail: 'work/professional-care-thumb.svg'
 ---
 
-People choose a lawyer, counselor or care provider on trust. They read your site, check your reviews and often ask an AI assistant before they ever call. And your team loses hours to intake calls, scheduling and reminders.
+People choose a lawyer, counselor or care provider on trust, and they check you online before they ever call. Meanwhile your team loses hours to intake calls, scheduling and reminders. We make you easy to trust and take the front-office load off, so your day goes to clients instead of the phone.
 
 <!--more-->
 
@@ -34,4 +34,4 @@ People choose a lawyer, counselor or care provider on trust. They read your site
 
 ## The goal
 
-More of the right clients booking with you, and less front-office time on the phone.
+More of the right clients booking with you, fewer no-shows, and a front office that doesn't follow you home.

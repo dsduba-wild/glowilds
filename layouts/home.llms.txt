@@ -1,0 +1,31 @@
+{{- $c := hugo.Data.contact -}}
+# {{ site.Title }}
+
+> {{ site.Params.homepage_meta_tags.meta_description }}
+
+{{ $c.businessName }}, based in {{ $c.city }}, {{ $c.region }}. Serving {{ delimit $c.areaServed ", " " and " }}.
+{{- with $c.owner }} Run by {{ . }}.{{ end }}
+Every new client starts with a free business check-up{{ with $c.owner }}, and {{ . }} calls you back personally{{ end }}.
+
+- Email: {{ $c.email }}
+{{- with $c.phone }}
+- Phone: {{ . }}
+{{- end }}
+{{- with $c.hours }}
+- Hours: {{ range $i, $h := . }}{{ if $i }}; {{ end }}{{ $h.day }} {{ $h.open }}{{ with $h.close }}–{{ . }}{{ end }}{{ end }}
+{{- end }}
+- Book a free check-up: {{ "contact/" | absURL }}
+{{ range slice "/services" "/work" }}{{ with site.GetPage . }}
+## {{ .Title }}
+
+{{ range .Pages.ByWeight -}}
+- [{{ .Title }}]({{ .Permalink }}): {{ .Description | default .Params.heroSubHeading }}
+{{ end -}}
+{{ end }}{{ end }}
+## More
+
+{{ range slice "/pages/process" "/pages/about" "/contact" "/privacy" "/terms" -}}
+{{ with site.GetPage . -}}
+- [{{ .Title }}]({{ .Permalink }}){{ with .Description | default .Params.heroSubHeading }}: {{ . }}{{ end }}
+{{ end -}}
+{{ end -}}

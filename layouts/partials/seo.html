@@ -19,6 +19,31 @@
 {{ with $c.phone }}
   {{ $biz = merge $biz (dict "telephone" .) }}
 {{ end }}
+{{ with $c.owner }}
+  {{ $biz = merge $biz (dict "founder" (dict "@type" "Person" "name" .)) }}
+{{ end }}
+{{/* Opening hours from data/contact.yaml. Days without a close time ("By appointment", "Closed") are left out. */}}
+{{ $hours := slice }}
+{{ range $c.hours }}
+  {{ $day := .day }}
+  {{ $times := slice }}
+  {{ range slice .open .close }}
+    {{/* "8:00am" -> "08:00"; a time in any other format is skipped */}}
+    {{ with findRESubmatch `^(\d{1,2}):(\d{2})\s*(am|pm)$` (lower (string .)) 1 }}
+      {{ $m := index . 0 }}
+      {{ $h := int (strings.TrimLeft "0" (index $m 1) | default "0") }}
+      {{ if and (eq (index $m 3) "pm") (lt $h 12) }}{{ $h = add $h 12 }}{{ end }}
+      {{ if and (eq (index $m 3) "am") (eq $h 12) }}{{ $h = 0 }}{{ end }}
+      {{ $times = $times | append (printf "%02d:%s" $h (index $m 2)) }}
+    {{ end }}
+  {{ end }}
+  {{ if eq (len $times) 2 }}
+    {{ $hours = $hours | append (dict "@type" "OpeningHoursSpecification" "dayOfWeek" $day "opens" (index $times 0) "closes" (index $times 1)) }}
+  {{ end }}
+{{ end }}
+{{ with $hours }}
+  {{ $biz = merge $biz (dict "openingHoursSpecification" .) }}
+{{ end }}
 <script type="application/ld+json">{{ $biz | jsonify | safeJS }}</script>
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL | jsonify | safeJS }}</script>
 {{ end }}

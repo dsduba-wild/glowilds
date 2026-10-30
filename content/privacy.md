@@ -10,6 +10,8 @@ Glow Wild is a WILD LLC company based in Parker, Colorado ("we", "us"). This pol
 
 **Information you send us.** When you fill in our contact form, we receive the details you enter: your name, email, business name, phone number, website, the service you are interested in, and your message. We also receive whatever you send when you email or call us.
 
+**Phone calls.** Calls to our number are answered by an AI assistant. It asks for your name, business, what you need help with, and the best number and time to call you back, and passes this to Sergei. Calls may be recorded and transcribed so we can follow up accurately.
+
 **Basic technical data.** Like any website, the server that hosts the site records standard request data, such as your IP address, browser type and the pages you visit. Our hosting provider uses this data to deliver and protect the site.
 
 We do not use cookies, analytics or advertising trackers on this site.
@@ -31,6 +33,7 @@ We use a small number of service providers that process information for us:
 - **Formspree** receives contact-form submissions and forwards them to our inbox.
 - **GitHub Pages** hosts the site and processes the technical data described above.
 - **Our email provider** stores the messages we send and receive.
+- **Our phone answering service** answers calls with an AI assistant and passes your details and any call recording or transcript to us.
 
 These providers may only use your information to perform their service for us. We may also share information if the law requires it, or to protect our rights or the safety of others.
 

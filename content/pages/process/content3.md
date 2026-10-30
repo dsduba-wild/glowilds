@@ -2,7 +2,8 @@
 title: '3. Launch & Learn'
 date: 2026-10-21
 weight: 3
-background: 'images/strip-3.webp'
+background: 'images/process-3.svg'
+phoneBackground: 'images/process-3-phone.svg'
 align: right
 ---
 

@@ -2,7 +2,8 @@
 title: '4. Grow'
 date: 2026-10-21
 weight: 4
-background: ''
+background: 'images/process-4.svg'
+phoneBackground: 'images/process-4-phone.svg'
 align: left
 button: 'Book a Free Check-Up'
 buttonLink: 'contact/'

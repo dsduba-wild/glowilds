@@ -26,11 +26,12 @@
 </head>
 
 <body class='page {{ block "body_classes" . }}{{ end }}'>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div id="wrapper" class="wrapper">
     {{ partial "header.html" . }}
     {{/* After the header so Tab goes from the menu button into the menu */}}
     {{ partial "main-menu-mobile.html" . }}
-    <main>
+    <main id="main" tabindex="-1">
     {{ block "main" . }}
     {{ end }}
     </main>

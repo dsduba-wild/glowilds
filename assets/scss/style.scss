@@ -145,3 +145,6 @@
   &:focus { top: 0; color: #fff; }
 }
 #main:focus { outline: none; }
+// FAQ: room between question-and-answer pairs
+.faq h2 { font-size: 1.5rem; margin-top: 36px; margin-bottom: 10px; }
+.faq h2:first-child { margin-top: 0; }

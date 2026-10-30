@@ -20,6 +20,7 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 | Who We Help (industries) | `content/work/*.md` |
 | How It Works (4 steps) | `content/pages/process/content1-4.md` |
 | About | `content/pages/about/content2.md` (founder story), `content3.md` (Let’s Talk) |
+| FAQ (questions and answers) | `data/faq.yaml` |
 | Privacy Policy, Terms of Use | `content/privacy.md`, `content/terms.md` |
 | Phone, email, hours | `data/contact.yaml` |
 | Social links | `data/social.json` |

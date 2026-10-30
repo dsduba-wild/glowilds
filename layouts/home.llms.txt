@@ -24,7 +24,7 @@ Every new client starts with a free business check-up{{ with $c.owner }}, and {{
 {{ end }}{{ end }}
 ## More
 
-{{ range slice "/pages/process" "/pages/about" "/contact" "/privacy" "/terms" -}}
+{{ range slice "/pages/process" "/pages/about" "/faq" "/contact" "/privacy" "/terms" -}}
 {{ with site.GetPage . -}}
 - [{{ .Title }}]({{ .Permalink }}){{ with .Description | default .Params.heroSubHeading }}: {{ . }}{{ end }}
 {{ end -}}

@@ -1,0 +1,38 @@
+# Questions and answers for /faq/. The page and its FAQPage structured data are both built from this list.
+# Answers are Markdown. {towns} and {phone} are filled in from data/contact.yaml.
+# Same rules as the phone assistant: no prices, no timelines, no promises about what can or can't be built.
+- q: What does Glow Wild do?
+  a: |
+    We help local businesses get found, catch every call and spend less time on admin. That means custom websites, AI helpers that answer calls and messages and book appointments, social media setup and posting, automations for everyday tasks like tracking sales and cash flow, and help bringing your own ideas to life.
+
+- q: How much does it cost?
+  a: |
+    Every business is different, so there's no one-size price list. Sergei goes over pricing with you personally after the free business check-up, once he knows what you actually need.
+
+- q: What is the free business check-up?
+  a: |
+    A conversation and a look at how your business runs, online and day to day: your website, Google listing, social media, reviews, what AI assistants say about you, and where your hours go. You get a plain-English list of where you can save time, get more customers and work smarter. It's free, with no obligation.
+
+- q: I'm not good with technology. Is that a problem?
+  a: |
+    Not at all. We set everything up for you, explain it in plain English, and stick around to keep it working. There's no new software to learn, and you own your website, accounts and data.
+
+- q: Will an AI talk to my customers? What can it say?
+  a: |
+    If you want one, an AI helper can answer common questions, take messages and book appointments, day and night. You decide what it's allowed to say and do, and you can step in at any time.
+
+- q: What kinds of businesses do you work with?
+  a: |
+    Any local business: contractors, cleaners and painters, shops and salons, professional and care practices, and nonprofits. If you serve customers in the area, we can help.
+
+- q: Where are you located, and which areas do you serve?
+  a: |
+    We're based in Parker, Colorado, and work with businesses in {towns}.
+
+- q: I have an idea for my business. Can you help build it?
+  a: |
+    Tell us about it, even if it sounds wild. Sergei will talk it through with you and work out how to bring it to life.
+
+- q: How do I get started?
+  a: |
+    Book a [free business check-up](/contact/) or call {phone}. Sergei will call you back personally.

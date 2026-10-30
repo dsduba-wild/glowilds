@@ -148,3 +148,7 @@
 // FAQ: room between question-and-answer pairs
 .faq h2 { font-size: 1.5rem; margin-top: 36px; margin-bottom: 10px; }
 .faq h2:first-child { margin-top: 0; }
+// Drawn banners: always full height and pinned right so the art is never cropped; the left fills with the banner's own dark color.
+// Phones show the calm left part behind the heading instead.
+.hero-image[style*=".svg"] { background-size: auto 100%; background-position: right center; background-color: #05061a; }
+@media (max-width: 767.98px) { .hero-image[style*=".svg"] { background-position: 15% center; } }

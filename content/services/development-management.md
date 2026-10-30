@@ -8,7 +8,7 @@ draft: false
 weight: 4
 heroHeading: 'Development Management'
 heroSubHeading: 'Ongoing growth: more reviews, active social media, better numbers and a plan for what comes next.'
-heroBackground: 'services/hero.webp'
+heroBackground: 'images/hero-services.svg'
 aliases: ['/services/reviews/']
 ---
 

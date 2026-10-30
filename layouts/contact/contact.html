@@ -4,16 +4,8 @@
 
 {{ define "main" }}
 {{ $c := hugo.Data.contact }}
-<div class="intro intro-small">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1>{{ .Title }}</h1>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container pb-6">
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .) }}
+<div class="container pt-6 pb-6">
   <div class="row">
     <div class="col-12 col-lg-7 mb-4">
       <div class="contact-lead">{{ .Content }}</div>

@@ -1,8 +1,8 @@
 {{/* Description for every page that doesn't set its own meta tags (the home page does). */}}
 {{ $desc := .Description | default .Params.heroSubHeading | default (.Summary | plainify | htmlUnescape | truncate 155) | default .Site.Params.homepage_meta_tags.meta_description }}
-{{/* Social previews use a JPG copy when one exists: some platforms still skip WebP. */}}
+{{/* Social previews use a JPG copy when one exists: some platforms skip WebP, and none show SVG. */}}
 {{ $img := .Params.heroBackground | default "images/hero.jpg" }}
-{{ $jpg := replace $img ".webp" ".jpg" }}{{ if fileExists (path.Join "static" $jpg) }}{{ $img = $jpg }}{{ end }}
+{{ $jpg := printf "%s.jpg" (strings.TrimSuffix (path.Ext $img) $img) }}{{ if fileExists (path.Join "static" $jpg) }}{{ $img = $jpg }}{{ end }}
 <meta name="description" content="{{ $desc }}">
 <meta property="og:title" content="{{ .Params.seoTitle | default .Title }} - {{ .Site.Title }}">
 <meta property="og:type" content="website">

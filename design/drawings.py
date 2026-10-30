@@ -6,9 +6,13 @@ How It Works: each step's drawing lives in a 1000x500 box, written twice:
   static/images/process-N-phone.svg  2:1 (1000x500): drawing alone, shown above the text on phones
 Who We Help: one 750x500 card picture per industry, on a dark tile:
   static/work/<industry>-thumb.svg
+Page banners: 2400x800, art on the right so the heading on the left stays readable:
+  static/images/hero-<page>.svg, plus hero-<page>.jpg for link previews (social apps do not show SVG; needs ImageMagick)
 Run from the repo root: python3 design/drawings.py
 """
 import re
+import shutil
+import subprocess
 from pathlib import Path
 
 G, P, B, U = "#52fe20", "#ff6dd6", "#4e83fe", "#cf56fe"  # WILD: green, pink, blue, purple; keep in step with $wild-* in assets/scss/_bootstrap-variables.scss
@@ -274,6 +278,91 @@ def tile(body):
 
 WORK = {"contractors": contractors, "local-shops": local_shops, "professional-care": professional_care, "nonprofits": nonprofits}
 
+# ---- Page banners: 2400x800, dark with soft color glows, line art in an 850x800 box on the right ----
+# Text sits on the left of the banner, so the art stays in x 1500-2350; it is nudged down 25 to clear the white menu bar over the top.
+
+def hero_canvas(art, glows):
+    """glows: (x, y, radius, color) soft light behind the art."""
+    g = "".join(f'<radialGradient id="g{i}"><stop offset="0" stop-color="{c}" stop-opacity=".35"/><stop offset="1" stop-color="{c}" stop-opacity="0"/></radialGradient>'
+                f'' for i, (_, _, _, c) in enumerate(glows))
+    orbs = "".join(f'<circle cx="{x}" cy="{y}" r="{r}" fill="url(#g{i})"/>' for i, (x, y, r, _) in enumerate(glows))
+    return (f'<defs><linearGradient id="bg" x2="1"><stop offset="0" stop-color="#05061a"/><stop offset=".55" stop-color="#070a24"/><stop offset="1" stop-color="#0c1033"/></linearGradient>'
+            f'<filter id="glow2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>{g}</defs>'
+            f'<rect width="2400" height="800" fill="url(#bg)"/>{orbs}'
+            f'<g transform="translate(1500,25)"><rect width="850" height="800" fill="url(#dots)" mask="url(#fadeMask)"/>'
+            f'<g filter="url(#glow2)" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">{art}</g></g>')
+
+
+def card(x, y, color, icon, scale=1.6):
+    return (f'<rect x="{x - 70}" y="{y - 70}" width="140" height="140" rx="28" fill="#070a24" stroke="{color}"/>'
+            f'<g transform="translate({x},{y}) scale({scale})" stroke="{color}" stroke-width="3">{icon}</g>')
+
+
+WEB = '<rect x="-18" y="-14" width="36" height="28" rx="3"/><path d="M-18 -6 H18"/>'
+
+
+def hero_services():
+    """Four service cards wired to a hub."""
+    hub = (425, 400)
+    pts = ((215, 220, G, WEB), (635, 220, P, CHAT), (215, 580, B, GEAR), (635, 580, U, STAR))
+    a = "".join(f'<path d="M{hub[0]} {hub[1]} L{x} {y}" stroke="{c}" stroke-width="3" stroke-dasharray="2 12"/>' for x, y, c, _ in pts)
+    a += f'<path d="M425 340 L480 440 L370 440 Z" stroke="{B}"/><circle cx="425" cy="405" r="95" stroke="{FAINT}" stroke-width="3"/>'
+    a += "".join(card(x, y, c, icon) for x, y, c, icon in pts)
+    return hero_canvas(a, ((1750, 250, 380, G), (2150, 650, 420, U), (1950, 420, 300, B)))
+
+
+def hero_who():
+    """A neon main street under the mountains."""
+    a = f'<path d="M0 470 L130 330 L230 420 L360 250 L500 400 L610 300 L760 430 L850 380" stroke="{FAINT}" stroke-width="4"/>'
+    # house
+    a += f'<path d="M40 640 V520 L120 450 L200 520 V640" stroke="{G}"/><rect x="95" y="570" width="50" height="70" stroke="{G}" stroke-width="4"/>'
+    # shop with awning
+    a += f'<rect x="230" y="500" width="180" height="140" stroke="{P}"/><path d="M220 500 H420" stroke="{P}"/>' + "".join(
+        f'<path d="M{230 + i * 45} 500 v22 a22.5 22.5 0 0 0 45 0 v-22" stroke="{P}" stroke-width="4"/>' for i in range(4))
+    a += f'<rect x="255" y="560" width="70" height="50" stroke="{P}" stroke-width="4"/><path d="M355 640 V560 H390 V640" stroke="{P}" stroke-width="4"/>'
+    # office tower
+    a += f'<rect x="440" y="360" width="140" height="280" stroke="{B}"/>' + "".join(
+        f'<rect x="{462 + c * 36}" y="{390 + r * 50}" width="24" height="28" stroke="{B}" stroke-width="3"/>' for r in range(4) for c in range(3))
+    # community hall
+    a += f'<path d="M610 640 V510 L700 450 L790 510 V640" stroke="{U}"/><path d="M700 450 V400 M686 415 H714" stroke="{U}"/><path d="M675 640 V575 a25 25 0 0 1 50 0 V640" stroke="{U}" stroke-width="4"/>'
+    a += f'<path d="M10 650 H840" stroke="{FAINT}" stroke-width="4"/>'
+    return hero_canvas(a, ((1700, 600, 360, G), (2050, 300, 380, B), (2250, 620, 340, U)))
+
+
+def hero_how():
+    """A path through four steps up to a flag."""
+    a = f'<path d="M60 640 C220 640 200 520 330 500 S470 420 520 360 S640 250 760 230" stroke="{FAINT}" stroke-width="18"/>'
+    a += f'<path d="M60 640 C220 640 200 520 330 500 S470 420 520 360 S640 250 760 230" stroke="{B}" stroke-width="3" stroke-dasharray="14 12"/>'
+    for (x, y, c, n) in ((150, 628, G, 1), (330, 500, P, 2), (520, 360, B, 3), (690, 245, U, 4)):
+        a += f'<circle cx="{x}" cy="{y}" r="34" fill="#070a24" stroke="{c}"/>' + label(x, y + 13, str(n), c).replace('font-size="21"', 'font-size="36"').replace('<text', '<text stroke="none"')
+    a += f'<path d="M770 230 V120" stroke="{G}"/><path d="M770 125 L840 148 L770 172" stroke="{G}" fill="none"/>'
+    return hero_canvas(a, ((1650, 640, 360, G), (1950, 480, 300, P), (2250, 260, 380, U)))
+
+
+def hero_about():
+    """Colorado mountains with a glowing triangle above: stability, quality, support."""
+    a = f'<path d="M0 640 L170 430 L260 520 L420 300 L560 470 L660 380 L850 640" stroke="{B}"/>'
+    a += f'<path d="M370 360 L420 300 L470 362 L440 345 L420 365 L398 345 Z" stroke="{B}" stroke-width="3"/>'
+    a += f'<path d="M0 660 H850" stroke="{FAINT}" stroke-width="4"/>'
+    a += f'<path d="M425 130 L540 320 L310 320 Z" stroke="{U}" stroke-width="6"/>'
+    a += f'<path d="M425 175 L505 300 L345 300 Z" stroke="{P}" stroke-width="3" opacity=".8"/>'
+    return hero_canvas(a, ((1925, 240, 340, U), (1700, 620, 320, B), (2250, 600, 340, P)))
+
+
+def hero_contact():
+    """A ringing phone, messages, an envelope and a map pin."""
+    a = f'<rect x="300" y="200" width="200" height="380" rx="34" stroke="{P}"/><path d="M370 232 H430" stroke="{P}"/>'
+    a += "".join(f'<path d="M{400 - r} {190 - r * .45:.0f} a{r} {r} 0 0 1 {2 * r} 0" stroke="{P}" stroke-width="4"/>' for r in (35, 60))
+    a += f'<path d="M560 260 h220 v100 h-150 l-35 32 v-32 h-35 z" stroke="{B}"/><path d="M600 300 H740 M600 325 H700" stroke="{B}" stroke-width="4"/>'
+    a += f'<path d="M560 410 h220 v100 h-35 v32 l-35 -32 h-150 z" stroke="{G}"/>'
+    a += f'<g transform="translate(670,460) scale(1.6)" stroke="{G}" stroke-width="4">{CHECK}</g>'
+    a += f'<rect x="40" y="330" width="200" height="140" rx="10" stroke="{U}"/><path d="M40 335 L140 410 L240 335" stroke="{U}"/>'
+    a += f'<path d="M140 640 c-40-52-40-100 0-100 s40 48 0 100z" stroke="{G}"/><circle cx="140" cy="580" r="13" stroke="{G}" stroke-width="4"/>'
+    return hero_canvas(a, ((1800, 300, 340, P), (2150, 560, 380, G), (1650, 600, 320, U)))
+
+
+HEROES = {"services": hero_services, "who-we-help": hero_who, "how-it-works": hero_how, "about": hero_about, "contact": hero_contact}
+
 STEPS = {1: step1, 2: step2, 3: step3, 4: step4}
 
 
@@ -295,3 +384,11 @@ if __name__ == "__main__":
     for slug, draw in WORK.items():
         (Path("static/work") / f"{slug}-thumb.svg").write_text(svg(750, 500, tile(draw()), fade=(750, 500)))
         print(f"{slug}-thumb.svg")
+    for name, draw in HEROES.items():
+        out_svg = Path("static/images") / f"hero-{name}.svg"
+        out_svg.write_text(svg(2400, 800, draw(), fade=(850, 800)))
+        if shutil.which("magick"):
+            subprocess.run(["magick", str(out_svg), "-resize", "1800x600", "-quality", "82", str(out_svg.with_suffix(".jpg"))], check=True)
+            print(f"hero-{name}.svg, hero-{name}.jpg")
+        else:
+            print(f"hero-{name}.svg (ImageMagick not found: the .jpg link preview was NOT updated)")

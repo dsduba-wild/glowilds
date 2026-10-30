@@ -8,7 +8,7 @@ draft: false
 weight: 3
 heroHeading: 'Operations Automation'
 heroSubHeading: 'Less paperwork: the everyday admin runs itself.'
-heroBackground: 'services/hero.webp'
+heroBackground: 'images/hero-services.svg'
 aliases: ['/services/ai-bookkeeping/']
 ---
 

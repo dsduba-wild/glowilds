@@ -8,7 +8,7 @@ draft: false
 weight: 1
 heroHeading: 'Digital Entity'
 heroSubHeading: 'One clear, well-structured online presence that Google, maps and AI assistants all understand.'
-heroBackground: 'services/hero.webp'
+heroBackground: 'images/hero-services.svg'
 aliases: ['/services/websites/', '/services/local-search/', '/services/ai-visibility/']
 ---
 

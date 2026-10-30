@@ -8,7 +8,7 @@ draft: false
 weight: 2
 heroHeading: 'AI Tools'
 heroSubHeading: 'AI built around your business: for your customers, your team and the work in between.'
-heroBackground: 'services/hero.webp'
+heroBackground: 'images/hero-services.svg'
 aliases: ['/services/ai-front-desk/']
 ---
 

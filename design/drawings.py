@@ -345,7 +345,6 @@ def hero_about():
     a += f'<path d="M370 360 L420 300 L470 362 L440 345 L420 365 L398 345 Z" stroke="{B}" stroke-width="3"/>'
     a += f'<path d="M0 660 H850" stroke="{FAINT}" stroke-width="4"/>'
     a += f'<path d="M425 130 L540 320 L310 320 Z" stroke="{U}" stroke-width="6"/>'
-    a += f'<path d="M425 175 L505 300 L345 300 Z" stroke="{P}" stroke-width="3" opacity=".8"/>'
     return hero_canvas(a, ((1925, 240, 340, U), (1700, 620, 320, B), (2250, 600, 340, P)))
 
 

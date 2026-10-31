@@ -1,7 +1,7 @@
 <div class="hero-image hero-image-fullscreen" style="background-image: url('{{ .background | relURL }}');">
   <div class="container ">
     <div class="hero-text">
-      <h1>{{ .heading }}</h1>
+      <h1>{{ with .topic }}<span class="hero-topic">{{ . }}</span> {{ end }}{{ .heading }}</h1>
       <p>{{ .subheading }}</p>
       {{ partial "cta.html" "mt-2" }}
     </div>

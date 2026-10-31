@@ -154,3 +154,5 @@
 @media (max-width: 767.98px) { .hero-image[style*=".svg"] { background-position: 15% center; } }
 // Service icons are CSS backgrounds (decorative); same 40px square the theme gave the img
 .service-summary .service-image { height: 40px; background: center / contain no-repeat; }
+// Homepage: what we do and where, as a small first line of the H1 so search engines read it with the slogan
+.hero-image .hero-text .hero-topic { display: block; font-size: 1.1rem; font-weight: 400; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .75rem; }

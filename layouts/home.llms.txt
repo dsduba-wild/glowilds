@@ -1,7 +1,7 @@
 {{- $c := hugo.Data.contact -}}
 # {{ site.Title }}
 
-> {{ site.Params.homepage_meta_tags.meta_description }}
+> {{ site.Home.Description }}
 
 {{ $c.businessName }}, based in {{ $c.city }}, {{ $c.region }}. Serving {{ delimit $c.areaServed ", " " and " }}.
 {{- with $c.owner }} Run by {{ . }}.{{ end }}

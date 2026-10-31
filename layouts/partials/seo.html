@@ -11,7 +11,7 @@
   "url" .Site.BaseURL
   "logo" ("images/logo-mark.png" | absURL)
   "image" ("images/hero.jpg" | absURL)
-  "description" .Site.Params.homepage_meta_tags.meta_description
+  "description" .Description
   "email" $c.email
   "address" (dict "@type" "PostalAddress" "addressLocality" $c.city "addressRegion" $c.region "addressCountry" "US")
   "areaServed" (apply $c.areaServed "printf" (printf "%%s, %s" $c.region) ".")

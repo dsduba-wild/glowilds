@@ -25,16 +25,6 @@ theme = "hugo-hero-theme"
     desktop_width = "210px"
     alt = "Glow Wild"
 
-  [params.homepage_meta_tags]
-    meta_description = "Custom websites, social media, AI that answers your calls and simple automations for Parker, CO businesses. Start with a free business check-up."
-    meta_og_title = "Glow Wild — Websites & AI Tools for Parker, CO Businesses"
-    meta_og_type = "website"
-    meta_og_url = "https://glowilds.com/"
-    meta_og_image = "https://glowilds.com/images/hero.jpg"
-    meta_og_description = "Custom websites, social media, AI that answers your calls and simple automations for local businesses. Start with a free check-up, in plain English."
-    meta_twitter_card = "summary_large_image"
-    meta_twitter_site = ""
-    meta_twitter_creator = ""
 
 [[menu.main]]
   name = "Services"

@@ -6,7 +6,7 @@ icon: 'services/icon-chat.svg'
 featured: true
 draft: false
 weight: 2
-heroHeading: 'AI Tools'
+heroHeading: 'AI Receptionist & Custom AI Tools'
 heroSubHeading: 'AI built around your business: for your customers, your team and the work in between.'
 heroBackground: 'images/hero-services.svg'
 aliases: ['/services/ai-front-desk/']

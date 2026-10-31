@@ -1,5 +1,6 @@
 ---
 title: 'Professional & Care Services'
+seoTitle: 'Websites & AI for Clinics & Firms, Parker, CO'
 date: 2026-10-26
 draft: false
 weight: 3

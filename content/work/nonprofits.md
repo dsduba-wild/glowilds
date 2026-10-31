@@ -1,5 +1,6 @@
 ---
 title: 'Nonprofits & Community Organizations'
+seoTitle: 'Websites & AI for Nonprofits, Parker, CO'
 date: 2026-10-26
 draft: false
 weight: 4

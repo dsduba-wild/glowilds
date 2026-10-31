@@ -1,5 +1,6 @@
 ---
 title: 'Local Shops & Studios'
+seoTitle: 'Websites & AI for Local Shops, Parker, CO'
 date: 2026-10-26
 draft: false
 weight: 2

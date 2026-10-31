@@ -6,7 +6,7 @@ icon: 'services/icon-website.svg'
 featured: true
 draft: false
 weight: 1
-heroHeading: 'Digital Entity'
+heroHeading: 'Websites & Google Business Profiles'
 heroSubHeading: 'One clear, well-structured online presence that Google, maps and AI assistants all understand.'
 heroBackground: 'images/hero-services.svg'
 aliases: ['/services/websites/', '/services/local-search/', '/services/ai-visibility/']

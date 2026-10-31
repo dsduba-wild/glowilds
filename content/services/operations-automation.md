@@ -6,7 +6,7 @@ icon: 'services/icon-receipt.svg'
 featured: true
 draft: false
 weight: 3
-heroHeading: 'Operations Automation'
+heroHeading: 'Booking, Reminder & Receipt Automation'
 heroSubHeading: 'Less paperwork: the everyday admin runs itself.'
 heroBackground: 'images/hero-services.svg'
 aliases: ['/services/ai-bookkeeping/']

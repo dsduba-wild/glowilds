@@ -6,7 +6,7 @@ icon: 'services/icon-star.svg'
 featured: true
 draft: false
 weight: 4
-heroHeading: 'Development Management'
+heroHeading: 'Google Reviews & Local Growth'
 heroSubHeading: 'Ongoing growth: more reviews, active social media, better numbers and a plan for what comes next.'
 heroBackground: 'images/hero-services.svg'
 aliases: ['/services/reviews/']

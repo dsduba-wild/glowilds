@@ -1,5 +1,6 @@
 ---
 title: 'Contractors & Home Services'
+seoTitle: 'Websites & AI for Contractors, Parker, CO'
 date: 2026-10-26
 draft: false
 weight: 1

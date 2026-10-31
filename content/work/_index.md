@@ -1,5 +1,6 @@
 ---
 title: 'Who We Help'
+seoTitle: 'Websites & AI for Local Businesses, Parker, CO'
 # The single pages share layouts/_default/section-single.html; this list page keeps its own layout
 cascade:
   - layout: section-single

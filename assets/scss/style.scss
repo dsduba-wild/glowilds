@@ -152,3 +152,5 @@
 // Phones show the calm left part behind the heading instead.
 .hero-image[style*=".svg"] { background-size: auto 100%; background-position: right center; background-color: #05061a; }
 @media (max-width: 767.98px) { .hero-image[style*=".svg"] { background-position: 15% center; } }
+// Service icons are CSS backgrounds (decorative); same 40px square the theme gave the img
+.service-summary .service-image { height: 40px; background: center / contain no-repeat; }

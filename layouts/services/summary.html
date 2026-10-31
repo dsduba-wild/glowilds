@@ -1,8 +1,7 @@
 <div class="service service-summary wild-{{ mod (sub .Weight 1) 4 }}">
   {{ if .Params.icon }}
-  <div class="service-image">
-    <img height="80" width="80" src="{{ .Params.icon | relURL }}" alt="" loading="lazy" />
-  </div>
+  {{/* Decorative (the title beside it names the service), so a CSS background instead of an img with empty alt text */}}
+  <div class="service-image" style="background-image: url('{{ .Params.icon | relURL }}')"></div>
   {{ end }}
   <div class="service-content">
     <h2 class="service-title">

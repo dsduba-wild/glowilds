@@ -28,6 +28,7 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 | Logo | `static/images/logo.svg`, `static/images/logo-mobile.svg` |
 
 ## Still to fill in
+- Google Business Profile link in `data/contact.yaml` (`googleProfile`): it goes into the business data Google reads
 - Social links in `data/social.json` (empty for now): each entry needs `name`, `link` and `image` (an SVG you add under `static/social/`)
 - Customer quotes in `data/testimonials.yaml` (real ones only; the homepage section is hidden until there's one)
 - A photo of Sergei for the About page (`content/pages/about/content2.md`)

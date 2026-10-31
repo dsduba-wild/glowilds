@@ -22,6 +22,13 @@
 {{ with $c.owner }}
   {{ $biz = merge $biz (dict "founder" (dict "@type" "Person" "name" .)) }}
 {{ end }}
+{{/* Profiles of this business elsewhere (Google Business Profile, social), so Google ties them together */}}
+{{ $same := slice }}
+{{ with $c.googleProfile }}{{ $same = $same | append . }}{{ end }}
+{{ range hugo.Data.social }}{{ with .link }}{{ $same = $same | append . }}{{ end }}{{ end }}
+{{ with $same }}
+  {{ $biz = merge $biz (dict "sameAs" .) }}
+{{ end }}
 {{/* Opening hours from data/contact.yaml. Days without a close time ("By appointment", "Closed") are left out. */}}
 {{ $hours := slice }}
 {{ range $c.hours }}

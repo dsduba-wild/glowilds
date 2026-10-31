@@ -3,7 +3,7 @@
 {{ define "header_classes" }}{{ end }}
 
 {{ define "main" }}
-{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "section" (cond (ne .Title .Params.heroHeading) .Title .Section) "content" .)}}
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "section" (cond (ne .Title .Params.heroHeading) .Title .CurrentSection.Title) "content" .)}}
 {{/* Label above the heading: the brand name (e.g. "Digital Entity") when the heading spells the service out in plain words */}}
 <div class="container pt-4 pt-md-10 pb-4 pb-md-10">
   <div class="row justify-content-start">

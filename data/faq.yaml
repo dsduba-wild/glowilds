@@ -1,5 +1,5 @@
 # Questions and answers for /faq/. The page and its FAQPage structured data are both built from this list.
-# Answers are Markdown. {towns} and {phone} are filled in from data/contact.yaml.
+# Answers are Markdown. {towns} is filled in from data/contact.yaml.
 # Same rules as the phone assistant: no prices, no timelines, no promises about what can or can't be built.
 - q: What does Glow Wild do?
   a: |
@@ -35,4 +35,4 @@
 
 - q: How do I get started?
   a: |
-    Book a [free business check-up](/contact/) or call {phone}. Sergei will call you back personally.
+    Book a [free business check-up](/contact/) and Sergei will call you back personally.

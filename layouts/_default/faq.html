@@ -4,8 +4,8 @@
 
 {{ define "main" }}
 {{ $c := hugo.Data.contact }}
-{{/* Fill {towns} and {phone} from data/contact.yaml */}}
-{{ $fill := dict "{towns}" (delimit $c.areaServed ", " " and ") "{phone}" $c.phone }}
+{{/* Fill {towns} from data/contact.yaml */}}
+{{ $fill := dict "{towns}" (delimit $c.areaServed ", " " and ") }}
 {{ $items := slice }}
 {{ $schema := slice }}
 {{ range hugo.Data.faq }}

@@ -11,6 +11,11 @@ menuTrigger.onclick = function() {
     document.querySelectorAll('#main, .footer, .sub-footer').forEach(function(el) { el.inert = open })
 }
 
+// The menu button only exists below 768px (Bootstrap md); close the menu when the screen gets wider, e.g. a phone turned sideways
+matchMedia('(min-width: 768px)').addEventListener('change', function(e) {
+    if (e.matches && menuContainer.classList.contains('open')) menuTrigger.click()
+})
+
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && menuContainer.classList.contains('open')) {
         menuTrigger.click()

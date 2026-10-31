@@ -9,6 +9,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Rebuilds on January 1 (midnight in Colorado) so the footer's © year moves on even without a push
+  schedule:
+    - cron: '0 7 1 1 *'
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read

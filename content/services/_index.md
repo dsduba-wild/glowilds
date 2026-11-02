@@ -7,6 +7,7 @@ cascade:
     target:
       kind: page
 date: 2026-10-21
+description: 'Websites, AI integration, admin automation and monthly growth management for local businesses in Parker, CO. Start with a free business check-up.'
 heroHeading: 'Services'
 heroSubHeading: 'Everything a local business needs to be seen and run smarter in the AI era.'
 heroBackground: 'images/hero-services.svg'

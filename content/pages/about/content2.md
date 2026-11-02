@@ -5,11 +5,11 @@ weight: 2
 background: ''
 # A photo beside the text (above it on phones); photoAlt describes it for screen readers
 photo: 'images/sergei.webp'
-photoAlt: 'Sergei, founder of Glow Wild'
+photoAlt: 'Sergei Dubovik, founder of Glow Wild'
 align: left
 ---
 
-Hi, I’m Sergei, founder of Glow Wild.
+Hi, I’m Sergei Dubovik, founder of Glow Wild.
 
 I’ve spent 10 years learning how businesses really work, from hands-on operations to executive leadership, and how small problems turn into expensive ones.
 

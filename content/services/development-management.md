@@ -7,6 +7,7 @@ featured: true
 pillar: 'Improvement' # its step in the homepage's "One Connected System"
 draft: false
 weight: 4
+description: 'Monthly growth for Parker, CO businesses: review requests, AI-drafted replies, social posting, simple reports and steady improvements, managed for you.'
 heroHeading: 'Google Reviews & Local Growth'
 heroSubHeading: 'Ongoing growth: more reviews, active social media, better numbers and a plan for what comes next.'
 heroBackground: 'images/hero-services.svg'
@@ -29,3 +30,13 @@ Getting set up is the start. Growth comes from what happens every month after: n
 3. Monthly check-ins on calls, direction requests, website clicks and bookings
 4. Posting managed on Instagram, TikTok, Facebook and your Google profile, so your business and brand look consistent and professional everywhere
 5. A simple plan for the next step: new services, new areas or new tools
+
+## Common questions
+
+### Can I stop ongoing management?
+
+Yes, any time. Your website, accounts and reviews stay yours.
+
+### Do I have to approve every review reply?
+
+Yes. Replies are drafted in your voice and wait for your approval before they're posted.

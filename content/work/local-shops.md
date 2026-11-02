@@ -4,6 +4,8 @@ seoTitle: 'Websites & AI for Local Shops, Parker, CO'
 date: 2026-10-26
 draft: false
 weight: 2
+description: 'Websites, Google and Apple Maps listings, AI answers and simple sales tracking for shops, salons and studios in Parker, CO, so more neighbors walk in.'
+linkTitle: 'Local Shops' # short name for the footer
 heroHeading: 'Local Shops & Studios'
 heroSubHeading: 'Retail shops, salons, hobby stores, studios and neighborhood favorites.'
 heroBackground: 'work/local-shops.webp'
@@ -32,6 +34,20 @@ Your shop wins on community and personality, but the work doesn't stop at closin
 ## Keep growing: [Development Management]({{< relref "/services/development-management" >}})
 
 - Event and new-arrival posts that keep regulars coming back, plus a steady flow of fresh reviews
+
+## Common questions
+
+### I already post on Facebook. What would change?
+
+We make your hours, photos and events match across Google, Apple Maps, social media and your website, and we can take regular posting off your hands if you want.
+
+### Can the AI assistant tell customers what's in stock?
+
+It answers only from the information you give it, and you decide what it may say. For things that change daily, like stock, it can take the question and pass it to you instead of guessing.
+
+### Do I need a new register or point-of-sale system?
+
+No. You log sales by photo or text from the phone you already carry. There's no new software to learn.
 
 ## The goal
 

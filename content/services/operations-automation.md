@@ -46,3 +46,13 @@ No new software to learn: you use the phone you already carry.
 - Your taxes and your final books
 
 This is admin help, not accounting or tax advice. The summaries help you see where your money goes; your bookkeeper or accountant still keeps your books and handles your taxes.
+
+## Common questions
+
+### Will anything go to a customer without me seeing it?
+
+Quotes, invoices and new message templates wait for your OK. Only the reminders and follow-ups you've already approved send on their own.
+
+### Do I still need a bookkeeper?
+
+Yes. This gives you clean records and a clear weekly picture; your bookkeeper or accountant still keeps your books and handles your taxes.

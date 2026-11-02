@@ -7,6 +7,7 @@ featured: true
 pillar: 'Intelligence' # its step in the homepage's "One Connected System"
 draft: false
 weight: 2
+description: 'AI for Parker, CO businesses: assistants that answer calls and texts, book appointments, draft replies and know your prices. You set the rules.'
 heroHeading: 'AI Receptionist & AI Integration'
 heroSubHeading: 'AI built around your business: for your customers, your team and the work in between.'
 heroBackground: 'images/hero-services.svg'
@@ -38,3 +39,13 @@ If a task repeats, takes your time or slips through the cracks, AI can probably 
 Have an idea, even a wild one? A price calculator for your website. A training assistant for new hires. A tool that sorts your inbox or checks a job against your checklist. Tell us about it, and Sergei will talk it through with you and work out how to bring it to life.
 
 You decide what the AI is allowed to say and do, and you can step in any time.
+
+## Common questions
+
+### What if the AI doesn't know the answer?
+
+It's set up to take a message and pass it to you instead of guessing.
+
+### Can I control what it says to customers?
+
+Yes. You decide what it may say and do, and you can step in at any time.

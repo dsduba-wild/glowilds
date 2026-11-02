@@ -4,6 +4,8 @@ seoTitle: 'Websites & AI for Clinics & Firms, Parker, CO'
 date: 2026-10-26
 draft: false
 weight: 3
+description: 'Websites, Google profiles, AI intake and appointment reminders for law firms, clinics, counselors and care providers in Parker, CO. More time for clients.'
+linkTitle: 'Professional & Care' # short name for the footer
 heroHeading: 'Professional & Care Services'
 heroSubHeading: 'Law firms, counseling and therapy, health and wellness clinics, home and senior care, accountants and more.'
 heroBackground: 'work/professional-care.webp'
@@ -34,6 +36,20 @@ People choose a lawyer, counselor or care provider on trust, and they check you 
 ## Keep growing: [Development Management]({{< relref "/services/development-management" >}})
 
 - Review requests and reputation monitoring, within your profession's rules on testimonials
+
+## Common questions
+
+### Will the AI give advice to my clients?
+
+No. It answers general questions such as hours, location, services and how to get started, and books consultations. It never gives legal, medical or counseling advice.
+
+### What client information does it collect?
+
+Only the intake details you choose. Your data stays yours, and we use it only for your work. See [Your Data](/your-data/).
+
+### Can you help with reviews in a regulated profession?
+
+Yes, within your profession's rules on testimonials. You decide whether and how clients are asked for reviews.
 
 ## The goal
 

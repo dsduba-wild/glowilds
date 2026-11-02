@@ -4,6 +4,8 @@ seoTitle: 'Websites & AI for Nonprofits, Parker, CO'
 date: 2026-10-26
 draft: false
 weight: 4
+description: 'Websites, AI answers, volunteer sign-ups and event reminders for nonprofits, chambers and community groups in Parker, CO. More time for the mission.'
+linkTitle: 'Nonprofits' # short name for the footer
 heroHeading: 'Nonprofits & Community Organizations'
 heroSubHeading: 'Chambers of commerce, food banks, charities, community centers, faith groups and associations.'
 heroBackground: 'work/nonprofits.webp'
@@ -35,6 +37,20 @@ Nonprofits run on small teams and volunteers who already give more than they hav
 
 - Event and campaign posts, reviews and member stories that build trust
 - Simple numbers on reach, sign-ups and donations for your board and grant reports
+
+## Common questions
+
+### We run mostly on volunteers. Who keeps it running?
+
+We set it up to run on its own, show your team how it works in plain English, and can stay on to keep it working. There's no new software to learn.
+
+### Can it help with board and grant reports?
+
+Yes. Reach, sign-ups and donations are collected as you go, so a report doesn't start from a blank page.
+
+### Do you work with chambers and associations, not just charities?
+
+Yes. Chambers of commerce, associations, faith groups, food banks and community centers all fit.
 
 ## The goal
 

@@ -12,6 +12,8 @@
           {{ end }}
           <ul class="footer-menu">
             <li><a href="{{ .Site.BaseURL }}">Home</a></li>
+            {{/* The Who We Help industries, by their short linkTitle */}}
+            {{ range (site.GetPage "/work").Pages.ByWeight }}<li><a href="{{ .Permalink }}">{{ .LinkTitle }}</a></li>{{ end }}
             <li><a href="{{ .Site.BaseURL }}contact/">Contact</a></li>
             <li><a href="{{ .Site.BaseURL }}faq/">FAQ</a></li>
             <li><a href="{{ .Site.BaseURL }}your-data/">Your Data</a></li>

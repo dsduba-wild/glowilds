@@ -7,6 +7,7 @@ featured: true
 pillar: 'Visibility' # its step in the homepage's "One Connected System"
 draft: false
 weight: 1
+description: 'Custom websites, Google Business Profiles, directory listings and social accounts for Parker, CO businesses, built as one clear presence that you own.'
 heroHeading: 'Websites & Google Business Profiles'
 heroSubHeading: 'One clear, well-structured online presence that Google, maps and AI assistants all understand.'
 heroBackground: 'images/hero-services.svg'
@@ -29,3 +30,13 @@ Your business needs to exist online as one clear, consistent "entity": the same 
 ## Already have a site?
 
 We can upgrade what you have instead of starting over: speed it up, fix the structure and mobile layout, and connect it to your listings.
+
+## Common questions
+
+### What is a "digital entity"?
+
+It's how Google, maps and AI assistants understand your business: one name, one set of services, one area and one reputation. When those details match everywhere, they can describe and show your business correctly.
+
+### Who owns the website and accounts?
+
+You do. Your domain, website, Google profile and social accounts are set up in your name, not ours.

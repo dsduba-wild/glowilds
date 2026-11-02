@@ -17,7 +17,7 @@ theme = "hugo-hero-theme"
   google_analytics_id = ""
 
   [params.logo]
-    mobile = "images/logo-mobile.svg"
+    mobile = "images/logo.svg" # hidden by CSS (phones show the full sign); same file as desktop so nothing extra downloads
     mobile_height = "36px"
     mobile_width = "45px"
     desktop = "images/logo.svg"

@@ -30,7 +30,7 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 | Phone, email, hours | `data/contact.yaml` |
 | Social links | `data/social.json` |
 | Brand colors | `assets/scss/_bootstrap-variables.scss` (`$primary`) and the overrides at the bottom of `assets/scss/style.scss` |
-| Logo | `static/images/logo.svg`, `static/images/logo-mobile.svg` |
+| Logo | `static/images/logo.svg` (phones show it too) |
 
 ## Still to fill in
 - Google Business Profile link in `data/contact.yaml` (`googleProfile`): it goes into the business data Google reads

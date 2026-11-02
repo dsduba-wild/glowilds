@@ -1,7 +1,7 @@
 ---
 title: 'How We Handle Your Data'
 seoTitle: 'How We Handle Your Business Data'
-description: 'In plain English: what business data Glow Wild uses when we work for you, who can see it, and what happens to it when we stop working together.'
+description: 'In plain English: what business data Glow Wild uses when we work for you, and what stays yours.'
 date: 2026-11-01
 ---
 
@@ -15,13 +15,9 @@ You own your website, your accounts and your data. We set things up in your name
 
 We use your data to do the work you hired us for, and nothing else. We don't sell it, rent it or share it for advertising.
 
-## Access you control
-
-We ask only for the access a job needs. Where a service allows it, you add us as a user instead of sharing your password, and you can remove us at any time.
-
 ## AI that follows your rules
 
-You decide what an AI helper may say and do, and you can step in at any time. Before we connect a tool, we tell you which outside services it uses and what information it sends them.
+You decide what an AI helper may say and do, and you can step in at any time.
 
 ## Money and records
 
@@ -29,7 +25,7 @@ Automations can log receipts and sales and summarize your cash flow. This is adm
 
 ## When we stop working together
 
-Everything stays with you. We remove our access and hand over anything you still need.
+Your website, accounts and data stay yours.
 
 ## Visitors to this website
 

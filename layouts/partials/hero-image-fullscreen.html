@@ -2,7 +2,6 @@
   <div class="container ">
     <div class="hero-text">
       <h1>{{ .heading }}</h1>
-      {{ with .tagline }}<p class="hero-tagline">{{ . }}</p>{{ end }}
       <p>{{ .subheading }}</p>
       {{ partial "cta.html" "mt-2" }}
     </div>

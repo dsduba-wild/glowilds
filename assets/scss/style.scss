@@ -153,7 +153,6 @@
 // Service icons are CSS backgrounds (decorative); same 40px square the theme gave the img
 .service-summary .service-image { height: 40px; background: center / contain no-repeat; }
 // Homepage: the subline right under the headline, set apart from the intro below it
-.hero-image .hero-text .hero-tagline { font-weight: 600; margin-bottom: .5rem; }
 // Logo: the "Glow Wild" sign at its full drawn size (theme had 120px); phones show the whole sign too, not just the mark
 .logo { display: block; width: 170px; @include media-breakpoint-up(sm) { width: 210px; } }
 .logo-mobile { display: none; }

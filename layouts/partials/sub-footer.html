@@ -11,6 +11,10 @@
             <li><strong>Email: </strong><a href="mailto:{{ hugo.Data.contact.email }}">
                 {{ hugo.Data.contact.email }}</a></li>
               {{ end }}
+            {{/* The towns served, on every page, from data/contact.yaml */}}
+            {{ with hugo.Data.contact.areaServed }}
+            <li><strong>Serving: </strong>{{ delimit . ", " " and " }}</li>
+            {{ end }}
           </ul>
           <ul>
             <li class="zerostatic">© WILD LLC. All rights reserved.</li>

@@ -3,11 +3,15 @@
 <meta property="og:locale" content="en_US">
 {{ $c := hugo.Data.contact }}
 {{ $areas := (apply $c.areaServed "printf" (printf "%%s, %s" $c.region) ".") }}
+{{/* Shared ids, so the business, its founder, website and services point at each other */}}
+{{ $bizId := printf "%s#business" site.BaseURL }}
+{{ $founderId := printf "%sabout/#founder" site.BaseURL }}
 {{ if .IsHome }}
 {{/* Structured data so Google understands who the business is. */}}
 {{ $biz := dict
   "@context" "https://schema.org"
   "@type" "ProfessionalService"
+  "@id" $bizId
   "name" .Site.Title
   "url" .Site.BaseURL
   "logo" ("images/logo-mark.png" | absURL)
@@ -21,7 +25,7 @@
   {{ $biz = merge $biz (dict "telephone" .) }}
 {{ end }}
 {{ with $c.owner }}
-  {{ $biz = merge $biz (dict "founder" (dict "@type" "Person" "name" .)) }}
+  {{ $biz = merge $biz (dict "founder" (dict "@type" "Person" "@id" $founderId "name" .)) }}
 {{ end }}
 {{/* Profiles of this business elsewhere (Google Business Profile, social), so Google ties them together */}}
 {{ $same := slice }}
@@ -53,22 +57,31 @@
   {{ $biz = merge $biz (dict "openingHoursSpecification" .) }}
 {{ end }}
 <script type="application/ld+json">{{ $biz | jsonify | safeJS }}</script>
-<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL | jsonify | safeJS }}</script>
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL "publisher" (dict "@id" $bizId) | jsonify | safeJS }}</script>
 {{ end }}
-{{/* Service and industry pages: a breadcrumb trail; service pages also say what the service is, who provides it and where */}}
+{{/* About page: the founder as a person working for the business */}}
+{{ if eq .RelPermalink "/about/" }}{{ with $c.owner }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "AboutPage" "url" $.Permalink
+  "mainEntity" (dict "@type" "Person" "@id" $founderId "name" . "jobTitle" "Founder" "url" $.Permalink
+    "image" ("images/sergei.webp" | absURL) "worksFor" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title)
+    "homeLocation" (dict "@type" "Place" "name" (printf "%s, %s" $c.city $c.region))) | jsonify | safeJS }}</script>
+{{ end }}{{ end }}
+{{/* Service and industry pages: a breadcrumb trail, then what the service is, who provides it and where (industry pages: for whom) */}}
 {{ if and .IsPage (in (slice "services" "work") .Section) }}
 {{ $section := .CurrentSection }}
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" (slice
   (dict "@type" "ListItem" "position" 1 "name" "Home" "item" site.BaseURL)
   (dict "@type" "ListItem" "position" 2 "name" $section.Title "item" $section.Permalink)
   (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink)) | jsonify | safeJS }}</script>
-{{ if eq .Section "services" }}
-<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Service"
+{{ $svc := dict "@context" "https://schema.org" "@type" "Service"
   "name" .Title
   "serviceType" (.Params.heroHeading | default .Title)
   "description" (.Description | default .Params.heroSubHeading)
   "url" .Permalink
-  "provider" (dict "@type" "ProfessionalService" "name" site.Title "url" site.BaseURL)
-  "areaServed" $areas | jsonify | safeJS }}</script>
+  "provider" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title "url" site.BaseURL)
+  "areaServed" $areas }}
+{{ if eq .Section "work" }}
+  {{ $svc = merge $svc (dict "name" (printf "Websites, AI and automation for %s" .Title) "serviceType" "Websites, AI integration and business automation" "audience" (dict "@type" "BusinessAudience" "name" .Title)) }}
 {{ end }}
+<script type="application/ld+json">{{ $svc | jsonify | safeJS }}</script>
 {{ end }}

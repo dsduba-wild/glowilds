@@ -5,8 +5,6 @@ weight: 4
 background: 'images/process-4.svg'
 phoneBackground: 'images/process-4-phone.svg'
 align: left
-button: 'Book a Free Check-Up'
-buttonLink: 'contact/'
 ---
 
 We keep an eye on things, tune what's working and add new tools as AI keeps changing the game — so your business keeps glowing.

@@ -19,7 +19,7 @@ Nonprofits run on small teams and volunteers who already give more than they hav
 - A clear website with your mission, programs, events and easy donate, volunteer or join buttons
 - Accurate Google and map listings, so people and AI assistants find your hours and locations
 
-## Answer first: [AI Tools]({{< relref "/services/ai-tools" >}})
+## Answer first: [AI Integration]({{< relref "/services/ai-integration" >}})
 
 - An AI assistant that answers "When is the pantry open?", "Where do I drop off donations?" or "How do I join the chamber?" any time
 - Volunteer and member sign-ups collected and sent to the right person

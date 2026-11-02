@@ -1,13 +1,24 @@
 ---
 title: 'Meet the Founder'
-date: 2026-10-29
+date: 2026-11-02
 weight: 2
 background: ''
+# A photo beside the text (above it on phones); photoAlt describes it for screen readers
+photo: 'images/sergei.webp'
+photoAlt: 'Sergei, founder of Glow Wild'
 align: left
 ---
 
-Hi, I’m Sergei. I’ve spent 10 years working every job in business, from the ground floor up to CEO, so I know what it takes to run one day to day.
+Hi, I’m Sergei, founder of Glow Wild.
 
-I formed WILD LLC to buy a business. Right before closing, I found a risk no one else wanted to see and made the hard, unpopular call to walk away. We lost some of what we’d put in, but it saved our investors from losing far more. I kept the company. It became home to my eBay store, Wild Alice (99.4% positive feedback), and now to Glow Wild, its digital arm here in Parker, Colorado.
+I’ve spent 10 years learning how businesses really work, from hands-on operations to executive leadership, and how small problems turn into expensive ones.
 
-I designed the logo myself: a glowing triangle that bends into a “G.” Its three sides stand for what every client gets from me: stability, quality and support. The glow is the goal, helping local businesses shine where people look, on Google and in AI. I do the homework first, set everything up, explain it in plain English, and stick around to keep it working.
+I formed WILD LLC to acquire a business. Just before closing, I uncovered a serious risk and walked away. It wasn’t popular, and it cost us money, but it protected our investors from a much bigger loss. It taught me that **doing the homework matters more than making the sale.**
+
+I kept WILD LLC and built Wild Alice, my eBay store with 99.4% positive feedback, and now Glow Wild, helping businesses here in Parker, Colorado, make better use of websites, AI, and technology.
+
+I designed the logo myself: a glowing triangle shaped into a “G.” Its three sides stand for **stability, quality, and support.** **And the glow? That’s the goal:** helping local businesses stand out and stay competitive.
+
+I start with your business, not the technology. I do the research, explain things in plain English, build what fits, and stick around to make sure it keeps working.
+
+**No unnecessary complexity. Just practical solutions and someone who stands behind the work.**

@@ -340,11 +340,11 @@ def hero_how():
 
 
 def hero_about():
-    """Colorado mountains with a glowing triangle above: stability, quality, support."""
+    """Colorado mountains with a glowing triangle inside the main peak: stability, quality, support."""
     a = f'<path d="M0 640 L170 430 L260 520 L420 300 L560 470 L660 380 L850 640" stroke="{B}"/>'
     a += f'<path d="M370 360 L420 300 L470 362 L440 345 L420 365 L398 345 Z" stroke="{B}" stroke-width="3"/>'
     a += f'<path d="M0 660 H850" stroke="{FAINT}" stroke-width="4"/>'
-    a += f'<path d="M425 130 L540 320 L310 320 Z" stroke="{U}" stroke-width="6"/>'
+    a += f'<path d="M420 385 L500 470 L340 470 Z" stroke="{U}" stroke-width="6"/>'  # the logo's triangle, glowing inside the main peak
     return hero_canvas(a, ((1925, 240, 340, U), (1700, 620, 320, B), (2250, 600, 340, P)))
 
 

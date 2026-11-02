@@ -1,15 +1,16 @@
 ---
-title: 'AI Tools'
-seoTitle: 'AI Receptionist & Custom AI Tools, Parker, CO'
+title: 'AI Integration'
+seoTitle: 'AI Receptionist & AI Integration, Parker, CO'
 date: 2026-10-26
 icon: 'services/icon-chat.svg'
 featured: true
+pillar: 'Intelligence' # its step in the homepage's "One Connected System"
 draft: false
 weight: 2
-heroHeading: 'AI Receptionist & Custom AI Tools'
+heroHeading: 'AI Receptionist & AI Integration'
 heroSubHeading: 'AI built around your business: for your customers, your team and the work in between.'
 heroBackground: 'images/hero-services.svg'
-aliases: ['/services/ai-front-desk/']
+aliases: ['/services/ai-front-desk/', '/services/ai-tools/']
 ---
 
 If a task repeats, takes your time or slips through the cracks, AI can probably help. We build AI tools around how your business runs: proven helpers for the common jobs, or something custom for the one only you have.

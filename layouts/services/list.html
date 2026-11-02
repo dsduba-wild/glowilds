@@ -1,0 +1,31 @@
+{{ define "header_css" }}{{ end }}
+{{ define "body_classes" }}page-services-list{{ end }}
+{{ define "header_classes" }}{{ end }}
+
+{{ define "main" }}
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .)}}
+
+{{/* One row per service: what it is, its plain-words heading, its first paragraph and a link to the full list */}}
+<div class="container pt-6 pt-md-10">
+  {{ range .Pages.ByWeight }}
+  <div class="service-detail wild-{{ mod (sub .Weight 1) 4 }}">
+    {{ with .Params.pillar }}<p class="service-pillar">{{ . }}</p>{{ end }}
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Params.heroHeading }}<span class="service-detail-sub">{{ . }}</span>{{ end }}</h2>
+    <p class="service-detail-lead">{{ .Params.heroSubHeading }}</p>
+    {{ with findRE `(?s)<p>.*?</p>` .Content 1 }}{{ index . 0 | safeHTML }}{{ end }}
+    <a href="{{ .RelPermalink }}">See what’s included<span class="visually-hidden"> in {{ .Title }}</span> →</a>
+  </div>
+  {{ end }}
+</div>
+
+{{ with .Content }}
+<div class="container pb-6 pb-md-10">
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      <div class="content">{{ . }}</div>
+      {{ partial "cta.html" "mt-2" }}
+    </div>
+  </div>
+</div>
+{{ end }}
+{{ end }}

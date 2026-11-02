@@ -7,4 +7,4 @@ phoneBackground: 'images/process-2-phone.svg'
 align: left
 ---
 
-We build only what you need: your digital entity, AI tools, operations automation — or all of it. You see everything before it goes live.
+We build only what you need: your digital entity, AI integration, operations automation — or all of it. You see everything before it goes live.

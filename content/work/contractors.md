@@ -20,7 +20,7 @@ Every call you miss on a ladder is a job that goes to whoever answers first, and
 - A website with a project gallery, service area and a quote form that asks for photos up front
 - A Google Business Profile that shows up when people nearby search for your trade, in every neighborhood you serve
 
-## Answer first: [AI Tools]({{< relref "/services/ai-tools" >}})
+## Answer first: [AI Integration]({{< relref "/services/ai-integration" >}})
 
 - Instant text-back for every missed call
 - An AI assistant that answers "Do you bring supplies?" or "Can you haul a couch today?" and books estimates or pickups

@@ -154,5 +154,61 @@
 @media (max-width: 767.98px) { .hero-image[style*=".svg"] { background-position: 15% center; } }
 // Service icons are CSS backgrounds (decorative); same 40px square the theme gave the img
 .service-summary .service-image { height: 40px; background: center / contain no-repeat; }
-// Homepage: what we do and where, as a small first line of the H1 so search engines read it with the slogan
-.hero-image .hero-text .hero-topic { display: block; font-size: 1.1rem; font-weight: 400; text-transform: uppercase; letter-spacing: .08em; margin-bottom: .75rem; }
+// Homepage: the subline right under the headline, set apart from the intro below it
+.hero-image .hero-text .hero-tagline { font-weight: 600; margin-bottom: .5rem; }
+// Logo: the "Glow Wild" sign at its full drawn size (theme had 120px); phones show the whole sign too, not just the mark
+.logo { display: block; width: 170px; @include media-breakpoint-up(sm) { width: 210px; } }
+.logo-mobile { display: none; }
+// Phones: larger body and card text (theme set much of it at 14-15px)
+@media (max-width: 767.98px) {
+  body { font-size: 1.0625rem; }
+  .service-summary .service-content p, .work-summary .work-content p, .footer ul li, .sub-footer .sub-footer-inner ul li { font-size: 1rem; }
+  .button { font-size: 16px; }
+}
+.visually-hidden { @include visually-hidden(); }
+// Service step label ("Visibility", ...) and the homepage line joining them, in each service's WILD color
+.service-pillar { text-transform: uppercase; letter-spacing: .1em; font-size: .8rem !important; font-weight: 700; margin-bottom: 0; }
+.system-flow { font-size: 1.25rem; font-weight: 700; }
+@each $i, $c in (0: $wild-green-deep, 1: $wild-pink-deep, 2: $wild-blue-deep, 3: $wild-purple-deep) {
+  .service-summary.wild-#{$i} .service-pillar, .service-detail.wild-#{$i} .service-pillar, .system-flow .wild-#{$i} { color: $c !important; }
+  .service-detail.wild-#{$i} { border-left: 4px solid $c; h2 a { color: $c; } }
+  .example-card.wild-#{$i} { border-top: 4px solid $c; .example-label { color: $c; } }
+}
+// Services page: one block per service
+.service-detail {
+  padding: 4px 0 4px 20px; margin-bottom: 40px;
+  h2 { font-size: 1.75rem; margin-bottom: 4px; }
+  .service-detail-sub { display: block; font-size: 1rem; font-weight: 400; color: #555; margin-top: 4px; }
+  .service-detail-lead { font-weight: 600; }
+}
+// Homepage examples
+.example-card {
+  height: 100%; padding: 24px; background: #f5f6fb; border-radius: 0 0 12px 12px;
+  .example-label { text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; font-weight: 700; margin-bottom: 6px; }
+  ol { padding-left: 20px; list-style: decimal; }
+  li { margin-bottom: 6px; }
+  .example-result { font-weight: 600; }
+  a { text-decoration: underline; }
+}
+// Markdown tables (services explainer, sample check-up)
+.content table { width: 100%; margin: 16px 0 24px; border-collapse: collapse; font-size: .95rem; }
+.content th, .content td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid #d5d8ea; }
+.content thead th { border-bottom: 2px solid $primary; }
+// Who We Help list: the whole page dark like its banner and card pictures; titles in the neon colors
+.page-work-list {
+  .wrapper { background: #060818; }
+  .work-summary .work-content { background: #0d1030; }
+  .work-summary .work-content p, .work-summary .work-content { color: #e8e9f5; }
+}
+@each $i, $c in (0: $wild-green, 1: $wild-pink, 2: $wild-blue, 3: $wild-purple) {
+  .page-work-list .work-summary.wild-#{$i} .work-title a { color: $c; }
+  .page-work-list .work-summary.wild-#{$i} .work-content { border-bottom-color: $c; }
+}
+// About strips with a `photo`: above the text on phones, beside it on desktop (a reversed row puts it on the right).
+// Its background is painted the strip's navy, so it blends in without a frame; on desktop it may run under the text's edge
+.strip-photo { margin-bottom: 24px; img { display: block; width: 100%; max-width: 340px; height: auto; } }
+@media (min-width: 768px) {
+  .row:has(> .strip-photo) { flex-direction: row-reverse; align-items: center; }
+  .strip-photo { margin-bottom: 0; img { max-width: none; width: 120%; margin-left: -20%; } }
+  .strip-photo + div { position: relative; z-index: 1; }
+}

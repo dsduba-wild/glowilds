@@ -4,6 +4,7 @@ seoTitle: 'Booking, Reminder & Receipt Automation, Parker, CO'
 date: 2026-10-26
 icon: 'services/icon-receipt.svg'
 featured: true
+pillar: 'Automation' # its step in the homepage's "One Connected System"
 draft: false
 weight: 3
 heroHeading: 'Booking, Reminder & Receipt Automation'
@@ -23,3 +24,24 @@ Most small business owners lose hours every week to admin, and know their money 
 5. Clean records for your bookkeeper or accountant at tax time
 
 No new software to learn: you use the phone you already carry.
+
+## Who does what
+
+**Runs on its own**
+
+- Logging the receipts and sales you send in
+- The weekly cash-flow summary
+- Reminders and follow-up texts, on the schedule you set
+
+**Waits for your OK**
+
+- Quotes and invoices, before they go to a customer
+- New message templates, and any change to what gets sent automatically
+
+**Stays with you**
+
+- Paying bills and moving money
+- Your prices, discounts and refunds
+- Your taxes and your final books
+
+This is admin help, not accounting or tax advice. The summaries help you see where your money goes; your bookkeeper or accountant still keeps your books and handles your taxes.

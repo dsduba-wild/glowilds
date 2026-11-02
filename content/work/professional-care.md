@@ -19,7 +19,7 @@ People choose a lawyer, counselor or care provider on trust, and they check you 
 - A clear, professional website: your practice areas or services, your team and how to get started
 - Accurate profiles on Google and the directories your clients use, so AI assistants describe you correctly
 
-## Answer first: [AI Tools]({{< relref "/services/ai-tools" >}})
+## Answer first: [AI Integration]({{< relref "/services/ai-integration" >}})
 
 - An AI assistant that answers general questions (hours, location, services, insurance or fee basics) and books consultations
 - Set up to collect only the intake details you choose, and never to give legal, medical or counseling advice

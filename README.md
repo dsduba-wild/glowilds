@@ -14,8 +14,13 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 ## Where to edit things
 | What | File |
 |---|---|
-| Home hero headline | `content/_index.md` |
-| Home sections | `content/homepage/work.md`, `content/homepage/about.md` |
+| Home hero headline and subline | `content/_index.md` |
+| Home "One Connected System" labels | `pillar` in each `content/services/*.md` |
+| Home "What This Looks Like" examples | `data/examples.yaml` (demonstrations, labeled as examples) |
+| Home closing section | `content/homepage/about.md` |
+| Sample check-up report | `content/sample-check-up.md` |
+| How We Handle Your Data | `content/your-data.md` |
+| Services page "one-time vs ongoing" | `content/services/_index.md` |
 | Services (4) | `content/services/*.md` |
 | Who We Help (industries) | `content/work/*.md` |
 | How It Works (4 steps) | `content/pages/process/content1-4.md` |
@@ -31,5 +36,5 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 - Google Business Profile link in `data/contact.yaml` (`googleProfile`): it goes into the business data Google reads
 - Social links in `data/social.json` (empty for now): each entry needs `name`, `link` and `image` (an SVG you add under `static/social/`)
 - Customer quotes in `data/testimonials.yaml` (real ones only; the homepage section is hidden until there's one)
-- A photo of Sergei for the About page (`content/pages/about/content2.md`)
+- Photos of real people for the service pages (they all use the same drawn banner now)
 - Swap the generated background images in `static/` for real photos whenever you have them

@@ -4,6 +4,7 @@ seoTitle: 'Websites & Google Business Profiles, Parker, CO'
 date: 2026-10-26
 icon: 'services/icon-website.svg'
 featured: true
+pillar: 'Visibility' # its step in the homepage's "One Connected System"
 draft: false
 weight: 1
 heroHeading: 'Websites & Google Business Profiles'

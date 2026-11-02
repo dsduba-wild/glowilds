@@ -5,44 +5,50 @@
 
 {{ define "main" }}
 
-{{ partial "hero-image-fullscreen.html" (dict "background" .Params.heroBackground "topic" .Params.heroTopic "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .)}}
-
-{{ $headless := .Site.GetPage "/homepage" }}
-{{ $reusablePages := $headless.Resources.ByType "page" }}
-{{ $reusablePages := sort $reusablePages ".Params.weight" }}
-{{ range first 1 $reusablePages }}
-{{ $phone := .Params.phoneBackground }}
-<div class="strip bg-cover bg-position-top bg-overlay wild-0"{{ with .Params.background }} style="background-image: url('{{ . | relURL }}');{{ with $phone }} --bg-phone: url('{{ . | relURL }}');{{ end }}"{{ end }}>
-  <div class="container pt-17 pb-17">
-    <div class="row">
-      <div class="col-12 col-md-6 offset-md-6">
-        <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
-        {{ .Content }}
-        <a class="button" href="{{ .Params.buttonLink | relURL }}">{{ .Params.button }}</a>
-      </div>
-    </div>
-  </div>
-</div>
-{{ end }}
+{{ partial "hero-image-fullscreen.html" (dict "background" .Params.heroBackground "tagline" .Params.heroTagline "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .)}}
 
 {{ $services := where (where .Site.RegularPages "Type" "services") ".Params.featured" true }}
 {{if gt (len $services) 0}}
 <div class="container pt-8 pb-8 pb-md-14 pt-md-14">
   <div class="row justify-content-start">
-    <div class="col-12">
-      <h2 class="text-center mb-3">{{ with .Site.GetPage "/services/" }}{{ .Title | default "Our Services" }}{{ end }}</h2>
+    <div class="col-12 text-center mb-3">
+      <h2>One Connected System</h2>
+      {{/* The four services as steps of one system: each card's `pillar` from its front matter */}}
+      <p class="system-flow">{{ range $i, $s := sort $services ".Params.weight" }}{{ if $i }}<span aria-hidden="true"> → </span>{{ end }}<span class="wild-{{ mod (sub $s.Weight 1) 4 }}">{{ $s.Params.pillar }}</span>{{ end }}</p>
+      <p>Customers find you, smart tools answer them, the admin runs itself, and we keep improving what works. Each service feeds the next.</p>
     </div>
     {{ range first 4 (sort $services ".Params.weight") }}
     <div class="col-12 col-md-6 mb-1">
       {{ .Render "summary" }}
     </div>
     {{ end }}
-    <div class="col-12 text-center">
-      <a class="button button-primary" href="{{ .Site.BaseURL }}services/">View All Services</a>
-    </div>
   </div>
 </div>
 {{end}}
+
+{{/* Demonstrations, not client results: data/examples.yaml */}}
+{{ with hugo.Data.examples }}
+<div class="container pb-8 pb-md-14">
+  <div class="row">
+    <div class="col-12 text-center mb-3">
+      <h2>What This Looks Like</h2>
+      <p>Three examples of how it works day to day. These are demonstrations, not client stories.</p>
+    </div>
+    {{ range $i, $e := . }}
+    <div class="col-12 col-lg-4 mb-3">
+      <div class="example-card wild-{{ mod $i 4 }}">
+        <p class="example-label">Example</p>
+        <h3 class="h4">{{ $e.title }}</h3>
+        <p>{{ $e.problem }}</p>
+        <ol>{{ range $e.steps }}<li>{{ . }}</li>{{ end }}</ol>
+        <p class="example-result">{{ $e.result }}</p>
+        {{ with $e.link }}<a href="{{ .url | relURL }}">{{ .text }}</a>{{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
 
 {{ with hugo.Data.testimonials }}
 <div class="container pb-8 pb-md-14">
@@ -60,7 +66,8 @@
 </div>
 {{ end }}
 
-{{ range first 1 (after 1 $reusablePages) }}
+{{ $headless := .Site.GetPage "/homepage" }}
+{{ range sort ($headless.Resources.ByType "page") ".Params.weight" }}
 <div class="strip bg-primary bg-cover bg-position-top bg-overlay"{{ with .Params.background }} style='background-image: url("{{ . | relURL }}");'{{ end }}>
   <div class="container pt-8 pb-8 pb-md-12 pt-md-12">
     <div class="row justify-content-center">

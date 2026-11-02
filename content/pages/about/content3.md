@@ -8,4 +8,4 @@ button: 'Book a Free Check-Up'
 buttonLink: 'contact/'
 ---
 
-Want to see what I’d do for your business? Email [hello@glowilds.com](mailto:hello@glowilds.com).
+Let’s find the wasted time, missed opportunities and operational problems in your business. Book a free check-up, and I’ll call you back personally.

@@ -19,7 +19,7 @@ Your shop wins on community and personality, but the work doesn't stop at closin
 - A website that shows off your store, events and what makes you different
 - Google and Apple Maps listings with up-to-date hours, photos and products
 
-## Answer first: [AI Tools]({{< relref "/services/ai-tools" >}})
+## Answer first: [AI Integration]({{< relref "/services/ai-integration" >}})
 
 - An AI assistant that answers "Are you open Sunday?" and "Do you carry this?" day and night
 

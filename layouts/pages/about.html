@@ -11,9 +11,15 @@
 {{ range $i, $_ := $subpages }}
 {{ $phone := .Params.phoneBackground }}
 <div class="strip bg-cover bg-position-top bg-overlay wild-{{ mod $i 4 }} align-{{ .Params.align | default "left" }}"{{ with .Params.background }} style="background-image: url('{{ . | relURL }}');{{ with $phone }} --bg-phone: url('{{ . | relURL }}');{{ end }}"{{ end }}>
-  <div class="container pt-17 pb-17">
+  {{/* Tall padding only where a background picture needs the room; text and photo strips sit closer together */}}
+  <div class="container {{ if .Params.background }}pt-17 pb-17{{ else }}pt-6 pb-6{{ end }}">
     <div class="row">
-      <div class="col-12 col-md-6 {{ if eq .Params.align "right" }}offset-md-6{{ end }}">
+      {{ if .Params.photo }}
+      <div class="col-12 col-md-6 strip-photo">
+        <img src="{{ .Params.photo | relURL }}" alt="{{ .Params.photoAlt }}" width="840" height="840" loading="lazy" decoding="async">
+      </div>
+      {{ end }}
+      <div class="col-12 col-md-6 {{ if and (eq .Params.align "right") (not .Params.photo) }}offset-md-6{{ end }}">
         <h2 class="text-primary text-capitalize">{{ .Title }}</h2>
         {{ .Content }}
         {{ if .Params.button }}

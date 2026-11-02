@@ -1,9 +1,10 @@
 <link rel="canonical" href="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:locale" content="en_US">
+{{ $c := hugo.Data.contact }}
+{{ $areas := (apply $c.areaServed "printf" (printf "%%s, %s" $c.region) ".") }}
 {{ if .IsHome }}
 {{/* Structured data so Google understands who the business is. */}}
-{{ $c := hugo.Data.contact }}
 {{ $biz := dict
   "@context" "https://schema.org"
   "@type" "ProfessionalService"
@@ -14,7 +15,7 @@
   "description" .Description
   "email" $c.email
   "address" (dict "@type" "PostalAddress" "addressLocality" $c.city "addressRegion" $c.region "addressCountry" "US")
-  "areaServed" (apply $c.areaServed "printf" (printf "%%s, %s" $c.region) ".")
+  "areaServed" $areas
 }}
 {{ with $c.phone }}
   {{ $biz = merge $biz (dict "telephone" .) }}
@@ -62,13 +63,12 @@
   (dict "@type" "ListItem" "position" 2 "name" $section.Title "item" $section.Permalink)
   (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink)) | jsonify | safeJS }}</script>
 {{ if eq .Section "services" }}
-{{ $c := hugo.Data.contact }}
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Service"
   "name" .Title
   "serviceType" (.Params.heroHeading | default .Title)
   "description" (.Description | default .Params.heroSubHeading)
   "url" .Permalink
   "provider" (dict "@type" "ProfessionalService" "name" site.Title "url" site.BaseURL)
-  "areaServed" (apply $c.areaServed "printf" (printf "%%s, %s" $c.region) ".") | jsonify | safeJS }}</script>
+  "areaServed" $areas | jsonify | safeJS }}</script>
 {{ end }}
 {{ end }}

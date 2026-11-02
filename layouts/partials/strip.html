@@ -1,0 +1,22 @@
+{{/* One full-width section (About and How It Works steps, Who We Help industries). Takes: p (the page), i (its index, for the WILD color), body, button, link */}}
+{{ $p := .p }}
+{{ $phone := $p.Params.phoneBackground }}
+<div class="strip bg-cover bg-position-top bg-overlay wild-{{ mod .i 4 }} align-{{ $p.Params.align | default "left" }}"{{ with $p.Params.background }} style="background-image: url('{{ . | relURL }}');{{ with $phone }} --bg-phone: url('{{ . | relURL }}');{{ end }}"{{ end }}>
+  {{/* Tall padding only where a background picture needs the room; text and photo strips sit closer together */}}
+  <div class="container {{ if $p.Params.background }}pt-17 pb-17{{ else }}pt-6 pb-6{{ end }}">
+    <div class="row">
+      {{ if $p.Params.photo }}
+      <div class="col-12 col-md-6 strip-photo">
+        <img src="{{ $p.Params.photo | relURL }}" alt="{{ $p.Params.photoAlt }}" width="680" height="680" decoding="async">
+      </div>
+      {{ end }}
+      <div class="col-12 col-md-6 {{ if and (eq $p.Params.align "right") (not $p.Params.photo) }}offset-md-6{{ end }}">
+        <h2 class="text-primary text-capitalize">{{ $p.Title }}</h2>
+        {{ .body }}
+        {{ with .button }}
+          <a class="button" href="{{ $.link | relURL }}">{{ . }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</div>

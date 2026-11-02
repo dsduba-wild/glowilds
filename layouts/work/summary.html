@@ -1,8 +1,0 @@
-<div class="work work-summary wild-{{ mod (sub .Weight 1) 4 }}">
-  <div class="work-content">
-    <h2 class="work-title">
-      <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </h2>
-    {{ .Summary | plainify | truncate 120 }}
-  </div>
-</div>

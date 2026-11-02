@@ -4,6 +4,7 @@
 How It Works: each step's drawing lives in a 1000x500 box, written twice:
   static/images/process-N.svg        wide (2000x714): drawing filling the half opposite the text, for desktop
   static/images/process-N-phone.svg  2:1 (1000x500): drawing alone, shown above the text on phones
+Who We Help: one drawing per industry, written the same two ways as static/images/work-<page>.svg and work-<page>-phone.svg
 Page banners: 2400x800, art on the right so the heading on the left stays readable:
   static/images/hero-<page>.svg, plus hero-<page>.jpg for link previews (social apps do not show SVG; needs ImageMagick)
 Run from the repo root: python3 design/drawings.py
@@ -41,6 +42,15 @@ def tool(cx, cy, color, icon, text, ty):
             + label(cx, cy + ty, text, color))
 
 
+def corners(*badges):
+    """Four tool badges in the corners (top left, bottom left, top right, bottom right), each wired to a point (mx, my) on the picture."""
+    s = []
+    for (cx, cy), (color, icon, text, mx, my) in zip(((150, 130), (150, 370), (850, 130), (850, 370)), badges):
+        s.append(f'<path d="M{cx + (34 if cx < 500 else -34)} {cy} L{mx} {my}" stroke="{color}" stroke-width="2" stroke-dasharray="4 5"/>')
+        s.append(tool(cx, cy, color, icon, text, 58))
+    return "".join(s)
+
+
 MAGNIFIER = '<circle cx="-5" cy="-5" r="11"/><path d="M3 3l11 11"/>'
 WRENCH = '<path d="M-12 12l14-14M2-2a9 9 0 1 0 8-12l-6 6-5-5 6-6a9 9 0 0 0-12 8"/>'
 STAR = '<path d="M0-15l4.5 9.5 10.5 1.5-7.5 7 2 10.5L0 8.5l-9.5 5 2-10.5-7.5-7 10.5-1.5z"/>'
@@ -48,6 +58,10 @@ CHAT = '<path d="M-15-11h30v19h-16l-9 8v-8h-5z"/><path d="M-7-2h0M0-2h0M7-2h0"/>
 GEAR = ('<circle r="7"/><path d="M0-17v6M0 11v6M-17 0h6M11 0h6M-12-12l4 4M8 8l4 4M-12 12l4-4M8-8l4-4"/>')
 CHECK = '<path d="M-12 1l8 8 16-17"/>'
 PLAY = '<path d="M-7-11l18 11-18 11z"/>'
+PHONE = '<path d="M-13-13l7-3 5 9-4 4c2 5 5 8 10 10l4-4 9 5-3 7c-15 2-30-13-28-28z"/>'
+CALENDAR = '<rect x="-14" y="-12" width="28" height="26" rx="3"/><path d="M-14-4H14M-7-17v8M7-17v8"/>'
+HEART = '<path d="M0 13C-22-2-14-20-3-12L0-9l3-3C14-20 22-2 0 13z"/>'
+PEOPLE = '<circle cx="-7" cy="-8" r="5"/><circle cx="8" cy="-8" r="5"/><path d="M-17 13c0-12 20-12 20 0M-2 13c0-12 20-12 20 0"/>'
 
 
 def step1():
@@ -65,14 +79,8 @@ def step1():
     for x, y in ((340, 360), (470, 210), (600, 230), (660, 150)):
         s.append(f'<path d="M{x} {y} c-12-16-12-30 0-30 s12 14 0 30z" fill="#060818" stroke="{P}" stroke-width="3"/><circle cx="{x}" cy="{y-20}" r="4" fill="{P}"/>')
     # tools clipped on, with leader lines to the map
-    for (cx, cy, color, icon, text, ty, mx, my) in (
-        (150, 130, G, MAGNIFIER, "GOOGLE", 58, 290, 160),
-        (150, 370, P, WRENCH, "DAILY OPS", 58, 290, 350),
-        (850, 130, U, STAR, "REVIEWS", 58, 710, 150),
-        (850, 370, B, CHAT, "CALLS", 58, 710, 340),
-    ):
-        s.append(f'<path d="M{cx + (34 if cx < 500 else -34)} {cy} L{mx} {my}" stroke="{color}" stroke-width="2" stroke-dasharray="4 5"/>')
-        s.append(tool(cx, cy, color, icon, text, ty))
+    s.append(corners((G, MAGNIFIER, "GOOGLE", 290, 160), (P, WRENCH, "DAILY OPS", 290, 350),
+                     (U, STAR, "REVIEWS", 710, 150), (B, CHAT, "CALLS", 710, 340)))
     return "".join(s)
 
 
@@ -155,6 +163,67 @@ def step4():
     s.append(f'<path d="M180 410 V370 M180 385 C160 380 155 365 160 355 C175 360 180 372 180 385 M180 375 C195 365 205 350 200 340 C188 345 180 358 180 375" fill="none" stroke="{G}" stroke-width="3" stroke-linecap="round"/>')
     for x, t, c in ((280, "CALLS", G), (425, "REVIEWS", P), (570, "BOOKINGS", B), (715, "TIME BACK", U)):
         s.append(label(x, 440, t, c))
+    return "".join(s)
+
+
+# ---- Who We Help: one scene per industry, the place in the middle and what we take off their plate in the corners ----
+
+def ground():
+    return f'<path d="M250 432 H750" stroke="{FAINT}" stroke-width="5"/>'
+
+
+def contractors():
+    """A house with a ladder against it."""
+    s = [ground()]
+    s.append(f'<path d="M330 240 L500 115 L670 240" fill="none" stroke="{B}" stroke-width="3" stroke-linejoin="round"/>')
+    s.append(f'<path d="M360 220 V432 H640 V220" fill="none" stroke="{B}" stroke-width="3"/>')
+    s.append(f'<rect x="470" y="340" width="60" height="92" fill="none" stroke="{P}" stroke-width="3"/>')
+    s.append(f'<rect x="390" y="270" width="55" height="50" fill="none" stroke="{U}" stroke-width="3"/><path d="M417 270 V320 M390 295 H445" stroke="{U}" stroke-width="2"/>')
+    s.append(f'<path d="M585 432 L640 190 M625 432 L680 190" stroke="{G}" stroke-width="3"/>'
+             + "".join(f'<path d="M{590 + i * 9} {410 - i * 40} H{630 + i * 9}" stroke="{G}" stroke-width="3"/>' for i in range(6)))
+    s.append(corners((P, PHONE, "TEXT-BACK", 360, 260), (G, WRENCH, "QUOTES", 360, 400),
+                     (U, STAR, "REVIEWS", 640, 220), (B, CALENDAR, "BOOKING", 640, 400)))
+    return "".join(s)
+
+
+def local_shops():
+    """A storefront with an awning and an open sign."""
+    s = [ground()]
+    s.append(f'<rect x="340" y="190" width="320" height="242" fill="none" stroke="{P}" stroke-width="3"/>')
+    s.append(f'<path d="M325 190 H675" stroke="{P}" stroke-width="3"/>' + "".join(
+        f'<path d="M{340 + i * 64} 190 v24 a32 32 0 0 0 64 0 v-24" fill="none" stroke="{P}" stroke-width="3"/>' for i in range(5)))
+    s.append(f'<rect x="370" y="270" width="150" height="110" fill="none" stroke="{B}" stroke-width="3"/>')
+    s.append(f'<rect x="555" y="270" width="75" height="162" fill="none" stroke="{U}" stroke-width="3"/>')
+    s.append(f'<rect x="395" y="300" width="100" height="40" rx="8" fill="none" stroke="{G}" stroke-width="3"/>' + label(445, 328, "OPEN", G))
+    s.append(f'<rect x="400" y="135" width="200" height="40" rx="6" fill="none" stroke="{U}" stroke-width="3"/>' + label(500, 163, "MAIN ST", U))
+    s.append(corners((G, MAGNIFIER, "GOOGLE", 340, 230), (B, CHAT, "QUESTIONS", 340, 400),
+                     (P, HEART, "SOCIAL", 660, 230), (U, STAR, "REVIEWS", 660, 400)))
+    return "".join(s)
+
+
+def professional_care():
+    """An office with columns: lawyers, clinics and care teams people choose on trust."""
+    s = [ground()]
+    s.append(f'<path d="M340 205 L500 120 L660 205 Z" fill="none" stroke="{B}" stroke-width="3" stroke-linejoin="round"/>')
+    s.append(f'<path d="M350 222 H650 M340 416 H660" stroke="{B}" stroke-width="3"/>')
+    s.append("".join(f'<rect x="{372 + i * 72}" y="238" width="28" height="170" rx="4" fill="none" stroke="{U}" stroke-width="3"/>' for i in range(4)))
+    s.append(f'<g transform="translate(500,170) scale(.9)" stroke="{P}" stroke-width="3" fill="none" stroke-linejoin="round">{HEART}</g>')
+    s.append(corners((P, CHAT, "INTAKE", 345, 215), (G, CALENDAR, "SCHEDULING", 340, 410),
+                     (U, CHECK, "REMINDERS", 655, 215), (B, STAR, "TRUST", 660, 410)))
+    return "".join(s)
+
+
+def nonprofits():
+    """A community hall with people out front."""
+    s = [ground()]
+    s.append(f'<path d="M350 432 V260 L500 165 L650 260 V432" fill="none" stroke="{U}" stroke-width="3" stroke-linejoin="round"/>')
+    s.append(f'<path d="M500 165 V115 M482 133 H518" stroke="{U}" stroke-width="3"/>')
+    s.append(f'<path d="M470 432 V370 a30 30 0 0 1 60 0 V432" fill="none" stroke="{B}" stroke-width="3"/>')
+    s.append(f'<g transform="translate(500,280) scale(1.3)" stroke="{P}" stroke-width="2.5" fill="none" stroke-linejoin="round">{HEART}</g>')
+    for x, c in ((395, G), (430, B), (570, P), (605, G)):
+        s.append(f'<circle cx="{x}" cy="378" r="10" fill="none" stroke="{c}" stroke-width="3"/><path d="M{x - 17} 428 c0-30 34-30 34 0" fill="none" stroke="{c}" stroke-width="3"/>')
+    s.append(corners((P, HEART, "DONATE", 355, 255), (B, PEOPLE, "VOLUNTEERS", 350, 400),
+                     (G, CALENDAR, "EVENTS", 645, 255), (U, PHONE, "CALLS", 650, 400)))
     return "".join(s)
 
 
@@ -253,24 +322,27 @@ def hero_contact():
 
 HEROES = {"services": hero_services, "who-we-help": hero_who, "how-it-works": hero_how, "about": hero_about, "contact": hero_contact}
 
-STEPS = {1: step1, 2: step2, 3: step3, 4: step4}
+# picture name -> (drawing, content file whose `align:` decides the side)
+SCENES = {f"process-{n}": (f, f"content/pages/process/content{n}.md") for n, f in ((1, step1), (2, step2), (3, step3), (4, step4))}
+SCENES |= {f"work-{f.__name__.replace('_', '-')}": (f, f"content/work/{f.__name__.replace('_', '-')}.md")
+           for f in (contractors, local_shops, professional_care, nonprofits)}
 
 
-def picture_side(n):
-    """The drawing goes opposite the step's text, so read `align:` from its content file (text is left unless it says right)."""
-    m = re.search(r"^align:\s*['\"]?(\w+)", Path(f"content/pages/process/content{n}.md").read_text(), re.M)
+def picture_side(path):
+    """The drawing goes opposite the page's text, so read `align:` from its content file (text is left unless it says right)."""
+    m = re.search(r"^align:\s*['\"]?(\w+)", Path(path).read_text(), re.M)
     return "left" if m and m.group(1) == "right" else "right"
 
 if __name__ == "__main__":
     out = Path("static/images")
-    for n, draw in STEPS.items():
-        side = picture_side(n)
+    for name, (draw, page) in SCENES.items():
+        side = picture_side(page)
         d = drawing(draw())
-        (out / f"process-{n}-phone.svg").write_text(svg(1000, 500, d))
+        (out / f"{name}-phone.svg").write_text(svg(1000, 500, d))
         # wide version: the drawing fills one half; the picture is scaled to the section's height on desktop
         x = 0 if side == "left" else 1000
-        (out / f"process-{n}.svg").write_text(svg(2000, 714, f'<g transform="translate({x},107)">{d}</g>'))
-        print(f"process-{n}.svg, process-{n}-phone.svg (drawing on the {side})")
+        (out / f"{name}.svg").write_text(svg(2000, 714, f'<g transform="translate({x},107)">{d}</g>'))
+        print(f"{name}.svg, {name}-phone.svg (drawing on the {side})")
     for name, draw in HEROES.items():
         out_svg = Path("static/images") / f"hero-{name}.svg"
         out_svg.write_text(svg(2400, 800, draw(), fade=(850, 800)))

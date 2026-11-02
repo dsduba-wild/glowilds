@@ -7,6 +7,9 @@ weight: 1
 heroHeading: 'Contractors & Home Services'
 heroSubHeading: 'Construction, remodeling, painting, roofing, landscaping, junk removal, cleaning and more.'
 heroBackground: 'work/contractors.webp'
+background: 'images/work-contractors.svg'
+phoneBackground: 'images/work-contractors-phone.svg'
+align: right
 aliases: ['/work/junk-removal/', '/work/cleaning/']
 ---
 

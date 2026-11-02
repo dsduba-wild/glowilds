@@ -33,7 +33,6 @@
 @import 'pages/services/page-services-list';
 @import 'pages/services/page-services-single';
 @import 'pages/services/service-summary';
-@import 'pages/work/work-summary';
 @import 'pages/work/page-work-single';
 
 // Display breakpoints for DEV
@@ -133,10 +132,9 @@
   footer { font-weight: 600; font-size: 0.9rem; }
 }
 .opening-hours-table th { text-align: left; }
-// Service and Who We Help cards, and links to a service, take a WILD letter color by weight: 1 green, 2 pink, 3 blue, 4 purple
+// Service cards and links to a service take a WILD letter color by weight: 1 green, 2 pink, 3 blue, 4 purple
 @each $i, $c in (0: $wild-green-deep, 1: $wild-pink-deep, 2: $wild-blue-deep, 3: $wild-purple-deep) {
-  .service-summary.wild-#{$i} .service-title a, .work-summary.wild-#{$i} .work-title a, .content a.wild-#{$i} { color: $c; }
-  .work-summary.wild-#{$i} .work-content { border-bottom: 3px solid $c; }
+  .service-summary.wild-#{$i} .service-title a, .content a.wild-#{$i} { color: $c; }
 }
 // Keyboard users: hidden until focused with Tab, then shown at the top left
 .skip-link {
@@ -162,7 +160,7 @@
 // Phones: larger body and card text (theme set much of it at 14-15px)
 @media (max-width: 767.98px) {
   body { font-size: 1.0625rem; }
-  .service-summary .service-content p, .work-summary .work-content p, .footer ul li, .sub-footer .sub-footer-inner ul li { font-size: 1rem; }
+  .service-summary .service-content p, .footer ul li, .sub-footer .sub-footer-inner ul li { font-size: 1rem; }
   .button { font-size: 16px; }
 }
 .visually-hidden { @include visually-hidden(); }
@@ -194,16 +192,8 @@
 .content table { width: 100%; margin: 16px 0 24px; border-collapse: collapse; font-size: .95rem; }
 .content th, .content td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid #d5d8ea; }
 .content thead th { border-bottom: 2px solid $primary; }
-// Who We Help list: the whole page dark like its banner and card pictures; titles in the neon colors
-.page-work-list {
-  .wrapper { background: #060818; }
-  .work-summary .work-content { background: #0d1030; }
-  .work-summary .work-content p, .work-summary .work-content { color: #e8e9f5; }
-}
-@each $i, $c in (0: $wild-green, 1: $wild-pink, 2: $wild-blue, 3: $wild-purple) {
-  .page-work-list .work-summary.wild-#{$i} .work-title a { color: $c; }
-  .page-work-list .work-summary.wild-#{$i} .work-content { border-bottom-color: $c; }
-}
+// Who We Help list: the whole page dark, like its banner and drawings
+.page-work-list .wrapper { background: #060818; }
 // About strips with a `photo`: above the text on phones, beside it on desktop (a reversed row puts it on the right).
 // Its background is painted the strip's navy, so it blends in without a frame; on desktop it may run under the text's edge
 .strip-photo { margin-bottom: 24px; img { display: block; width: 100%; max-width: 340px; height: auto; } }

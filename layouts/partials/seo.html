@@ -54,3 +54,21 @@
 <script type="application/ld+json">{{ $biz | jsonify | safeJS }}</script>
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL | jsonify | safeJS }}</script>
 {{ end }}
+{{/* Service and industry pages: a breadcrumb trail; service pages also say what the service is, who provides it and where */}}
+{{ if and .IsPage (in (slice "services" "work") .Section) }}
+{{ $section := .CurrentSection }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" (slice
+  (dict "@type" "ListItem" "position" 1 "name" "Home" "item" site.BaseURL)
+  (dict "@type" "ListItem" "position" 2 "name" $section.Title "item" $section.Permalink)
+  (dict "@type" "ListItem" "position" 3 "name" .Title "item" .Permalink)) | jsonify | safeJS }}</script>
+{{ if eq .Section "services" }}
+{{ $c := hugo.Data.contact }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "Service"
+  "name" .Title
+  "serviceType" (.Params.heroHeading | default .Title)
+  "description" (.Description | default .Params.heroSubHeading)
+  "url" .Permalink
+  "provider" (dict "@type" "ProfessionalService" "name" site.Title "url" site.BaseURL)
+  "areaServed" (apply $c.areaServed "printf" (printf "%%s, %s" $c.region) ".") | jsonify | safeJS }}</script>
+{{ end }}
+{{ end }}

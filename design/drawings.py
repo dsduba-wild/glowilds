@@ -4,8 +4,6 @@
 How It Works: each step's drawing lives in a 1000x500 box, written twice:
   static/images/process-N.svg        wide (2000x714): drawing filling the half opposite the text, for desktop
   static/images/process-N-phone.svg  2:1 (1000x500): drawing alone, shown above the text on phones
-Who We Help: one 750x500 card picture per industry, on a dark tile:
-  static/work/<industry>-thumb.svg
 Page banners: 2400x800, art on the right so the heading on the left stays readable:
   static/images/hero-<page>.svg, plus hero-<page>.jpg for link previews (social apps do not show SVG; needs ImageMagick)
 Run from the repo root: python3 design/drawings.py
@@ -171,113 +169,6 @@ def drawing(body):
     return f'<rect width="1000" height="500" fill="url(#dots)" mask="url(#fadeMask)"/><g filter="url(#glow)">{body}</g>'
 
 
-MOON = '<path d="M8-16a18 18 0 1 0 10 28A15 15 0 0 1 8-16z"/>'
-BELL = '<path d="M-13 8V-2a13 13 0 0 1 26 0V8l4 5h-34z"/><path d="M-4 17a4 4 0 0 0 8 0"/>'
-
-
-def calendar(x, y, w, h, color, mark=CHECK):
-    """A calendar page with a grid and a mark on the booked day."""
-    cells = "".join(f'<path d="M{x + 12} {y + 40 + r * (h - 52) / 3:.0f} H{x + w - 12}" stroke="{FAINT}" stroke-width="2"/>' for r in range(1, 3))
-    return (f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="10" fill="#060818" stroke="{color}" stroke-width="3"/>'
-            f'<path d="M{x} {y + 30} H{x + w} M{x + 25} {y - 8} V{y + 12} M{x + w - 25} {y - 8} V{y + 12}" stroke="{color}" stroke-width="3" stroke-linecap="round"/>'
-            + cells +
-            f'<g transform="translate({x + w / 2},{y + 30 + (h - 30) / 2})" stroke="{G}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">{mark}</g>')
-
-
-def contractors():
-    """A missed call on the job becomes a booked job, and the evening stays free."""
-    s = []
-    # house frame going up, with a ladder
-    s.append(f'<path d="M70 250 L215 130 L360 250" fill="none" stroke="{B}" stroke-width="3" stroke-linejoin="round"/>')
-    s.append(f'<rect x="100" y="240" width="230" height="190" fill="none" stroke="{B}" stroke-width="3"/>')
-    s.append("".join(f'<path d="M{x} 245 V425" stroke="{FAINT}" stroke-width="4"/>' for x in (145, 190, 240, 285)))
-    s.append(f'<rect x="135" y="290" width="60" height="50" fill="none" stroke="{U}" stroke-width="2.5"/><rect x="250" y="330" width="50" height="100" fill="none" stroke="{U}" stroke-width="2.5"/>')
-    s.append(f'<path d="M350 440 L392 215 M388 440 L428 215" stroke="{P}" stroke-width="3" stroke-linecap="round"/>'
-             + "".join(f'<path d="M{354 + i * 7.5} {418 - i * 40} H{392 + i * 7.5}" stroke="{P}" stroke-width="3" stroke-linecap="round"/>' for i in range(5)))
-    # ringing phone -> booked calendar
-    s.append(f'<rect x="455" y="200" width="80" height="140" rx="14" fill="#060818" stroke="{P}" stroke-width="3"/><path d="M482 216 H508" stroke="{P}" stroke-width="3" stroke-linecap="round"/>')
-    s.append(f'<path d="M470 190 a40 40 0 0 1 50 0 M460 176 a55 55 0 0 1 70 0" fill="none" stroke="{P}" stroke-width="2.5" stroke-linecap="round"/>')
-    s.append(f'<path d="M548 270 H585" stroke="{G}" stroke-width="3" stroke-dasharray="4 5"/><path d="M578 262 L588 270 L578 278" fill="none" stroke="{G}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>')
-    s.append(calendar(612, 215, 110, 120, G))
-    s.append(label(495, 370, "CALL CAUGHT", P) + label(667, 405, "JOB BOOKED", G))
-    # evening back
-    s.append(f'<g transform="translate(640,95)" stroke="{U}" stroke-width="3" fill="none" stroke-linejoin="round">{MOON}</g>')
-    s.append(f'<g transform="translate(590,70) scale(.45)" stroke="{U}" stroke-width="4" fill="none" stroke-linejoin="round">{STAR}</g>')
-    s.append(label(640, 150, "EVENINGS BACK", U))
-    return "".join(s)
-
-
-def local_shops():
-    """A storefront found on the map, questions answered, sales logged."""
-    s = []
-    s.append(f'<rect x="80" y="210" width="290" height="220" fill="none" stroke="{B}" stroke-width="3"/>')
-    for i, c in enumerate((G, P, B, U, G, P, B)):
-        x = 80 + i * 41.4
-        s.append(f'<path d="M{x:.0f} 175 H{x + 41.4:.0f} V210 a20.7 20.7 0 0 1 -41.4 0 Z" fill="none" stroke="{c}" stroke-width="2.5" stroke-linejoin="round"/>')
-    s.append(f'<path d="M70 175 H380" stroke="{B}" stroke-width="3"/>')
-    s.append(f'<rect x="110" y="270" width="120" height="90" fill="none" stroke="{U}" stroke-width="2.5"/><rect x="265" y="270" width="75" height="160" fill="none" stroke="{U}" stroke-width="2.5"/>')
-    s.append(f'<rect x="125" y="300" width="40" height="22" rx="4" fill="none" stroke="{G}" stroke-width="2"/>' + label(145, 316, "OPEN", G).replace('font-size="21"', 'font-size="12"'))
-    # map pin above with pulse rings
-    s.append(f'<path d="M225 128 c-24-30-24-58 0-58 s24 28 0 58z" fill="#060818" stroke="{P}" stroke-width="3"/><circle cx="225" cy="90" r="8" fill="none" stroke="{P}" stroke-width="3"/>')
-    s.append(f'<ellipse cx="225" cy="135" rx="40" ry="9" fill="none" stroke="{P}" stroke-width="2" opacity=".6"/>')
-    # question and answer bubbles
-    s.append(f'<path d="M430 120 h220 v70 h-170 l-25 22 v-22 h-25 z" fill="none" stroke="{B}" stroke-width="3" stroke-linejoin="round"/>' + label(540, 163, "OPEN SUNDAY?", B))
-    s.append(f'<path d="M470 225 h230 v70 h-25 v22 l-25 -22 h-180 z" fill="none" stroke="{G}" stroke-width="3" stroke-linejoin="round"/>' + label(585, 268, "YES, 10 TO 4", G))
-    # receipt
-    s.append(f'<path d="M520 340 h120 v100 l-15 -10 -15 10 -15 -10 -15 10 -15 -10 -15 10 -15 -10 -15 10 z" fill="none" stroke="{U}" stroke-width="3" stroke-linejoin="round"/>'
-             + "".join(f'<path d="M538 {365 + i * 20} H{620 - i * 15}" stroke="{U}" stroke-width="3" stroke-linecap="round"/>' for i in range(3)))
-    s.append(label(670, 470, "SALES LOGGED", U, "end"))
-    return "".join(s)
-
-
-def professional_care():
-    """Trusted online, consultations booked, reminders sent, intake ready."""
-    s = []
-    s.append(f'<path d="M180 90 L280 125 V230 C280 300 230 345 180 370 C130 345 80 300 80 230 V125 Z" fill="none" stroke="{B}" stroke-width="3" stroke-linejoin="round"/>')
-    s.append(f'<g transform="translate(180,230) scale(1.8)" stroke="{G}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">{CHECK}</g>')
-    s.append(label(180, 420, "TRUSTED", B))
-    s.append(calendar(340, 150, 150, 150, G))
-    s.append(label(415, 345, "BOOKED", G))
-    s.append(f'<g transform="translate(415,75)" stroke="{P}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round">{BELL}</g>')
-    s.append(f'<path d="M446 52 a30 30 0 0 1 10 22 M384 52 a30 30 0 0 0 -10 22" fill="none" stroke="{P}" stroke-width="2.5" stroke-linecap="round"/>')
-    s.append(label(505, 82, "REMINDER SENT", P, "start"))
-    # intake clipboard
-    s.append(f'<rect x="545" y="170" width="140" height="190" rx="10" fill="none" stroke="{U}" stroke-width="3"/><rect x="585" y="158" width="60" height="24" rx="6" fill="#060818" stroke="{U}" stroke-width="3"/>')
-    for i in range(4):
-        y = 215 + i * 35
-        s.append(f'<rect x="562" y="{y - 10}" width="18" height="18" rx="3" fill="none" stroke="{U}" stroke-width="2"/><path d="M592 {y} H{668 - (i % 2) * 20}" stroke="{FAINT}" stroke-width="5" stroke-linecap="round"/>')
-        if i < 3:
-            s.append(f'<path d="M565 {y} l5 5 9 -11" fill="none" stroke="{G}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>')
-    s.append(label(615, 400, "INTAKE READY", U))
-    return "".join(s)
-
-
-def nonprofits():
-    """Volunteers, events and donations coming together around the mission."""
-    s = []
-    for cx, c, sc in ((235, G, 1), (375, P, 1.2), (515, B, 1)):
-        s.append(f'<g transform="translate({cx},300) scale({sc})" fill="none" stroke="{c}" stroke-width="3" stroke-linecap="round">'
-                 f'<circle cy="-42" r="26"/><path d="M-50 55 C-50 -10 50 -10 50 55"/></g>')
-    s.append(f'<path d="M375 150 C375 135 395 120 410 135 C425 150 400 170 375 188 C350 170 325 150 340 135 C355 120 375 135 375 150Z" fill="none" stroke="{P}" stroke-width="3" stroke-linejoin="round"/>')
-    s.append(f'<path d="M150 390 H600" stroke="{FAINT}" stroke-width="3"/>')
-    s.append(label(375, 435, "VOLUNTEERS", G))
-    s.append(calendar(60, 90, 110, 110, U, STAR))
-    s.append(label(115, 235, "EVENTS", U))
-    # donation box with a coin
-    s.append(f'<rect x="590" y="140" width="110" height="80" rx="8" fill="none" stroke="{B}" stroke-width="3"/><path d="M625 155 H665" stroke="{B}" stroke-width="4" stroke-linecap="round"/>')
-    s.append(f'<circle cx="645" cy="105" r="16" fill="none" stroke="{G}" stroke-width="3"/><path d="M645 98 V112" stroke="{G}" stroke-width="3" stroke-linecap="round"/>')
-    s.append(label(645, 255, "DONATIONS", B))
-    return "".join(s)
-
-
-def tile(body):
-    """A 750x500 card picture: dark tile, faded dot grid, neon line art."""
-    return (f'<rect width="750" height="500" fill="#060818"/>'
-            f'<rect width="750" height="500" fill="url(#dots)" mask="url(#fadeMask)"/><g filter="url(#glow)">{body}</g>')
-
-
-WORK = {"contractors": contractors, "local-shops": local_shops, "professional-care": professional_care, "nonprofits": nonprofits}
-
 # ---- Page banners: 2400x800, dark with soft color glows, line art in an 850x800 box on the right ----
 # Text sits on the left of the banner, so the art stays in x 1500-2350; it is nudged down 25 to clear the white menu bar over the top.
 
@@ -380,9 +271,6 @@ if __name__ == "__main__":
         x = 0 if side == "left" else 1000
         (out / f"process-{n}.svg").write_text(svg(2000, 714, f'<g transform="translate({x},107)">{d}</g>'))
         print(f"process-{n}.svg, process-{n}-phone.svg (drawing on the {side})")
-    for slug, draw in WORK.items():
-        (Path("static/work") / f"{slug}-thumb.svg").write_text(svg(750, 500, tile(draw()), fade=(750, 500)))
-        print(f"{slug}-thumb.svg")
     for name, draw in HEROES.items():
         out_svg = Path("static/images") / f"hero-{name}.svg"
         out_svg.write_text(svg(2400, 800, draw(), fade=(850, 800)))

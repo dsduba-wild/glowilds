@@ -7,7 +7,6 @@ weight: 4
 heroHeading: 'Nonprofits & Community Organizations'
 heroSubHeading: 'Chambers of commerce, food banks, charities, community centers, faith groups and associations.'
 heroBackground: 'work/nonprofits.webp'
-thumbnail: 'work/nonprofits-thumb.svg'
 ---
 
 Nonprofits run on small teams and volunteers who already give more than they have. We make it easy for people to find your hours, events and how to help, and we take the phone calls and spreadsheets off your plate, so your people spend their time on the mission instead of burning out.

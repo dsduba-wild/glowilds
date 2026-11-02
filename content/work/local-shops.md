@@ -7,7 +7,6 @@ weight: 2
 heroHeading: 'Local Shops & Studios'
 heroSubHeading: 'Retail shops, salons, hobby stores, studios and neighborhood favorites.'
 heroBackground: 'work/local-shops.webp'
-thumbnail: 'work/local-shops-thumb.svg'
 ---
 
 Your shop wins on community and personality, but the work doesn't stop at closing: answering questions, posting online, sorting sales. We take that load off, so more neighbors walk through your door and you get your weekends back.

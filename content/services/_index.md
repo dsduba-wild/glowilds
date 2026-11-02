@@ -18,7 +18,7 @@ Most work starts with a **one-time setup**: we build it, connect it, show you ho
 
 **Ongoing management** is for what needs attention every month: asking for and replying to reviews, posting on social media, monthly reports, and fixes and improvements as things change.
 
-| | One-time setup | Ongoing management |
+| Compare | One-time setup | Ongoing management |
 |---|---|---|
 | What it is | We build it and hand it over | We keep it working and growing |
 | Examples | Website, Google profile, AI receptionist, booking and reminder texts | Reviews, social posts, monthly reports, new tools |

@@ -16,7 +16,7 @@
     <div class="row">
       {{ if .Params.photo }}
       <div class="col-12 col-md-6 strip-photo">
-        <img src="{{ .Params.photo | relURL }}" alt="{{ .Params.photoAlt }}" width="840" height="840" loading="lazy" decoding="async">
+        <img src="{{ .Params.photo | relURL }}" alt="{{ .Params.photoAlt }}" width="680" height="680" decoding="async">
       </div>
       {{ end }}
       <div class="col-12 col-md-6 {{ if and (eq .Params.align "right") (not .Params.photo) }}offset-md-6{{ end }}">

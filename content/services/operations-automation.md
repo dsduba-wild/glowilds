@@ -2,7 +2,6 @@
 title: 'Operations Automation'
 seoTitle: 'Booking, Reminder & Receipt Automation, Parker, CO'
 date: 2026-10-26
-icon: 'services/icon-receipt.svg'
 featured: true
 pillar: 'Automation' # its step in the homepage's "One Connected System"
 draft: false
@@ -10,7 +9,7 @@ weight: 3
 description: 'Booking, reminder, quote and receipt automation for Parker, CO businesses: the everyday admin runs itself, and you approve what matters.'
 heroHeading: 'Booking, Reminder & Receipt Automation'
 heroSubHeading: 'Less paperwork: the everyday admin runs itself.'
-heroBackground: 'images/hero-services.svg'
+heroBackground: 'services/operations-automation.webp'
 aliases: ['/services/ai-bookkeeping/']
 ---
 

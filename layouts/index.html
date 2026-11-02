@@ -7,52 +7,43 @@
 
 {{ partial "hero-image-fullscreen.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .)}}
 
-{{ $services := where (where .Site.RegularPages "Type" "services") ".Params.featured" true }}
-{{if gt (len $services) 0}}
-<div class="container pt-8 pb-8 pb-md-14 pt-md-14">
-  <div class="row justify-content-start">
-    <div class="col-12 text-center mb-3">
-      <h2>One Connected System</h2>
-      {{/* The four services as steps of one system: each card's `pillar` from its front matter */}}
-      <p class="system-flow">{{ range $i, $s := sort $services ".Params.weight" }}{{ if $i }}<span aria-hidden="true"> → </span>{{ end }}<span class="wild-{{ mod (sub $s.Weight 1) 4 }}">{{ $s.Params.pillar }}</span>{{ end }}</p>
-      <p>Customers find you, smart tools answer them, the admin runs itself, and we keep improving what works. Each service feeds the next.</p>
-    </div>
-    {{ range first 4 (sort $services ".Params.weight") }}
-    <div class="col-12 col-md-6 mb-1">
-      {{ .Render "summary" }}
-    </div>
-    {{ end }}
-  </div>
-</div>
-{{end}}
-
-{{/* Price ranges per service: data/pricing.yaml */}}
-{{ with hugo.Data.pricing }}
-<div id="pricing" class="container pb-8 pb-md-14">
+{{ $services := sort (where (where .Site.RegularPages "Type" "services") ".Params.featured" true) ".Params.weight" }}
+{{ with $services }}
+{{/* The services as one system, each with its price from data/pricing.yaml. /#pricing links land here */}}
+<div id="pricing" class="container pt-8 pb-8 pb-md-14 pt-md-14">
   <div class="row">
     <div class="col-12 text-center mb-3">
-      <h2>Pricing</h2>
-      <p>Your exact price depends on what your free check-up finds on your website and listings, and on how many competitors you face around Denver. Ranges as of {{ .asOf }}.</p>
+      <h2>One Connected System</h2>
+      <p class="system-flow">{{ range $i, $s := . }}{{ if $i }}<span aria-hidden="true"> → </span>{{ end }}<span class="wild-{{ mod (sub $s.Weight 1) 4 }}">{{ $s.Params.pillar }}</span>{{ end }}</p>
+      <p>Customers find you, smart tools answer them, the admin runs itself, and we keep improving what works.</p>
     </div>
     <div class="col-12 mb-3">
       <div class="price-card">
+        <p class="service-pillar">Start here</p>
         <h3 class="h4">Business Check-Up</h3>
         <p class="price">Free</p>
-        <p>Your website, Google listing, reviews and daily work, checked. You get a plain-English list of what to fix, in order. No obligation.</p>
+        <p>Your website, Google listing, reviews and daily work, checked, with a plain-English list of what to fix, in order. No obligation.</p>
         <a href="{{ "sample-check-up/" | relURL }}">See a sample report</a>
       </div>
     </div>
-    {{ range .services }}{{ $s := . }}{{ with site.GetPage $s.page }}
+    {{ range . }}
     <div class="col-12 col-md-6 mb-3">
       <div class="price-card wild-{{ mod (sub .Weight 1) 4 }}">
+        {{ with .Params.pillar }}<p class="service-pillar">{{ . }}</p>{{ end }}
         <h3 class="h4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        {{ with $s.setup }}<p class="price">{{ partial "price.html" . }} <span>setup</span></p>{{ end }}
-        {{ with $s.monthly }}<p class="price">{{ partial "price.html" . }} <span>per month</span></p>{{ end }}
-        <p>Depends on {{ $s.depends }}.</p>
+        <p>{{ .Params.heroSubHeading }}</p>
+        {{ range where hugo.Data.pricing.services "page" .Path }}
+        {{ with .setup }}<p class="price">{{ partial "price.html" . }} <span>setup</span></p>{{ end }}
+        {{ with .monthly }}<p class="price">{{ partial "price.html" . }} <span>per month</span></p>{{ end }}
+        <p>Depends on {{ .depends }}.</p>
+        {{ end }}
       </div>
     </div>
-    {{ else }}{{ errorf "data/pricing.yaml: no page %s" $s.page }}
-    {{ end }}{{ end }}
+    {{ end }}
+    <div class="col-12 text-center">
+      <p>Your exact price comes from your free check-up: what it finds on your website and listings, and how many competitors you face around Denver. Ranges as of {{ hugo.Data.pricing.asOf }}.</p>
+      {{ partial "cta.html" "mt-2" }}
+    </div>
   </div>
 </div>
 {{ end }}

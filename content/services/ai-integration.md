@@ -2,7 +2,6 @@
 title: 'AI Integration'
 seoTitle: 'AI Receptionist & AI Integration, Parker, CO'
 date: 2026-10-26
-icon: 'services/icon-chat.svg'
 featured: true
 pillar: 'Intelligence' # its step in the homepage's "One Connected System"
 draft: false
@@ -10,7 +9,7 @@ weight: 2
 description: 'AI for Parker, CO businesses: assistants that answer calls and texts, book appointments, draft replies and know your prices. You set the rules.'
 heroHeading: 'AI Receptionist & AI Integration'
 heroSubHeading: 'AI built around your business: for your customers, your team and the work in between.'
-heroBackground: 'images/hero-services.svg'
+heroBackground: 'services/ai-integration.webp'
 aliases: ['/services/ai-front-desk/', '/services/ai-tools/']
 ---
 

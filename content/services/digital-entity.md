@@ -2,7 +2,6 @@
 title: 'Digital Entity'
 seoTitle: 'Websites & Google Business Profiles, Parker, CO'
 date: 2026-10-26
-icon: 'services/icon-website.svg'
 featured: true
 pillar: 'Visibility' # its step in the homepage's "One Connected System"
 draft: false
@@ -10,7 +9,7 @@ weight: 1
 description: 'Custom websites, Google Business Profiles, directory listings and social accounts for Parker, CO businesses, built as one clear presence that you own.'
 heroHeading: 'Websites & Google Business Profiles'
 heroSubHeading: 'One clear, well-structured online presence that Google, maps and AI assistants all understand.'
-heroBackground: 'images/hero-services.svg'
+heroBackground: 'services/digital-entity.webp'
 aliases: ['/services/websites/', '/services/local-search/', '/services/ai-visibility/']
 ---
 

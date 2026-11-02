@@ -32,7 +32,6 @@
 // Pages
 @import 'pages/services/page-services-list';
 @import 'pages/services/page-services-single';
-@import 'pages/services/service-summary';
 @import 'pages/work/page-work-single';
 
 // Display breakpoints for DEV
@@ -136,7 +135,7 @@
 .opening-hours-table th { text-align: left; }
 // Service cards and links to a service take a WILD letter color by weight: 1 green, 2 pink, 3 blue, 4 purple
 @each $i, $c in (0: $wild-green-deep, 1: $wild-pink-deep, 2: $wild-blue-deep, 3: $wild-purple-deep) {
-  .service-summary.wild-#{$i} .service-title a, .content a.wild-#{$i} { color: $c; }
+  .content a.wild-#{$i} { color: $c; }
 }
 // Keyboard users: hidden until focused with Tab, then shown at the top left
 .skip-link {
@@ -149,11 +148,14 @@
 .faq h2 { font-size: 1.5rem; margin-top: 36px; margin-bottom: 10px; }
 .faq h2:first-child { margin-top: 0; }
 // Drawn banners: always full height and pinned right so the art is never cropped; the left fills with the banner's own dark color.
-// Phones show the calm left part behind the heading instead.
+// Phones and tablets (too narrow for text beside the art) show the calm left part behind the heading instead.
 .hero-image[style*=".svg"] { background-size: auto 100%; background-position: right center; background-color: #05061a; }
-@media (max-width: 767.98px) { .hero-image[style*=".svg"] { background-position: 15% center; } }
-// Service icons are CSS backgrounds (decorative); same 40px square the theme gave the img
-.service-summary .service-image { height: 40px; background: center / contain no-repeat; }
+@media (max-width: 991.98px) { .hero-image[style*=".svg"] { background-position: 15% center; } }
+// Desktop: the art fills the right side, so the heading and subline wrap before they reach it
+@media (min-width: 992px) { .hero-image[style*=".svg"] .hero-text { h1, p { width: 55%; } } }
+// Tablets and small desktops: a smaller heading, so long service names fit the banner height
+@media (min-width: 768px) and (max-width: 1199.98px) { .hero-image[style*=".svg"] .hero-text h1 { font-size: 3.25rem; } }
+@media (min-width: 992px) and (max-width: 1199.98px) { .hero-image[style*=".svg"] .hero-text { h1, p { width: 46%; } } }
 // Homepage: the subline right under the headline, set apart from the intro below it
 // Logo: the "Glow Wild" sign at its full drawn size (theme had 120px); phones show the whole sign too, not just the mark
 .logo { display: block; width: 170px; @include media-breakpoint-up(sm) { width: 210px; } }
@@ -161,7 +163,7 @@
 // Phones: larger body and card text (theme set much of it at 14-15px)
 @media (max-width: 767.98px) {
   body { font-size: 1.0625rem; }
-  .service-summary .service-content p, .footer ul li, .sub-footer .sub-footer-inner ul li { font-size: 1rem; }
+  .footer ul li, .sub-footer .sub-footer-inner ul li { font-size: 1rem; }
   .button { font-size: 16px; }
 }
 .visually-hidden { @include visually-hidden(); }
@@ -169,7 +171,7 @@
 .service-pillar { text-transform: uppercase; letter-spacing: .1em; font-size: .8rem !important; font-weight: 700; margin-bottom: 0; }
 .system-flow { font-size: 1.25rem; font-weight: 700; }
 @each $i, $c in (0: $wild-green-deep, 1: $wild-pink-deep, 2: $wild-blue-deep, 3: $wild-purple-deep) {
-  .service-summary.wild-#{$i} .service-pillar, .service-detail.wild-#{$i} .service-pillar, .system-flow .wild-#{$i} { color: $c !important; }
+  .price-card.wild-#{$i} .service-pillar, .service-detail.wild-#{$i} .service-pillar, .system-flow .wild-#{$i} { color: $c !important; }
   .service-detail.wild-#{$i} { border-left: 4px solid $c; h2 a { color: $c; } }
   .price-card.wild-#{$i} { border-top-color: $c; h3 a { color: $c; } }
 }
@@ -180,9 +182,10 @@
   .service-detail-sub { display: block; font-size: 1rem; font-weight: 400; color: #555; margin-top: 4px; }
   .service-detail-lead { font-weight: 600; }
 }
-// Homepage pricing: one card per service, its top border in the service's WILD color (the free check-up card in the brand blue)
+// Homepage system and pricing cards: each service's top border and labels in its WILD color (the free check-up card in the brand blue)
 .price-card {
   height: 100%; padding: 24px; background: #f5f6fb; border-radius: 0 0 12px 12px; border-top: 4px solid $primary;
+  .service-pillar { color: $primary; }
   .price { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; span { font-size: .9rem; font-weight: 400; color: #555; white-space: nowrap; } }
   .price + p:not(.price) { margin-top: 12px; }
   a { text-decoration: underline; }

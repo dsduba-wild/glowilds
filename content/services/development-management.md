@@ -2,7 +2,6 @@
 title: 'Development Management'
 seoTitle: 'Google Reviews & Local Growth, Parker, CO'
 date: 2026-10-26
-icon: 'services/icon-star.svg'
 featured: true
 pillar: 'Improvement' # its step in the homepage's "One Connected System"
 draft: false
@@ -10,7 +9,7 @@ weight: 4
 description: 'Monthly growth for Parker, CO businesses: review requests, AI-drafted replies, social posting, simple reports and steady improvements, managed for you.'
 heroHeading: 'Google Reviews & Local Growth'
 heroSubHeading: 'Ongoing growth: more reviews, active social media, better numbers and a plan for what comes next.'
-heroBackground: 'images/hero-services.svg'
+heroBackground: 'services/development-management.webp'
 aliases: ['/services/reviews/']
 ---
 

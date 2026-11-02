@@ -2,7 +2,7 @@
 title: 'Contact'
 seoTitle: 'Contact Us: Free Business Check-Up in Parker, CO'
 date: 2026-10-21
-heroHeading: 'Book a Free Check-Up'
+heroHeading: 'Book a Free Check‑Up' # non-breaking hyphen, so the banner never splits Check-Up across lines
 heroSubHeading: 'Find wasted time, missed opportunities and operational problems in your business. Start with a free check-up; Sergei calls you back personally.'
 heroBackground: 'images/hero-contact.svg'
 ---

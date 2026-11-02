@@ -61,10 +61,12 @@
 {{ end }}
 {{/* About page: the founder as a person working for the business */}}
 {{ if eq .RelPermalink "/about/" }}{{ with $c.owner }}
-<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "AboutPage" "url" $.Permalink
-  "mainEntity" (dict "@type" "Person" "@id" $founderId "name" . "jobTitle" "Founder" "url" $.Permalink
-    "image" ("images/sergei.webp" | absURL) "worksFor" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title)
-    "homeLocation" (dict "@type" "Place" "name" (printf "%s, %s" $c.city $c.region))) | jsonify | safeJS }}</script>
+{{ $person := dict "@type" "Person" "@id" $founderId "name" . "jobTitle" "Founder" "url" $.Permalink
+    "worksFor" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title)
+    "homeLocation" (dict "@type" "Place" "name" (printf "%s, %s" $c.city $c.region)) }}
+{{/* The photo comes from the About section that shows it (its `photo`), so swapping the file updates this too */}}
+{{ range $.Resources.ByType "page" }}{{ with .Params.photo }}{{ $person = merge $person (dict "image" (. | absURL)) }}{{ end }}{{ end }}
+<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "AboutPage" "url" $.Permalink "mainEntity" $person | jsonify | safeJS }}</script>
 {{ end }}{{ end }}
 {{/* Service and industry pages: a breadcrumb trail, then what the service is, who provides it and where (industry pages: for whom) */}}
 {{ if and .IsPage (in (slice "services" "work") .Section) }}

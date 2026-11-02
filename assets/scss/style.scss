@@ -171,7 +171,7 @@
 @each $i, $c in (0: $wild-green-deep, 1: $wild-pink-deep, 2: $wild-blue-deep, 3: $wild-purple-deep) {
   .service-summary.wild-#{$i} .service-pillar, .service-detail.wild-#{$i} .service-pillar, .system-flow .wild-#{$i} { color: $c !important; }
   .service-detail.wild-#{$i} { border-left: 4px solid $c; h2 a { color: $c; } }
-  .example-card.wild-#{$i} { border-top: 4px solid $c; .example-label { color: $c; } }
+  .price-card.wild-#{$i} { border-top-color: $c; h3 a { color: $c; } }
 }
 // Services page: one block per service
 .service-detail {
@@ -180,13 +180,11 @@
   .service-detail-sub { display: block; font-size: 1rem; font-weight: 400; color: #555; margin-top: 4px; }
   .service-detail-lead { font-weight: 600; }
 }
-// Homepage examples
-.example-card {
-  height: 100%; padding: 24px; background: #f5f6fb; border-radius: 0 0 12px 12px;
-  .example-label { text-transform: uppercase; letter-spacing: .1em; font-size: .8rem; font-weight: 700; margin-bottom: 6px; }
-  ol { padding-left: 20px; list-style: decimal; }
-  li { margin-bottom: 6px; }
-  .example-result { font-weight: 600; }
+// Homepage pricing: one card per service, its top border in the service's WILD color (the free check-up card in the brand blue)
+.price-card {
+  height: 100%; padding: 24px; background: #f5f6fb; border-radius: 0 0 12px 12px; border-top: 4px solid $primary;
+  .price { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; span { font-size: .9rem; font-weight: 400; color: #555; white-space: nowrap; } }
+  .price + p:not(.price) { margin-top: 12px; }
   a { text-decoration: underline; }
 }
 // Markdown tables (services explainer, sample check-up)

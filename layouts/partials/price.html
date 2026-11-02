@@ -1,0 +1,2 @@
+{{- /* A [low, high] price pair from data/pricing.yaml as "$1,500–$4,500" */ -}}
+{{- return printf "$%s–$%s" (index . 0 | lang.FormatNumber 0) (index . 1 | lang.FormatNumber 0) -}}

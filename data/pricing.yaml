@@ -1,0 +1,19 @@
+# Homepage "Pricing" and llms.txt: price ranges per service, in US dollars. Edit here and every place updates.
+# Set from Denver-area market rates (Nov 2026). Keep each range's top within about 3x its bottom, and update asOf when prices change.
+# Each service: page (its content path), setup and/or monthly as [low, high], and what moves the price within the range.
+asOf: 'November 2026'
+services:
+  - page: /services/digital-entity
+    setup: [1500, 4500]
+    depends: 'how many pages, locations and listings need building or fixing'
+  - page: /services/ai-integration
+    setup: [500, 1500]
+    monthly: [99, 299]
+    depends: 'how many calls and channels the AI covers, and how much it handles on its own'
+  - page: /services/operations-automation
+    setup: [750, 2250]
+    monthly: [79, 199]
+    depends: 'how many workflows and tools need connecting'
+  - page: /services/development-management
+    monthly: [299, 899]
+    depends: 'how many platforms, how often we post, and how crowded your market is'

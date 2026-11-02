@@ -26,26 +26,33 @@
 </div>
 {{end}}
 
-{{/* Demonstrations, not client results: data/examples.yaml */}}
-{{ with hugo.Data.examples }}
-<div class="container pb-8 pb-md-14">
+{{/* Price ranges per service: data/pricing.yaml */}}
+{{ with hugo.Data.pricing }}
+<div id="pricing" class="container pb-8 pb-md-14">
   <div class="row">
     <div class="col-12 text-center mb-3">
-      <h2>What This Looks Like</h2>
-      <p>Three examples of how it works day to day. These are demonstrations, not client stories.</p>
+      <h2>Pricing</h2>
+      <p>Your exact price depends on what your free check-up finds on your website and listings, and on how many competitors you face around Denver. Ranges as of {{ .asOf }}.</p>
     </div>
-    {{ range $i, $e := . }}
-    <div class="col-12 col-lg-4 mb-3">
-      <div class="example-card wild-{{ mod $i 4 }}">
-        <p class="example-label">Example</p>
-        <h3 class="h4">{{ $e.title }}</h3>
-        <p>{{ $e.problem }}</p>
-        <ol>{{ range $e.steps }}<li>{{ . }}</li>{{ end }}</ol>
-        <p class="example-result">{{ $e.result }}</p>
-        {{ with $e.link }}<a href="{{ .url | relURL }}">{{ .text }}</a>{{ end }}
+    <div class="col-12 mb-3">
+      <div class="price-card">
+        <h3 class="h4">Business Check-Up</h3>
+        <p class="price">Free</p>
+        <p>Your website, Google listing, reviews and daily work, checked. You get a plain-English list of what to fix, in order. No obligation.</p>
+        <a href="{{ "sample-check-up/" | relURL }}">See a sample report</a>
       </div>
     </div>
-    {{ end }}
+    {{ range .services }}{{ $s := . }}{{ with site.GetPage $s.page }}
+    <div class="col-12 col-md-6 mb-3">
+      <div class="price-card wild-{{ mod (sub .Weight 1) 4 }}">
+        <h3 class="h4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        {{ with $s.setup }}<p class="price">{{ partial "price.html" . }} <span>setup</span></p>{{ end }}
+        {{ with $s.monthly }}<p class="price">{{ partial "price.html" . }} <span>per month</span></p>{{ end }}
+        <p>Depends on {{ $s.depends }}.</p>
+      </div>
+    </div>
+    {{ else }}{{ errorf "data/pricing.yaml: no page %s" $s.page }}
+    {{ end }}{{ end }}
   </div>
 </div>
 {{ end }}

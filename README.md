@@ -16,7 +16,7 @@ Push to `main`. GitHub Actions (`.github/workflows/hugo.yml`) builds the site an
 |---|---|
 | Home hero headline and subline | `content/_index.md` |
 | Home "One Connected System" labels | `pillar` in each `content/services/*.md` |
-| Home "What This Looks Like" examples | `data/examples.yaml` (demonstrations, labeled as examples) |
+| Home "Pricing" ranges | `data/pricing.yaml` (also used by llms.txt) |
 | Home closing section | `content/homepage/about.md` |
 | Sample check-up report | `content/sample-check-up.md` |
 | How We Handle Your Data | `content/your-data.md` |

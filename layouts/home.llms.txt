@@ -22,6 +22,16 @@ Every new client starts with a free business check-up{{ with $c.owner }}, and {{
 - [{{ .Title }}]({{ .Permalink }}): {{ .Description | default .Params.heroSubHeading }}
 {{ end -}}
 {{ end }}{{ end }}
+{{ with hugo.Data.pricing -}}
+## Pricing (ranges as of {{ .asOf }})
+
+- Business check-up: free, no obligation
+{{ range .services }}{{ $s := . }}{{ with site.GetPage $s.page -}}
+- {{ .Title }}:{{ with $s.setup }} setup {{ partial "price.html" . }}{{ end }}{{ if and $s.setup $s.monthly }},{{ end }}{{ with $s.monthly }} {{ partial "price.html" . }} per month{{ end }}. Depends on {{ $s.depends }}.
+{{ else }}{{ errorf "data/pricing.yaml: no page %s" $s.page }}{{ end }}{{ end }}
+The exact price follows the free check-up: what it finds, and how many competitors the business faces around Denver.
+
+{{ end -}}
 ## More
 
 {{ range slice "/pages/process" "/pages/about" "/sample-check-up" "/faq" "/contact" "/your-data" "/privacy" "/terms" -}}

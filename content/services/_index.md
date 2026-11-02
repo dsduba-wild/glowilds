@@ -25,4 +25,4 @@ Most work starts with a **one-time setup**: we build it, connect it, show you ho
 | Examples | Website, Google profile, AI receptionist, booking and reminder texts | Reviews, social posts, monthly reports, new tools |
 | Who runs it after | You, with the tools we set up | Us, with you approving the important parts |
 
-You can start with a setup and add ongoing management later, or stop it any time. Sergei goes over the options and pricing after your free check-up.
+You can start with a setup and add ongoing management later, or stop it any time. See the [price ranges](/#pricing); Sergei goes over your exact price after your free check-up.

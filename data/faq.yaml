@@ -1,13 +1,13 @@
 # Questions and answers for /faq/. The page and its FAQPage structured data are both built from this list.
 # Answers are Markdown. {towns} is filled in from data/contact.yaml.
-# Same rules as the phone assistant: no prices, no timelines, no promises about what can or can't be built.
+# No timelines and no promises about what can or can't be built. Prices only as the ranges in data/pricing.yaml (link to /#pricing, don't copy numbers here).
 - q: What does Glow Wild do?
   a: |
     We help local businesses get found, catch every call and spend less time on admin. That means custom websites, AI helpers that answer calls and messages and book appointments, social media setup and posting, automations for everyday tasks like tracking sales and cash flow, and help bringing your own ideas to life.
 
 - q: How much does it cost?
   a: |
-    Every business is different, so there's no one-size price list. Sergei goes over pricing with you personally after the free business check-up, once he knows what you actually need.
+    The check-up is free. Each service has a price range, shown in our [pricing section](/#pricing). Your exact price depends on what the check-up finds and how many competitors you face around Denver, and Sergei goes over it with you personally, with no obligation.
 
 - q: What is the free business check-up?
   a: |

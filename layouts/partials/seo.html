@@ -20,6 +20,7 @@
   "email" $c.email
   "address" (dict "@type" "PostalAddress" "addressLocality" $c.city "addressRegion" $c.region "addressCountry" "US")
   "areaServed" $areas
+  "priceRange" "$$"
 }}
 {{ with $c.phone }}
   {{ $biz = merge $biz (dict "telephone" .) }}
@@ -82,6 +83,13 @@
   "url" .Permalink
   "provider" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title "url" site.BaseURL)
   "areaServed" $areas }}
+{{/* Service pages: their price ranges from data/pricing.yaml, the same numbers as the homepage */}}
+{{ range where hugo.Data.pricing.services "page" .Path }}
+  {{ $offers := slice }}
+  {{ with .setup }}{{ $offers = $offers | append (dict "@type" "Offer" "name" "One-time setup" "priceSpecification" (dict "@type" "PriceSpecification" "minPrice" (index . 0) "maxPrice" (index . 1) "priceCurrency" "USD")) }}{{ end }}
+  {{ with .monthly }}{{ $offers = $offers | append (dict "@type" "Offer" "name" "Ongoing management" "priceSpecification" (dict "@type" "UnitPriceSpecification" "minPrice" (index . 0) "maxPrice" (index . 1) "priceCurrency" "USD" "unitCode" "MON")) }}{{ end }}
+  {{ $svc = merge $svc (dict "offers" $offers) }}
+{{ end }}
 {{ if eq .Section "work" }}
   {{ $svc = merge $svc (dict "name" (printf "Websites, AI and automation for %s" .Title) "serviceType" "Websites, AI integration and business automation" "audience" (dict "@type" "BusinessAudience" "name" .Title)) }}
 {{ end }}

@@ -1,5 +1,6 @@
-# Starting prices in US dollars, for the homepage, Google's data (service pages) and llms.txt. Edit here and every place updates.
+# Price ranges in US dollars, [low, high], for the homepage, the FAQ, service pages, Google's data and llms.txt.
+# Edit here and every place updates; a service can set its own in its front matter (see layouts/partials/service-prices.html).
 # Update asOf when prices change.
 asOf: 'November 2026'
-setupFrom: 899
-monthlyFrom: 99
+setup: [899, 4999]
+monthly: [99, 499]

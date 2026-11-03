@@ -1,2 +1,4 @@
-{{- /* A dollar amount from data/pricing.yaml as "$1,500" */ -}}
-{{- return printf "$%s" (lang.FormatNumber 0 .) -}}
+{{- /* A [low, high] price range from data/pricing.yaml as "$899–$4,999" ("$899" when both are the same) */ -}}
+{{- $low := index . 0 | lang.FormatNumber 0 -}}{{- $high := index . 1 | lang.FormatNumber 0 -}}
+{{- $s := printf "$%s–$%s" $low $high -}}{{- if eq $low $high }}{{ $s = printf "$%s" $low }}{{ end -}}
+{{- return $s -}}

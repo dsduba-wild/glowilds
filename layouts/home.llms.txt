@@ -26,7 +26,7 @@ Every new client starts with a free business check-up{{ with $c.owner }}, and {{
 ## Pricing (as of {{ .asOf }})
 
 - Business check-up: free, no obligation
-- Setup starts at {{ partial "price.html" .setupFrom }}; ongoing service from {{ partial "price.html" .monthlyFrom }} per month
+- Setup: {{ partial "price.html" .setup }}; ongoing service: {{ partial "price.html" .monthly }} per month
 The exact price follows the free check-up: what it finds, and how many competitors the business faces around Denver.
 
 {{ end -}}

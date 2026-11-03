@@ -1,5 +1,5 @@
 # Questions and answers for /faq/. The page and its FAQPage structured data are both built from this list.
-# Answers are Markdown. {towns} is filled in from data/contact.yaml, {setupFrom} and {monthlyFrom} from data/pricing.yaml.
+# Answers are Markdown. {towns} is filled in from data/contact.yaml, {setup} and {monthly} (price ranges) from data/pricing.yaml.
 # No timelines and no promises about what can or can't be built. Prices only through those placeholders, never typed in.
 - q: What does Glow Wild do?
   a: |
@@ -7,7 +7,7 @@
 
 - q: How much does it cost?
   a: |
-    The check-up is free. Setup starts at {setupFrom}, and ongoing service starts at {monthlyFrom} a month (see our [pricing section](/#pricing)). Your exact price depends on what the check-up finds and how many competitors you face around Denver, and Sergei goes over it with you personally, with no obligation.
+    The check-up is free. Setup costs {setup}, and ongoing service {monthly} a month (see our [pricing section](/#pricing)). Your exact price depends on what the check-up finds and how many competitors you face around Denver, and Sergei goes over it with you personally, with no obligation.
 
 - q: What is the free business check-up?
   a: |

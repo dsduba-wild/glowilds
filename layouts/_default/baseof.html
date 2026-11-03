@@ -10,6 +10,7 @@
   {{ block "meta_tags" . }}{{ partial "meta-default.html" . }}{{ end }}
   <link rel="icon" href="{{ "favicon.png" | relURL }}" type="image/png">
   <link rel="apple-touch-icon" href="{{ "favicon.png" | relURL }}">
+  {{ with .Params.heroBackground }}{{ if not (strings.HasSuffix . ".svg") }}<link rel="preload" href="{{ . | relURL }}" as="image" fetchpriority="high">{{ end }}{{ end }}
   <link rel="preload" href="{{ "fonts/lato-400-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="{{ "fonts/open-sans-latin.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 

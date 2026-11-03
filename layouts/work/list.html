@@ -3,7 +3,7 @@
 {{ define "header_classes" }}{{ end }}
 
 {{ define "main" }}
-{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "content" .)}}
+{{ partial "hero-image-setheight.html" (dict "background" .Params.heroBackground "heading" .Params.heroHeading "subheading" .Params.heroSubHeading "cta" true "content" .)}}
 {{/* Each industry as a strip, like How It Works: its first paragraph beside its drawing, then a link to the full page */}}
 {{ range $i, $_ := .Pages.ByWeight }}
 {{ partial "strip.html" (dict "p" . "i" $i "body" .Summary "button" "See How We Help" "link" .RelPermalink) }}

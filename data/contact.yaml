@@ -2,6 +2,7 @@ email: 'hello@glowilds.com'
 phone: '(720) 574-2175'
 formAction: 'https://formspree.io/f/xvkkqwnw' # contact form endpoint, e.g. https://formspree.io/f/xxxxxx; the form shows up once set
 businessName: 'Glow Wild — a WILD LLC company'
+legalName: 'WILD LLC' # the registered company, in Google's business data
 owner: 'Sergei Dubovik' # named as founder in Google's business data and llms.txt
 # Google Business Profile link (from Share on the profile, e.g. https://maps.app.goo.gl/...); added to Google's business data with the social links once set
 googleProfile: ''

@@ -5,6 +5,7 @@
       {{/* Hyphenated words ("Check-Up") stay on one line; the text keeps a normal hyphen for search engines */}}
       <h1>{{ replaceRE `(\S+-\S+)` `<span class="nowrap">$1</span>` (.heading | htmlEscape) | safeHTML }}</h1>
       <p>{{ .subheading }}</p>
+      {{ if .cta }}{{ partial "cta.html" "mt-2" }}{{ end }}
     </div>
   </div>
 </div>

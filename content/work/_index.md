@@ -10,4 +10,5 @@ date: 2026-10-21
 heroHeading: 'Who We Help'
 heroSubHeading: 'Local businesses, practices and nonprofits that are great at the work — and short on time for everything else.'
 heroBackground: 'images/hero-who-we-help.svg'
+description: 'Websites, AI helpers and automation for contractors, local shops and studios, professional and care services, and nonprofits in Parker, CO and nearby towns.'
 ---

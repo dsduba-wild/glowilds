@@ -11,6 +11,17 @@
       {{ $kind := .Section | singularize }}
       <div class="{{ $kind }} {{ $kind }}-single">
         <div class="content">{{.Content}}</div>
+        {{/* Where we work, the starting prices (the same numbers as this page's structured data) and where to go next */}}
+        {{ $c := hugo.Data.contact }}
+        <div class="page-more">
+          <p>Based in {{ $c.address }}, serving {{ delimit $c.areaServed ", " " and " }}.</p>
+          {{ if eq .Section "services" }}
+          {{ with hugo.Data.pricing }}<p>Setup starts at {{ partial "price.html" .setupFrom }}; ongoing service from {{ partial "price.html" .monthlyFrom }} a month. <a href="{{ "#pricing" | relURL }}">See pricing</a> or a <a href="{{ "sample-check-up/" | relURL }}">sample check-up report</a>.</p>{{ end }}
+          <p>Who this helps: {{ range $i, $w := (site.GetPage "/work").Pages.ByWeight }}{{ if $i }}, {{ end }}<a href="{{ $w.RelPermalink }}">{{ $w.Title }}</a>{{ end }}.</p>
+          {{ else }}
+          <p>How we help: {{ range $i, $s := (site.GetPage "/services").Pages.ByWeight }}{{ if $i }}, {{ end }}<a class="wild-{{ mod (sub $s.Weight 1) 4 }}" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>{{ end }}.</p>
+          {{ end }}
+        </div>
         {{ partial "cta.html" "mt-4" }}
       </div>
     </div>

@@ -22,3 +22,22 @@ document.addEventListener('keydown', function(e) {
         menuTrigger.focus()
     }
 })
+
+// Contact form: send to Formspree in the background and say so on this page.
+// If that fails (no connection, spam check, any error), post the form the normal way so the request is never lost.
+var contactForm = document.querySelector('.contact-form')
+if (contactForm && window.fetch) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault()
+        var button = contactForm.querySelector('[type=submit]')
+        button.disabled = true
+        fetch(contactForm.action, { method: 'POST', body: new FormData(contactForm), headers: { Accept: 'application/json' } })
+            .then(function(r) {
+                if (!r.ok) throw r
+                contactForm.reset()
+                button.disabled = false
+                contactForm.querySelector('.contact-status').textContent = 'Thank you! Your request was sent. Sergei will call you back personally.'
+            })
+            .catch(function() { contactForm.submit() })
+    })
+}

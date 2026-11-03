@@ -2,7 +2,7 @@
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:locale" content="en_US">
 {{ $c := hugo.Data.contact }}
-{{ $areas := (apply $c.areaServed "printf" (printf "%%s, %s" $c.region) ".") }}
+{{ $areas := slice }}{{ range $c.areaServed }}{{ $areas = $areas | append (dict "@type" "City" "name" (printf "%s, %s" . $c.region)) }}{{ end }}
 {{/* Shared ids, so the business, its founder, website and services point at each other */}}
 {{ $bizId := printf "%s#business" site.BaseURL }}
 {{ $founderId := printf "%sabout/#founder" site.BaseURL }}
@@ -22,6 +22,9 @@
   "areaServed" $areas
   "priceRange" "$$"
 }}
+{{ with $c.legalName }}
+  {{ $biz = merge $biz (dict "legalName" .) }}
+{{ end }}
 {{ with $c.phone }}
   {{ $biz = merge $biz (dict "telephone" .) }}
 {{ end }}
@@ -65,6 +68,8 @@
 {{ $person := dict "@type" "Person" "@id" $founderId "name" . "jobTitle" "Founder" "url" $.Permalink
     "worksFor" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title)
     "homeLocation" (dict "@type" "Place" "name" (printf "%s, %s" $c.city $c.region)) }}
+{{/* Square face crop made by design/about_banner.py; not shown on the page */}}
+{{ if fileExists "static/images/founder.jpg" }}{{ $person = merge $person (dict "image" ("images/founder.jpg" | absURL)) }}{{ end }}
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "AboutPage" "url" $.Permalink "mainEntity" $person | jsonify | safeJS }}</script>
 {{ end }}{{ end }}
 {{/* Service and industry pages: a breadcrumb trail, then what the service is, who provides it and where (industry pages: for whom) */}}

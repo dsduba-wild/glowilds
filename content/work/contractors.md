@@ -6,7 +6,7 @@ draft: false
 weight: 1
 description: 'Missed-call text-back, photo quotes, Google profiles and online booking for contractors and home services in Parker, CO. Win more jobs, do less paperwork.'
 linkTitle: 'Contractors' # short name for the footer
-heroHeading: 'Contractors & Home Services'
+heroHeading: 'Websites & AI for Contractors in Parker, CO'
 heroSubHeading: 'Construction, remodeling, painting, roofing, landscaping, junk removal, cleaning and more.'
 heroBackground: 'work/contractors.webp'
 background: 'images/work-contractors.svg'

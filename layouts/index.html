@@ -36,7 +36,8 @@
     </div>
     {{ end }}
     <div class="col-12 text-center mt-3">
-      {{ with hugo.Data.pricing }}<p class="price">Setup starts at {{ partial "price.html" .setupFrom }}. Ongoing service from {{ partial "price.html" .monthlyFrom }} a month.</p>{{ end }}
+      {{ with hugo.Data.pricing }}<h3 class="h4">Pricing</h3>
+      <p class="price">Setup starts at {{ partial "price.html" .setupFrom }}. Ongoing service from {{ partial "price.html" .monthlyFrom }} a month.</p>{{ end }}
       <p>Your exact price comes from your free check-up: what it finds on your website and listings, and how many competitors you face around Denver. Prices as of {{ hugo.Data.pricing.asOf }}.</p>
       {{ partial "cta.html" "mt-2" }}
     </div>

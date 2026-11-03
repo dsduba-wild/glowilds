@@ -1,7 +1,8 @@
 """About page banner: the founder photo, widened with its own sky colors so it fills any screen.
 
 Usage: python3 design/about_banner.py [photo]   (default: Photo/iCloud Photos/IMG_5999.JPG; Photo/ is not in git)
-Writes static/images/hero-about-sergei.webp (the page) and .jpg (link previews). Needs Pillow.
+Writes static/images/hero-about-sergei.webp (the page) and .jpg (link previews), plus static/images/founder.jpg
+(a square face crop, only in the About page's structured data for Google). Needs Pillow.
 """
 import sys
 from PIL import Image, ImageEnhance, ImageFilter
@@ -12,6 +13,8 @@ FACE_AT = 0.55   # where the face lands across the banner; the page shows the ba
 H, W = 1000, 6000  # 6:1, so the 460px-tall banner still covers a 2560px screen
 
 src = Image.open(sys.argv[1] if len(sys.argv) > 1 else "Photo/iCloud Photos/IMG_5999.JPG").convert("RGB")
+FACE_BOX = (178, 350, 768, 940)  # square around the head, in the original photo's pixels
+src.crop(FACE_BOX).resize((400, 400), Image.LANCZOS).save("static/images/founder.jpg", quality=85, optimize=True)
 src = ImageEnhance.Brightness(src.crop((0, TOP_CROP, src.width, src.height))).enhance(1.12)
 ph = src.resize((round(src.width * H / src.height), H), Image.LANCZOS)
 pw = ph.width
@@ -29,4 +32,4 @@ canvas.paste(ph, (round(W * FACE_AT - FACE_X * pw), 0), mask.filter(ImageFilter.
 
 canvas.save("static/images/hero-about-sergei.jpg", quality=84, optimize=True, progressive=True)
 canvas.save("static/images/hero-about-sergei.webp", quality=82, method=6)
-print("static/images/hero-about-sergei.webp, .jpg")
+print("static/images/hero-about-sergei.webp, .jpg, static/images/founder.jpg")

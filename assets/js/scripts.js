@@ -25,8 +25,11 @@ document.addEventListener('keydown', function(e) {
 
 // Contact form: send to Formspree in the background and say so on this page.
 // If that fails (no connection, spam check, any error), post the form the normal way so the request is never lost.
+// After changing this, run `python3 design/contact_form_check.py` (needs Playwright) against `hugo server`.
 var contactForm = document.querySelector('.contact-form')
 if (contactForm && window.fetch) {
+    // Back from Formspree's page restores this page as it was: let the visitor send again
+    addEventListener('pageshow', function() { contactForm.querySelector('[type=submit]').disabled = false })
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault()
         var button = contactForm.querySelector('[type=submit]')

@@ -1,7 +1,7 @@
 <div id="hero" class="hero-image hero-image-setheight" style="background-image: url('{{ .background | relURL }}')">
   <div class="container ">
     <div class="hero-text">
-      <span class="hero-section">{{ .section }}</span>
+      {{ with .section }}<span class="hero-section">{{ . }}</span>{{ end }}
       {{/* Hyphenated words ("Check-Up") stay on one line; the text keeps a normal hyphen for search engines */}}
       <h1>{{ replaceRE `(\S+-\S+)` `<span class="nowrap">$1</span>` (.heading | htmlEscape) | safeHTML }}</h1>
       <p>{{ .subheading }}</p>

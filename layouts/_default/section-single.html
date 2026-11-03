@@ -16,7 +16,11 @@
         <div class="page-more">
           <p>Based in {{ $c.address }}, serving {{ delimit $c.areaServed ", " " and " }}.</p>
           {{ if eq .Section "services" }}
-          {{ with hugo.Data.pricing }}<p>Setup starts at {{ partial "price.html" .setupFrom }}; ongoing service from {{ partial "price.html" .monthlyFrom }} a month. <a href="{{ "#pricing" | relURL }}">See pricing</a> or a <a href="{{ "sample-check-up/" | relURL }}">sample check-up report</a>.</p>{{ end }}
+          {{ $pr := partial "service-prices.html" . }}
+          {{ $parts := slice }}
+          {{ with $pr.setup }}{{ $parts = $parts | append (printf "setup starts at %s" (partial "price.html" .)) }}{{ end }}
+          {{ with $pr.monthly }}{{ $parts = $parts | append (printf "ongoing service from %s a month" (partial "price.html" .)) }}{{ end }}
+          {{ with $parts }}<p>{{ delimit . "; " | strings.FirstUpper }}. <a href="{{ "#pricing" | relURL }}">See pricing</a> or a <a href="{{ "sample-check-up/" | relURL }}">sample check-up report</a>.</p>{{ end }}
           <p>Who this helps: {{ range $i, $w := (site.GetPage "/work").Pages.ByWeight }}{{ if $i }}, {{ end }}<a href="{{ $w.RelPermalink }}">{{ $w.Title }}</a>{{ end }}.</p>
           {{ else }}
           <p>How we help: {{ range $i, $s := (site.GetPage "/services").Pages.ByWeight }}{{ if $i }}, {{ end }}<a class="wild-{{ mod (sub $s.Weight 1) 4 }}" href="{{ $s.RelPermalink }}">{{ $s.Title }}</a>{{ end }}.</p>

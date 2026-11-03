@@ -1,0 +1,9 @@
+{{- /* A service's starting prices: the site-wide ones from data/pricing.yaml, unless its front matter sets
+       `pricing: {setup: N, monthly: N}`. 0 means it has no such part (e.g. an ongoing-only service). */ -}}
+{{- $p := hugo.Data.pricing -}}
+{{- $setup := $p.setupFrom -}}{{- $monthly := $p.monthlyFrom -}}
+{{- with .Params.pricing -}}
+  {{- if isset . "setup" }}{{ $setup = .setup }}{{ end -}}
+  {{- if isset . "monthly" }}{{ $monthly = .monthly }}{{ end -}}
+{{- end -}}
+{{- return dict "setup" $setup "monthly" $monthly -}}

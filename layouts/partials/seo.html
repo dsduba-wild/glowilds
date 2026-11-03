@@ -86,13 +86,14 @@
   "url" .Permalink
   "provider" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title "url" site.BaseURL)
   "areaServed" $areas }}
-{{/* Service pages: the starting prices from data/pricing.yaml, the same numbers as the homepage */}}
-{{ if eq .Section "services" }}{{ with hugo.Data.pricing }}
-  {{ $offers := slice
-    (dict "@type" "Offer" "name" "One-time setup" "priceSpecification" (dict "@type" "PriceSpecification" "minPrice" .setupFrom "priceCurrency" "USD"))
-    (dict "@type" "Offer" "name" "Ongoing service" "priceSpecification" (dict "@type" "UnitPriceSpecification" "minPrice" .monthlyFrom "priceCurrency" "USD" "unitCode" "MON")) }}
-  {{ $svc = merge $svc (dict "offers" $offers) }}
-{{ end }}{{ end }}
+{{/* Service pages: their starting prices, the same numbers the page shows (layouts/partials/service-prices.html) */}}
+{{ if eq .Section "services" }}
+  {{ $pr := partial "service-prices.html" . }}
+  {{ $offers := slice }}
+  {{ with $pr.setup }}{{ $offers = $offers | append (dict "@type" "Offer" "name" "One-time setup" "priceSpecification" (dict "@type" "PriceSpecification" "minPrice" . "priceCurrency" "USD")) }}{{ end }}
+  {{ with $pr.monthly }}{{ $offers = $offers | append (dict "@type" "Offer" "name" "Ongoing service" "priceSpecification" (dict "@type" "UnitPriceSpecification" "minPrice" . "priceCurrency" "USD" "unitCode" "MON")) }}{{ end }}
+  {{ with $offers }}{{ $svc = merge $svc (dict "offers" .) }}{{ end }}
+{{ end }}
 {{ if eq .Section "work" }}
   {{ $svc = merge $svc (dict "name" (printf "Websites, AI and automation for %s" .Title) "serviceType" "Websites, AI integration and business automation" "audience" (dict "@type" "BusinessAudience" "name" .Title)) }}
 {{ end }}

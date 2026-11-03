@@ -1,6 +1,7 @@
 """About page banner: the founder photo, widened with its own sky colors so it fills any screen.
 
 Usage: python3 design/about_banner.py [photo]   (default: Photo/iCloud Photos/IMG_5999.JPG; Photo/ is not in git)
+The face position numbers below (TOP_CROP, FACE_X, FACE_BOX) are measured for IMG_5999; re-measure them for a new photo.
 Writes static/images/hero-about-sergei.webp (the page) and .jpg (link previews), plus static/images/founder.jpg
 (a square face crop, only in the About page's structured data for Google). Needs Pillow.
 """

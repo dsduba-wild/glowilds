@@ -11,6 +11,7 @@ heroHeading: 'Google Reviews & Local Growth'
 heroSubHeading: 'Ongoing growth: more reviews, active social media, better numbers and a plan for what comes next.'
 heroBackground: 'services/development-management.webp'
 aliases: ['/services/reviews/']
+pricing: {setup: 0} # ongoing only: no setup price (see layouts/partials/service-prices.html)
 ---
 
 Getting set up is the start. Growth comes from what happens every month after: new reviews coming in, social media that stays active, numbers you can actually read, and steady improvements. We stay on as your growth partner and handle that for you, adjusting as customers and AI keep changing.

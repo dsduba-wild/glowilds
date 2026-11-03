@@ -151,6 +151,12 @@
 // Phones and tablets (too narrow for text beside the art) show the calm left part behind the heading instead.
 .hero-image[style*=".svg"] { background-size: auto 100%; background-position: right center; background-color: #05061a; }
 @media (max-width: 991.98px) { .hero-image[style*=".svg"] { background-position: 15% center; } }
+// About banner: the founder photo, full height and centered on every screen (the face sits just right of center, under the text's edge)
+.hero-image[style*="hero-about-sergei"] { background-size: auto 100%; background-position: center; }
+// Phones: the heading sits over the face, so a light dim (an inset shadow paints over the background, under the text) and a text shadow
+@media (max-width: 767.98px) {
+  .hero-image[style*="hero-about-sergei"] { background-position: calc(50% - 100px) center; box-shadow: inset 0 0 0 100vmax rgba(6, 8, 24, .25); .hero-text { text-shadow: 0 1px 8px rgba(0, 0, 0, .9); } }
+}
 // Desktop: the art fills the right side, so the heading and subline wrap before they reach it
 @media (min-width: 992px) { .hero-image[style*=".svg"] .hero-text { h1, p { width: 55%; } } }
 // Tablets and small desktops: a smaller heading, so long service names fit the banner height
@@ -172,36 +178,45 @@
 .service-pillar { text-transform: uppercase; letter-spacing: .1em; font-size: .8rem !important; font-weight: 700; margin-bottom: 0; }
 .system-flow { font-size: 1.25rem; font-weight: 700; }
 @each $i, $c in (0: $wild-green-deep, 1: $wild-pink-deep, 2: $wild-blue-deep, 3: $wild-purple-deep) {
-  .price-card.wild-#{$i} .service-pillar, .service-detail.wild-#{$i} .service-pillar, .system-flow .wild-#{$i} { color: $c !important; }
-  .service-detail.wild-#{$i} { border-left: 4px solid $c; h2 a { color: $c; } }
-  .price-card.wild-#{$i} { border-top-color: $c; h3 a { color: $c; } }
+  .system-flow .wild-#{$i} { color: $c !important; }
+}
+// Homepage service cards: filled with the service's WILD color and glowing in its bright twin
+@each $i, $deep, $bright in (0 $wild-green-deep $wild-green, 1 $wild-pink-deep $wild-pink, 2 $wild-blue-deep $wild-blue, 3 $wild-purple-deep $wild-purple) {
+  .price-card.wild-#{$i} {
+    background: $deep; border-top-color: $bright; color: #fff;
+    box-shadow: 0 0 24px rgba($bright, .55), 0 0 4px rgba($bright, .9);
+    h3 a, .service-pillar, p, a { color: #fff !important; }
+  }
+}
+// Services page: dark like Who We Help, each service's name and border in its bright WILD color
+.page-services-list .wrapper { background: #060818; }
+.page-services-list :is(.service-detail, .content) {
+  color: #e8e9f5;
+  h2, h3, h4 { color: #fff; }
+  a:not(.button) { color: #fff; }
+  p, li, td, th { color: #e8e9f5; }
+  th, td { border-bottom-color: #2a2e4a; }
+}
+@each $i, $c in (0: $wild-green, 1: $wild-pink, 2: $wild-blue, 3: $wild-purple) {
+  .service-detail.wild-#{$i} { border-left: 4px solid $c; .service-pillar, h2 a { color: $c !important; } }
 }
 // Services page: one block per service
 .service-detail {
   padding: 4px 0 4px 20px; margin-bottom: 40px;
   h2 { font-size: 1.75rem; margin-bottom: 4px; }
-  .service-detail-sub { display: block; font-size: 1rem; font-weight: 400; color: #555; margin-top: 4px; }
+  .service-detail-sub { display: block; font-size: 1rem; font-weight: 400; color: #b9bcd6; margin-top: 4px; }
   .service-detail-lead { font-weight: 600; }
 }
 // Homepage system and pricing cards: each service's top border and labels in its WILD color (the free check-up card in the brand blue)
 .price-card {
   height: 100%; padding: 24px; background: #f5f6fb; border-radius: 0 0 12px 12px; border-top: 4px solid $primary;
   .service-pillar { color: $primary; }
-  .price { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; span { font-size: .9rem; font-weight: 400; color: #555; white-space: nowrap; } }
-  .price + p:not(.price) { margin-top: 12px; }
   a { text-decoration: underline; }
 }
+#pricing .price { font-size: 1.25rem; font-weight: 700; }
 // Markdown tables (services explainer, sample check-up)
 .content table { width: 100%; margin: 16px 0 24px; border-collapse: collapse; font-size: .95rem; }
 .content th, .content td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid #d5d8ea; }
 .content thead th { border-bottom: 2px solid $primary; }
 // Who We Help list: the whole page dark, like its banner and drawings
 .page-work-list .wrapper { background: #060818; }
-// About strips with a `photo`: above the text on phones, beside it on desktop (a reversed row puts it on the right).
-// Its background is painted the strip's navy, so it blends in without a frame; on desktop it may run under the text's edge
-.strip-photo { margin-bottom: 24px; img { display: block; width: 100%; max-width: 340px; height: auto; } }
-@media (min-width: 768px) {
-  .row:has(> .strip-photo) { flex-direction: row-reverse; align-items: center; }
-  .strip-photo { margin-bottom: 0; img { max-width: none; width: 120%; margin-left: -20%; } }
-  .strip-photo + div { position: relative; z-index: 1; }
-}

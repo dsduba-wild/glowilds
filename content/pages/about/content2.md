@@ -3,9 +3,6 @@ title: 'Meet the Founder'
 date: 2026-11-02
 weight: 2
 background: ''
-# A photo beside the text (above it on phones); photoAlt describes it for screen readers
-photo: 'images/sergei.webp'
-photoAlt: 'Sergei Dubovik, founder of Glow Wild'
 align: left
 ---
 

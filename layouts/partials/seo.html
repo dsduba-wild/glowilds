@@ -65,8 +65,6 @@
 {{ $person := dict "@type" "Person" "@id" $founderId "name" . "jobTitle" "Founder" "url" $.Permalink
     "worksFor" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title)
     "homeLocation" (dict "@type" "Place" "name" (printf "%s, %s" $c.city $c.region)) }}
-{{/* The photo comes from the About section that shows it (its `photo`), so swapping the file updates this too */}}
-{{ range $.Resources.ByType "page" }}{{ with .Params.photo }}{{ $person = merge $person (dict "image" (. | absURL)) }}{{ end }}{{ end }}
 <script type="application/ld+json">{{ dict "@context" "https://schema.org" "@type" "AboutPage" "url" $.Permalink "mainEntity" $person | jsonify | safeJS }}</script>
 {{ end }}{{ end }}
 {{/* Service and industry pages: a breadcrumb trail, then what the service is, who provides it and where (industry pages: for whom) */}}
@@ -83,13 +81,13 @@
   "url" .Permalink
   "provider" (dict "@id" $bizId "@type" "ProfessionalService" "name" site.Title "url" site.BaseURL)
   "areaServed" $areas }}
-{{/* Service pages: their price ranges from data/pricing.yaml, the same numbers as the homepage */}}
-{{ range where hugo.Data.pricing.services "page" .Path }}
-  {{ $offers := slice }}
-  {{ with .setup }}{{ $offers = $offers | append (dict "@type" "Offer" "name" "One-time setup" "priceSpecification" (dict "@type" "PriceSpecification" "minPrice" (index . 0) "maxPrice" (index . 1) "priceCurrency" "USD")) }}{{ end }}
-  {{ with .monthly }}{{ $offers = $offers | append (dict "@type" "Offer" "name" "Ongoing management" "priceSpecification" (dict "@type" "UnitPriceSpecification" "minPrice" (index . 0) "maxPrice" (index . 1) "priceCurrency" "USD" "unitCode" "MON")) }}{{ end }}
+{{/* Service pages: the starting prices from data/pricing.yaml, the same numbers as the homepage */}}
+{{ if eq .Section "services" }}{{ with hugo.Data.pricing }}
+  {{ $offers := slice
+    (dict "@type" "Offer" "name" "One-time setup" "priceSpecification" (dict "@type" "PriceSpecification" "minPrice" .setupFrom "priceCurrency" "USD"))
+    (dict "@type" "Offer" "name" "Ongoing service" "priceSpecification" (dict "@type" "UnitPriceSpecification" "minPrice" .monthlyFrom "priceCurrency" "USD" "unitCode" "MON")) }}
   {{ $svc = merge $svc (dict "offers" $offers) }}
-{{ end }}
+{{ end }}{{ end }}
 {{ if eq .Section "work" }}
   {{ $svc = merge $svc (dict "name" (printf "Websites, AI and automation for %s" .Title) "serviceType" "Websites, AI integration and business automation" "audience" (dict "@type" "BusinessAudience" "name" .Title)) }}
 {{ end }}

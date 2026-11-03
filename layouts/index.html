@@ -32,16 +32,12 @@
         {{ with .Params.pillar }}<p class="service-pillar">{{ . }}</p>{{ end }}
         <h3 class="h4"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
         <p>{{ .Params.heroSubHeading }}</p>
-        {{ range where hugo.Data.pricing.services "page" .Path }}
-        {{ with .setup }}<p class="price">{{ partial "price.html" . }} <span>setup</span></p>{{ end }}
-        {{ with .monthly }}<p class="price">{{ partial "price.html" . }} <span>per month</span></p>{{ end }}
-        <p>Depends on {{ .depends }}.</p>
-        {{ end }}
       </div>
     </div>
     {{ end }}
-    <div class="col-12 text-center">
-      <p>Your exact price comes from your free check-up: what it finds on your website and listings, and how many competitors you face around Denver. Ranges as of {{ hugo.Data.pricing.asOf }}.</p>
+    <div class="col-12 text-center mt-3">
+      {{ with hugo.Data.pricing }}<p class="price">Setup starts at {{ partial "price.html" .setupFrom }}. Ongoing service from {{ partial "price.html" .monthlyFrom }} a month.</p>{{ end }}
+      <p>Your exact price comes from your free check-up: what it finds on your website and listings, and how many competitors you face around Denver. Prices as of {{ hugo.Data.pricing.asOf }}.</p>
       {{ partial "cta.html" "mt-2" }}
     </div>
   </div>
